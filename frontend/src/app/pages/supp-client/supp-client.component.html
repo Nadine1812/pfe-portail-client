@@ -1,0 +1,42 @@
+<input type="text" [(ngModel)]="code" (input)="search()"
+ placeholder="Cherchez votre client " > 
+
+<div class="row mb-4">
+
+  <div class="col-md-12">
+    <div class="card border-0 rounded-0">
+      <div class="card-body">
+        <div class="table-responsive-md">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Code</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Raison social</th>
+                <th scope="col">Adress</th>
+                <th scope="col">Téléphone/Fax</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let c of utilisateurs; index as i">
+              <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{c.code}}</td>
+                <td>{{c.nom}}</td>
+                <td>{{c.raisonSocial}}</td>
+                <td>{{c.adress}}</td>
+                <td>{{c.tel}}</td>
+                <td><button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="supprimerClient(c.id)">Supprimer</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <br>
+          
+      </div>
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,53 @@
+<div class="site-section">
+  <div class="container">
+    <div>
+      <h2>Ajouter client :</h2>
+      <br>
+    </div>
+    <div class="row">
+      <div class="col-lg-7">
+        <form #ajouterClientForm='ngForm' (ngSubmit)='Client()'>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Code:</label>
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]='utilisateur.code' [ngModelOptions]="{standalone: true}"
+                placeholder="Code">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nom:</label>
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]='utilisateur.nom' [ngModelOptions]="{standalone: true}"
+                placeholder="Nom">
+            </div>
+          </div>
+         
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Riason social</label>
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]='utilisateur .raisonSocial'
+                [ngModelOptions]="{standalone: true}" placeholder="Raison social">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Adresse</label>
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]='utilisateur.adress' [ngModelOptions]="{standalone: true}"
+                placeholder="Adresse">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Téléphone ou Fax</label>
+            <div class="form-group">
+              <input type="text" class="form-control" [(ngModel)]='utilisateur.tel' [ngModelOptions]="{standalone: true}"
+                placeholder="Téléphone/Fax">
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Ajouter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
