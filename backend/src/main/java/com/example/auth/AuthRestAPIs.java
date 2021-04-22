@@ -1,8 +1,6 @@
 package com.example.auth;
 
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 import javax.validation.Valid;
@@ -13,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.model.Role;
-import com.example.model.RoleName;
 import com.example.model.Utilisateur;
 import com.example.repository.UtilisateurRepository;
 import com.example.request.LoginForm;
@@ -83,7 +79,7 @@ public class AuthRestAPIs {
 			return new ResponseEntity<>(new ResponseMessage("Fail -> Email is already in use!"),
 					HttpStatus.BAD_REQUEST);
 		}
-		Utilisateur utilisateur = new Utilisateur(signUpRequest.getUsername(), encoder.encode(signUpRequest.getPwd()));
+		//Utilisateur utilisateur = new Utilisateur(signUpRequest.getUsername(), encoder.encode(signUpRequest.getPwd()));
 		System.out.println(encoder.encode(signUpRequest.getPwd()));
 
 		Set<String> strRoles = signUpRequest.getRole();
@@ -92,20 +88,20 @@ public class AuthRestAPIs {
 		strRoles.forEach(role -> {
 			switch (role) {
 			case "admin":
-				Role adminRole = roleRepository.findByLibelle(RoleName.ROLE_ADMIN)
+				Role adminRole = roleRepository.findByLibelle(Role.ROLE_ADMIN)
 						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
 				roles.add(adminRole);
 
 				break;
 			case "client":
-				Role userRole = roleRepository.findByLibelle(RoleName.ROLE_CLIENT)
+				Role userRole = roleRepository.findByLibelle(Role.ROLE_CLIENT)
 						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
 				roles.add(userRole);
 			}
 		});
 
-		utilisateur.setRoles(roles);
-		utilisateurRepository.save(utilisateur);
+//		utilisateur.setRoles(roles);
+//		utilisateurRepository.save(utilisateur);
 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
 	}

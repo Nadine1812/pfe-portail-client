@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.model.Role;
-import com.example.model.RoleDTO;
 import com.example.service.RoleServiceImpl;
 
 import io.swagger.annotations.Api;
