@@ -2,12 +2,9 @@ package com.example.model;
 
 import org.springframework.security.core.GrantedAuthority;
 
-public enum RoleName implements GrantedAuthority {
-
+public enum RoleName {
 	ROLE_CLIENT,
-	ROLE_ADMIN;
+	ROLE_ADMIN
 	
-	public String getAuthority() {
-	    return name();
-	  }
+
 }
