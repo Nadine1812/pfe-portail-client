@@ -1,8 +1,9 @@
-package com.example.service;
+package com.example.service.impl;
 
 import java.util.List;
 import java.util.Optional;
 
+import com.example.service.UtilisateurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,18 +21,20 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 	}
 
 	@Override
-	public void delete(Integer id) {
+	public void delete(Long id) {
 		utilisateurRepository.deleteById(id);
 		
 	}
 
 	@Override
-	public Utilisateur add(Utilisateur utilisateur) {
+	public Utilisateur create(Utilisateur utilisateur) {
+
+
 		return utilisateurRepository.save(utilisateur);
 	}
 
 	@Override
-	public Utilisateur findById(Integer id) {
+	public Utilisateur findById(Long id) {
 		Optional<Utilisateur> Utilisateur = utilisateurRepository.findById(id);
 	     return  Utilisateur.isPresent() ? Utilisateur.get() : null;
 	}
@@ -41,34 +44,7 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 		return utilisateurRepository.findAll();
 	}
 
-	@Override
-	public Utilisateur findByUserNameAndPwd(String userName, String pwd) {
-		return utilisateurRepository.findByUserNameAndPwd(userName, pwd);
-	}
 
-	@Override
-	public Utilisateur updateUtilisateur(Utilisateur utilisateur) {
-		return utilisateurRepository.save(utilisateur);
-	}
 
-	@Override
-	public boolean checkIfCodeExists(String code) {
-		return utilisateurRepository.existsByCode(code);
-	}
 
-	@Override
-	public Utilisateur findUserByCode(String code) {
-		return utilisateurRepository.findById(Integer.parseInt(code)).get();
-	}
-
-	@Override
-	public List<Utilisateur> getAllUtilisateur() {
-		return utilisateurRepository.findAll();
-	}
-
-	@Override
-	public void deleteUtilisateur(String code) {
-		utilisateurRepository.deleteByCode(code);
-		
-	}
 }

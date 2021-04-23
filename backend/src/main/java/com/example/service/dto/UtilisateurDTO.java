@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.service.dto;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -17,7 +17,7 @@ public class UtilisateurDTO {
     private String pwd;
 
     @ApiModelProperty(notes = "Le nom de l'utilisateur")
-    private String userName;
+    private String username;
 
     @ApiModelProperty(notes = "Le raison social de l'utilisateur")
     private String raisonSocial;
@@ -31,8 +31,6 @@ public class UtilisateurDTO {
     @ApiModelProperty(notes = "L'adress de l'utilisateur")
     private String adress;
 
-    @ApiModelProperty(notes = "Le status de l'utilisateur")
-    private String status;
 
     @ApiModelProperty(notes = "L'activation  du compte de l'utilisateur")
     private String active;

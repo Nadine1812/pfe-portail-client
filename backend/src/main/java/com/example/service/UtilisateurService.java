@@ -10,21 +10,10 @@ public interface UtilisateurService {
 	
 	public Utilisateur update(Utilisateur utilisateur);
 	
-	public void delete(Integer id);
+	public void delete(Long id);
 	
-	public Utilisateur  add(Utilisateur utilisateur);
+	public Utilisateur  create(Utilisateur utilisateur);
 
-	public Utilisateur findById(Integer id);
-	
-	public Utilisateur findByUserNameAndPwd(String userName, String pwd);
-	
-	public Utilisateur updateUtilisateur(Utilisateur utilisateur);
-	
-	public boolean checkIfCodeExists(String code);
-	
-	public Utilisateur findUserByCode(String code);
-	
-	 public List<Utilisateur> getAllUtilisateur();
-	 
-	 public void deleteUtilisateur(String code);
+	public Utilisateur findById(Long id);
+
 }

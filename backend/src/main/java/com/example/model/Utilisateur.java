@@ -11,12 +11,11 @@ import java.util.Set;
 public class Utilisateur {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Long id;
 
 	private String code;
 
-	private String userName;
+	private String username;
 
 	private String pwd;
 
@@ -25,8 +24,6 @@ public class Utilisateur {
 	private String tel;
 
 	private String adress;
-
-	private String status;
 
 	private Integer active;
 

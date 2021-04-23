@@ -8,16 +8,16 @@ import org.springframework.stereotype.Repository;
 import com.example.model.Utilisateur;
 
 @Repository
-public interface UtilisateurRepository extends JpaRepository<Utilisateur, Integer> {
+public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> {
 	
-	public Utilisateur findByUserNameAndPwd(String userName, String pwd);
+	public Utilisateur findByUsernameAndPwd(String userName, String pwd);
 	
 	public Boolean existsByCode(String code);
 	
-	public Boolean existsByUserName(String userName);
+	public Boolean existsByUsername(String userName);
 	
 	public Utilisateur deleteByCode (String code);
 	
-	public Optional<Utilisateur> findByUserName (String userName);
+	public Optional<Utilisateur> findByUsername (String userName);
 	
 }

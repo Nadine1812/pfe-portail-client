@@ -1,4 +1,4 @@
-package com.example.response;
+package com.example.security.util;
 
 public class ResponseMessage {
 

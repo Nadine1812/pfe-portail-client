@@ -1,5 +1,6 @@
-package com.example.service;
+package com.example.security.jwt;
 
+import com.example.service.UtilisateurPricipal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,7 +20,7 @@ public class UtilisateurDetailsServiceImpl implements UserDetailsService {
 	@Override
 	@Transactional
 	public UserDetails  loadUserByUsername(String username) throws UsernameNotFoundException {
-		Utilisateur utilisateur = utilisateurRepository.findByUserName(username)
+		Utilisateur utilisateur = utilisateurRepository.findByUsername(username)
 				.orElseThrow(() -> new UsernameNotFoundException("User Not Found with -> nom  : " + username));
 
 		return UtilisateurPricipal.build(utilisateur);

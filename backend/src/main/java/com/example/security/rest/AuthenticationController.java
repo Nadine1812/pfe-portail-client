@@ -1,13 +1,12 @@
-package com.example.auth;
+package com.example.security.rest;
 
-import com.example.model.Role;
+import com.example.model.Utilisateur;
 import com.example.repository.UtilisateurRepository;
-import com.example.request.LoginForm;
-import com.example.request.SignUpForm;
-import com.example.response.JwtResponse;
-import com.example.response.ResponseMessage;
-import com.example.security.JwtProvider;
-import io.swagger.annotations.Api;
+import com.example.security.jwt.JwtProvider;
+import com.example.security.util.JwtResponse;
+import com.example.security.util.ResponseMessage;
+import com.example.util.LoginForm;
+import com.example.util.SignUpForm;
 import io.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,26 +19,17 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.HashSet;
-import java.util.Set;
 
 @CrossOrigin
-
 @RestController
-
 @RequestMapping("/api/auth")
-@Api(value = "Rest Controller: Authentification")
-
-public class AuthRestAPIs {
+public class AuthenticationController {
 
 	@Autowired
 	AuthenticationManager authenticationManager;
 
 	@Autowired
 	UtilisateurRepository utilisateurRepository;
-
-	@Autowired
-	com.example.repository.RoleRepository roleRepository;
 
 	@Autowired
 	PasswordEncoder encoder;
@@ -61,39 +51,28 @@ public class AuthRestAPIs {
 	@PostMapping("/signup")
 	@ApiResponse(code = 201, message = "L'utilisateur a été créé avec succées")
 	public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
+
 		if (utilisateurRepository.existsByCode(signUpRequest.getCode())) {
 			System.out.println(utilisateurRepository.existsByCode(signUpRequest.getCode()));
-			return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),
+			return new ResponseEntity<>(new ResponseMessage("Fail -> Code is already taken!"),
 					HttpStatus.BAD_REQUEST);
 		}
 
-		if (utilisateurRepository.existsByCode(signUpRequest.getCode())) {
-			return new ResponseEntity<>(new ResponseMessage("Fail -> Email is already in use!"),
+		if (utilisateurRepository.existsByCode(signUpRequest.getUsername())) {
+			return new ResponseEntity<>(new ResponseMessage("Fail -> username is already in use!"),
 					HttpStatus.BAD_REQUEST);
 		}
-		//Utilisateur utilisateur = new Utilisateur(signUpRequest.getUsername(), encoder.encode(signUpRequest.getPwd()));
+
+		Utilisateur utilisateur = new Utilisateur();
+
+		utilisateur.setUsername(signUpRequest.getUsername());
+		utilisateur.setPwd(encoder.encode(signUpRequest.getPwd()));
+		utilisateur.setRoles(signUpRequest.getRole());
+
 		System.out.println(encoder.encode(signUpRequest.getPwd()));
 
-		Set<String> strRoles = signUpRequest.getRole();
-		Set<Role> roles = new HashSet<>();
 
-		strRoles.forEach(role -> {
-			switch (role) {
-			case "admin":
-				Role adminRole = roleRepository.findByLibelle(Role.ROLE_ADMIN)
-						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-				roles.add(adminRole);
-
-				break;
-			case "client":
-				Role userRole = roleRepository.findByLibelle(Role.ROLE_CLIENT)
-						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
-				roles.add(userRole);
-			}
-		});
-
-//		utilisateur.setRoles(roles);
-//		utilisateurRepository.save(utilisateur);
+		utilisateurRepository.save(utilisateur);
 
 		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
 	}

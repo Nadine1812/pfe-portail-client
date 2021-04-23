@@ -1,4 +1,4 @@
-package com.example.config;
+package com.example.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,8 +15,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.example.security.JwtAuthTokenFilter;
-import com.example.service.UtilisateurDetailsServiceImpl;
+import com.example.security.jwt.JwtAuthTokenFilter;
+import com.example.security.jwt.UtilisateurDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
@@ -61,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/v2/api-docs", "/swagger-resources/**", "/swagger-ui.html", "/webjars/**",
 						"/swagger.json,", "/swagger-ui/**")
 
-				.permitAll().antMatchers("/api/auth/**","/signup","/signin").permitAll()//
+				.permitAll().antMatchers("/api/**","/signup","/signin").permitAll()//
 				.anyRequest().authenticated();
 		http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 

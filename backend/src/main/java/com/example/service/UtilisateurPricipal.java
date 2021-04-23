@@ -40,7 +40,7 @@ public class UtilisateurPricipal implements UserDetails {
 	private Collection<? extends GrantedAuthority> authorities;
 
 	public UtilisateurPricipal(Long id, String code, String userName, String raisonSocial, String tel,
-			String adress, String status, Integer active, String pwd,
+			String adress, Integer active, String pwd,
 			Collection<? extends GrantedAuthority> authorities) {
 		super();
 		this.id = id;
@@ -49,7 +49,7 @@ public class UtilisateurPricipal implements UserDetails {
 		this.raisonSocial = raisonSocial;
 		this.tel = tel;
 		this.adress = adress;
-		this.status = status;
+
 		this.active = active;
 		this.pwd = pwd;
 		this.authorities = authorities;
@@ -63,11 +63,10 @@ public class UtilisateurPricipal implements UserDetails {
         return new UtilisateurPricipal(
         		utilisateur.getId(),
         		utilisateur.getCode(),
-        		utilisateur.getUserName(),
+        		utilisateur.getUsername(),
         		utilisateur.getRaisonSocial(),
         		utilisateur.getTel(),
         		utilisateur.getAdress(),
-        		utilisateur.getStatus(),
         		utilisateur.getActive(),
         		utilisateur.getPwd(),
         		authorities
