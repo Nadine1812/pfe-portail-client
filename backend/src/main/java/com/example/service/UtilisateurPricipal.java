@@ -57,7 +57,7 @@ public class UtilisateurPricipal implements UserDetails {
 
 	public static UtilisateurPricipal build(Utilisateur utilisateur) {
         List<GrantedAuthority> authorities = utilisateur.getRoles().stream().map(role ->
-                new SimpleGrantedAuthority(Role.ROLE_ADMIN.name())
+                new SimpleGrantedAuthority(role.name())
         ).collect(Collectors.toList());
 
         return new UtilisateurPricipal(

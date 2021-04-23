@@ -69,7 +69,7 @@ public class AuthenticationController {
 		utilisateur.setPwd(encoder.encode(signUpRequest.getPwd()));
 		utilisateur.setRoles(signUpRequest.getRole());
 
-		System.out.println(encoder.encode(signUpRequest.getPwd()));
+		System.out.println("Roles: "+signUpRequest.getRole());
 
 
 		utilisateurRepository.save(utilisateur);
