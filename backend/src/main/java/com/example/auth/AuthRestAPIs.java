@@ -1,10 +1,14 @@
 package com.example.auth;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.validation.Valid;
-
+import com.example.model.Role;
+import com.example.repository.UtilisateurRepository;
+import com.example.request.LoginForm;
+import com.example.request.SignUpForm;
+import com.example.response.JwtResponse;
+import com.example.response.ResponseMessage;
+import com.example.security.JwtProvider;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,23 +17,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.example.model.Role;
-import com.example.model.Utilisateur;
-import com.example.repository.UtilisateurRepository;
-import com.example.request.LoginForm;
-import com.example.request.SignUpForm;
-import com.example.response.JwtResponse;
-import com.example.response.ResponseMessage;
-import com.example.security.JwtProvider;
-
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiResponse;
+import javax.validation.Valid;
+import java.util.HashSet;
+import java.util.Set;
 
 @CrossOrigin
 

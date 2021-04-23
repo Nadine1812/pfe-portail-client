@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+import com.example.model.Role;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,12 +14,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.example.model.Utilisateur;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
+@Data
 public class UtilisateurPricipal implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 	
-	private Integer id;
+	private Long id;
 	
 	private String code;
 
@@ -25,7 +27,7 @@ public class UtilisateurPricipal implements UserDetails {
 	
 	private String raisonSocial;
 	
-	private Integer tel;
+	private String tel;
 	
 	private String  adress;
 	
@@ -37,7 +39,7 @@ public class UtilisateurPricipal implements UserDetails {
 	
 	private Collection<? extends GrantedAuthority> authorities;
 
-	public UtilisateurPricipal(Integer id, String code, String userName, String raisonSocial, Integer tel,
+	public UtilisateurPricipal(Long id, String code, String userName, String raisonSocial, String tel,
 			String adress, String status, Integer active, String pwd,
 			Collection<? extends GrantedAuthority> authorities) {
 		super();
@@ -55,15 +57,15 @@ public class UtilisateurPricipal implements UserDetails {
 
 	public static UtilisateurPricipal build(Utilisateur utilisateur) {
         List<GrantedAuthority> authorities = utilisateur.getRoles().stream().map(role ->
-                new SimpleGrantedAuthority(role.getLibelle().name())
+                new SimpleGrantedAuthority(Role.ROLE_ADMIN.name())
         ).collect(Collectors.toList());
- 
+
         return new UtilisateurPricipal(
         		utilisateur.getId(),
         		utilisateur.getCode(),
         		utilisateur.getUserName(),
-        		utilisateur.getRaisonSocial(), 
-        		utilisateur.getTel(), 
+        		utilisateur.getRaisonSocial(),
+        		utilisateur.getTel(),
         		utilisateur.getAdress(),
         		utilisateur.getStatus(),
         		utilisateur.getActive(),
@@ -77,7 +79,7 @@ public class UtilisateurPricipal implements UserDetails {
 		this.authorities = authorities;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -93,7 +95,7 @@ public class UtilisateurPricipal implements UserDetails {
 		return raisonSocial;
 	}
 
-	public Integer getTel() {
+	public String getTel() {
 		return tel;
 	}
 
@@ -104,11 +106,11 @@ public class UtilisateurPricipal implements UserDetails {
 	public String getStatus() {
 		return status;
 	}
-	
+
 	public Integer getActive() {
 		return active;
 	}
-	
+
 	public String getPwd() {
 		return pwd;
 	}
@@ -159,8 +161,8 @@ public class UtilisateurPricipal implements UserDetails {
 	public String getUsername() {
 		return userName;
 	}
-	
-	public void setId(Integer id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -176,7 +178,7 @@ public class UtilisateurPricipal implements UserDetails {
 		this.raisonSocial = raisonSocial;
 	}
 
-	public void setTel(Integer tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 
@@ -196,8 +198,4 @@ public class UtilisateurPricipal implements UserDetails {
 		this.pwd = pwd;
 	}
 
-	
-	
-	
-	
 }

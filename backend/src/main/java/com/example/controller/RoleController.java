@@ -35,21 +35,21 @@ public class RoleController {
 	  @ApiOperation(value = "Afficher tous les rôles", response = List.class)
 	  @ApiResponses(value = { @ApiResponse(code = 200, message = "La liste des rôles affiché avec succées"),})
 //				@ApiResponse(code = 204, message = "Aucun rôle de congé touvé"), })
-	public ResponseEntity<List<RoleDTO>> getAllRole(){		  
+	public ResponseEntity<List<Role>> getAllRole(){
 		List<Role> roles = roleService.getAllRole();
 		if (!CollectionUtils.isEmpty(roles)) {
 			roles.removeAll(Collections.singleton(null));
-			List<RoleDTO> RoleDTOs = roles.stream().map(role -> {
+			List<Role> RoleDTOs = roles.stream().map(role -> {
 				return mapRoleToRoleDTO(role);
 			}).collect(Collectors.toList());
-			return new ResponseEntity<List<RoleDTO>>(RoleDTOs, HttpStatus.OK);
+			return new ResponseEntity<List<Role>>(RoleDTOs, HttpStatus.OK);
 		}
 		
-		return new ResponseEntity<List<RoleDTO>>(HttpStatus.NO_CONTENT);
+		return new ResponseEntity<List<Role>>(HttpStatus.NO_CONTENT);
 }
-	  private RoleDTO mapRoleToRoleDTO(Role role) {
+	  private Role mapRoleToRoleDTO(Role role) {
 			ModelMapper mapper = new ModelMapper();
-			RoleDTO roleDTO = mapper.map(role, RoleDTO.class);
+			Role roleDTO = mapper.map(role, Role.class);
 			return roleDTO;
 		}
 }

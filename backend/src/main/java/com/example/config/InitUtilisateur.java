@@ -17,9 +17,9 @@ public class InitUtilisateur implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
-		Utilisateur admin = new Utilisateur("admin@admin.com", "admin");
-		
-		utilisateurService.add(admin);
+		//Utilisateur admin = new Utilisateur("admin@admin.com", "admin");
+
+		//utilisateurService.add(admin);
 		
 	}
 
