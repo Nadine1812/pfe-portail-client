@@ -1,6 +1,3 @@
-import { RoleName } from './RoleName';
-
-export class Role {
-    id: number;
-    libelle: RoleName;
+export enum Role {
+    ROLE_CLIENT, ROLE_ADMIN
 }

@@ -5,23 +5,20 @@ import { AuthService } from './auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      
     return this.isLogin();
   }
   isLogin():boolean {
-    if (localStorage.getItem("isAuth") == "true"){
+    if (localStorage.getItem("isAuth") == "true") {
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   }
-  // if this authservice.get token
-  // return true
-
 }
+

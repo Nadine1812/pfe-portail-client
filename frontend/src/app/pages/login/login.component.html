@@ -28,7 +28,7 @@
           <div class="form-group">
             <label for="pwd">Mot de passe</label>
             <input type="password" class="form-control" name="pwd" [(ngModel)]="form.pwd" #pwd="ngModel" required
-              minlength="6" />
+              minlength="4" />
             <div *ngIf="f.submitted && pwd.invalid">
               <div *ngIf="pwd.errors.required">Password is required</div>
               <div *ngIf="pwd.errors.minlength">Password must be at least 6 characters</div>

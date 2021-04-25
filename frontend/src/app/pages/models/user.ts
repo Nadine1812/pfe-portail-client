@@ -9,6 +9,6 @@ export class User {
     tel: string;
     adress: string;
     status: string;
-    roles: Role[];
-    active:String;
+    role: Role[];
+    active: String;
 }

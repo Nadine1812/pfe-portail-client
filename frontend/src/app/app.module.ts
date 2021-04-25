@@ -64,8 +64,6 @@ import { AdminComponent } from './pages/admin/admin.component';
     SuppClientComponent,
     RegisterComponent,
     AdminComponent,
-    
-    
   ],
   imports: [
     AppMaterialModule,

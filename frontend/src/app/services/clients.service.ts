@@ -8,13 +8,14 @@ import { Observable } from 'rxjs';
 export class ClientsService {
   private adminUrl = 'http://localhost:8080/api/test/admin';
   private userUrl = 'http://localhost:8080/api/test/user';
-  utilisateurURL: string = 'http://localhost:8080/api/utilisateurs';
+  utilisateurURL = 'http://localhost:8080/api/utilisateurs';
 
   constructor(private httpClient: HttpClient) { }
 
-  createUtilisateur(utilisateur: any) {
-    return this.httpClient.post(`${this.utilisateurURL}`, utilisateur)}
-  
+  createUser(utilisateur: any) {
+    return this.httpClient.post(`${this.utilisateurURL}`, utilisateur);
+  }
+
     getAllUtilisateur() {
       return this.httpClient.get(this.utilisateurURL);
     }
@@ -22,7 +23,7 @@ export class ClientsService {
       return this.httpClient.get(`${this.utilisateurURL}/${id}`);
     }
     updateUtilisateur(utilisateur: any) {
-      return this.httpClient.put(`${this.utilisateurURL}/${utilisateur.id}`, utilisateur)
+      return this.httpClient.put(`${this.utilisateurURL}/${utilisateur.id}`, utilisateur);
     }
     deleteUtilisateur(id: any) {
       return this.httpClient.delete(`${this.utilisateurURL}/${id}`);

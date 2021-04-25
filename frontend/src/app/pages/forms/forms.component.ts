@@ -40,7 +40,7 @@ export class FormsComponent implements OnInit {
     }}
     Client(){
       
-        this.clientService.createUtilisateur(this.utilisateur ).subscribe(
+        this.clientService.createUser(this.utilisateur ).subscribe(
           ()=>{
             this.router.navigate(['/consulter']);
           console.log("client crée");

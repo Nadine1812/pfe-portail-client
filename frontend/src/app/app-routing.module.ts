@@ -26,20 +26,19 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate:[AuthGuard]},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: 'client', component: ClientComponent, canActivate: [AuthGuard] },
-  { path: 'reclamations', component: ReclamationsAdminComponent },
-  { path: 'gestionclients', component: GestionClientComponent },
-  { path: 'commandes-client', component: CommandesClientComponent },
-  { path: 'reclamations-client', component: ReclamationsClientComponent },
-  { path: 'listecommandes', component: ListeCommandesComponent },
-  { path: 'ajouterClient', component: FormsComponent },
-  //{ path: 'modifierClient/:id', component: FormsComponent },
-  { path: 'afficherClient/:id', component: AffichComponent },
-  { path: 'consulter', component: ConsultationComponent },
-  { path: 'modifierClient', component: ModifierClientComponent },
-  { path: 'activerClient', component: ActiverClientComponent },
-  { path: 'modifClient/:id', component: ModifFormComponent },
-  { path: 'supprimerClient', component: SuppClientComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'reclamations', component: ReclamationsAdminComponent, canActivate:[AuthGuard]},
+  { path: 'gestionclients', component: GestionClientComponent, canActivate:[AuthGuard] },
+  { path: 'commandes-client', component: CommandesClientComponent, canActivate:[AuthGuard] },
+  { path: 'reclamations-client', component: ReclamationsClientComponent, canActivate:[AuthGuard] },
+  { path: 'listecommandes', component: ListeCommandesComponent, canActivate:[AuthGuard] },
+  { path: 'ajouterClient', component: FormsComponent, canActivate:[AuthGuard] },
+  { path: 'afficherClient/:id', component: AffichComponent, canActivate:[AuthGuard] },
+  { path: 'consulter', component: ConsultationComponent, canActivate:[AuthGuard] },
+  { path: 'modifierClient', component: ModifierClientComponent, canActivate:[AuthGuard] },
+  { path: 'activerClient', component: ActiverClientComponent, canActivate:[AuthGuard] },
+  { path: 'modifClient/:id', component: ModifFormComponent, canActivate:[AuthGuard] },
+  { path: 'supprimerClient', component: SuppClientComponent, canActivate:[AuthGuard] },
+  { path: 'register', component: RegisterComponent, canActivate:[AuthGuard] }
 ];
 
 @NgModule({
@@ -48,4 +47,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-//test
+

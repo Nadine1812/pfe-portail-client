@@ -11,31 +11,17 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  // title = 'pro-dashboard-angular';
   isLoggedIn: Observable<boolean>;
   // isLogin:boolean=false;
   private roles: string[];
   public authority: string;
-
-  
   constructor(private tokenStorage: TokenStorageService,
     private appService: AppService,private authService: AuthService) { }
 
 
   ngOnInit() {
-    if (this.tokenStorage.getToken()) {
-      this.roles = this.tokenStorage.getAuthorities();
-      this.roles.every(role => {
-        if (role === 'ROLE_ADMIN') {
-          this.authority = 'admin';
-          return true;
-        } else if (role === 'ROLE_CLIENT') {
-          this.authority = 'user';
-          return false;
-      };
-    })
-  }
 }
+
   get data(): string {
     return this.appService.sharedData;
   }

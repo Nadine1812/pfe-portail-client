@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { ClientsService } from 'src/app/services/clients.service';
-import { RegisterService } from 'src/app/services/register.service';
-import { Utilisateur } from 'src/app/services/utilisateur';
 import { AuthLoginInfo } from '../auth/login-info';
 import { TokenStorageService } from '../auth/token-storage.service';
 
@@ -20,14 +16,11 @@ export class LoginComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
-  
   private loginInfo: AuthLoginInfo;
   constructor(
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
     private router: Router) {}
-     
-
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
@@ -51,8 +44,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-        this.reloadPage();
-      
+        // this.reloadPage();
       },
       error => {
         console.log(error);
@@ -65,22 +57,4 @@ export class LoginComponent implements OnInit {
   reloadPage() {
     window.location.reload();
   }
-  
-//     this.authService.attemptAuth(this.loginInfo).subscribe((data:any) => {
-//       if(data){
-//         window.sessionStorage.removeItem('token');
-//         window.sessionStorage.setItem('token', data.token);
-//         window.sessionStorage.removeItem('username');
-//         window.sessionStorage.setItem('username', data.username);
-//         this.reloadPage();
-//       }},
-//       (error) => {
-//         this.errorMessage = error.error.message;
-//         this.isLoginFailed = true;
-//       }
-//     );
-// }
-// reloadPage() {
-//     window.location.reload();
-//   }
 }
