@@ -48,9 +48,9 @@ export class LoginComponent implements OnInit {
                 this.isLoginFailed = true;
             }, () => {
                 this.roles = this.tokenStorage.getAuthorities();
-              this.router.navigate(['/home']).then(() => {
-                // do whatever you need after navigation succeeds
-              });
+                this.router.navigate(['/home']).then(() => {
+                    // do whatever you need after navigation succeeds
+                });
             }
         );
     }
