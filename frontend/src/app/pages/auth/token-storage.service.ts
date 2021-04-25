@@ -33,7 +33,11 @@ export class TokenStorageService {
     }
 
     public getUsername(): string {
-        return sessionStorage.getItem(USERNAME_KEY);
+        const decodedToken = this.getDecodedAccessToken(sessionStorage.getItem(TOKEN_KEY));
+        if (decodedToken != null) {
+                return decodedToken.sub;
+        }
+        return null;
     }
 
     public saveAuthorities(authorities: string[]) {

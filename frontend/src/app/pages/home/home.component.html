@@ -2,10 +2,10 @@
 
 
 
-<h1>Admin</h1>
-<h1>Client</h1>
-<h3>Username: </h3>
-<h3>role: </h3>
+<h1 *ngIf="roles == 'ROLE_ADMIN'">Admin</h1>
+<h1 *ngIf="roles == 'ROLE_CLIENT'">Client</h1>
+<h3>Username: {{username}} </h3>
+<h3>role: {{roles}}</h3>
 
 <!--*ngIf-->
 
