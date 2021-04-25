@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/auth")
 public class AuthenticationController {
@@ -39,12 +39,11 @@ public class AuthenticationController {
 
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@RequestBody LoginForm loginRequest) {
-		Authentication authentication = authenticationManager.authenticate(
-				new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPwd()));
+		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPwd()));
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		String jwt = jwtProvider.generateJwtToken(authentication);
-		JwtResponse body = new JwtResponse(jwt, loginRequest.getUsername());
-		body.setAuthorities(authentication.getAuthorities());
+		JwtResponse body = new JwtResponse(jwt);
+
 		return ResponseEntity.ok(body);
 	}
 

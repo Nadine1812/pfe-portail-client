@@ -1,22 +1,19 @@
 package com.example.security.jwt;
 
 import java.util.Date;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
+import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import com.example.service.UtilisateurPricipal;
 
 import org.springframework.security.core.Authentication;
-
-import io.jsonwebtoken.ExpiredJwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.MalformedJwtException;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.SignatureException;
-import io.jsonwebtoken.UnsupportedJwtException;
 
 @Component
 public class JwtProvider {
@@ -33,8 +30,12 @@ public class JwtProvider {
 
 		UtilisateurPricipal utilisateurPrincipal = (UtilisateurPricipal) authentication.getPrincipal();
 
-		return Jwts.builder().setSubject((utilisateurPrincipal.getUsername())).setIssuedAt(new Date())
+		Claims claims = Jwts.claims();
+		claims.put("auth", utilisateurPrincipal.getAuthorities().stream().map(s -> new SimpleGrantedAuthority(s.getAuthority())).collect(Collectors.toList()));
+
+		return Jwts.builder().setClaims(claims).setSubject((utilisateurPrincipal.getUsername())).setIssuedAt(new Date())
 				.setExpiration(new Date((new Date()).getTime() + jwtExpiration))
+
 				.signWith(SignatureAlgorithm.HS512, jwtSecret).compact();
 	}
 

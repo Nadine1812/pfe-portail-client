@@ -37,6 +37,7 @@ import { ModifFormComponent } from './pages/modif-form/modif-form.component';
 import { SuppClientComponent } from './pages/supp-client/supp-client.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import {AuthGuard} from "./services/auth.guard";
 
 
 
@@ -79,7 +80,7 @@ import { AdminComponent } from './pages/admin/admin.component';
     ToastrModule.forRoot()
     ],
   providers: [AuthService,
-    //  AuthGuard
+      AuthGuard
     ],
   bootstrap: [AppComponent]
 })
