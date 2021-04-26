@@ -17,7 +17,6 @@ utilisateurs:any;
     this.clientService.getAllUtilisateur().subscribe(
       (data) => {
         console.log('Here my objects', data);
-        
         this.utilisateurs = data;
       }
     );

@@ -17,7 +17,7 @@ public class UtilisateurController {
 	@Autowired
 	private UtilisateurService utilisateurService;
 
-	@PostMapping("/create")
+	@PostMapping
 	public Utilisateur  createUser(@RequestBody Utilisateur utilisateur) {
 		return utilisateurService.create(utilisateur);
 	}
@@ -32,12 +32,12 @@ public class UtilisateurController {
 		return utilisateurService.getAllUtilisateurs();
 	}
 
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
 		utilisateurService.delete(id);
 	}
 
-	@PutMapping("/update/{id}")
+	@PutMapping("/{id}")
 	public  Utilisateur update(@PathVariable Long id ,@RequestBody Utilisateur utilisateur) {
     	return  utilisateurService.update(utilisateur);
 	}
