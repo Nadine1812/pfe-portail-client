@@ -4,12 +4,9 @@ import { Observable } from "rxjs";
 import { JwtResponse } from "../pages/auth/jwt-response";
 import { AuthLoginInfo } from "../pages/auth/login-info";
 import { SignUpInfo } from "../pages/auth/signup-info";
+
 const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Methods': 'POST,GET,DELETE,PUT',
-    'Access-Control-Allow-Origin': '*'
-  }),
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 @Injectable({
   providedIn: 'root'
