@@ -27,6 +27,11 @@ public class UtilisateurController {
 		return utilisateurService.findById(id);
 	}
 
+	@GetMapping("/code/{code}")
+	public Utilisateur getByCode(@PathVariable String code){
+		return utilisateurService.getByCode(code);
+	}
+
 	@GetMapping
 	public List<Utilisateur> getAllUtilisateurs(){
 		return utilisateurService.getAllUtilisateurs();

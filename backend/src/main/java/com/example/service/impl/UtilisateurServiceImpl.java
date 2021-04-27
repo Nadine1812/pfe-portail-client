@@ -28,8 +28,6 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
 	@Override
 	public Utilisateur create(Utilisateur utilisateur) {
-
-
 		return utilisateurRepository.save(utilisateur);
 	}
 
@@ -37,6 +35,12 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 	public Utilisateur findById(Long id) {
 		Optional<Utilisateur> Utilisateur = utilisateurRepository.findById(id);
 	     return  Utilisateur.isPresent() ? Utilisateur.get() : null;
+	}
+
+
+	@Override
+	public Utilisateur getByCode(String code) {
+		return utilisateurRepository.getByCode(code);
 	}
 
 	@Override
