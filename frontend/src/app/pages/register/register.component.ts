@@ -20,11 +20,11 @@ export class RegisterComponent implements OnInit {
     errorMessage = '';
     utilisateur: any;
     roles: any;
-    code: String;
-    username: String;
-    raisonSocial: String;
-    adress: String;
-    tel: String;
+    code: string;
+    username: string;
+    raisonSocial: string;
+    adress: string;
+    tel: string;
 
 
     constructor(private authService: AuthService,
@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
     ngOnInit() {
         // this.getRole();
         this.getCode(this.code);
+        // this.ok();
     }
 
     // getRole() {
