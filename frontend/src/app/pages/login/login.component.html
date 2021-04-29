@@ -6,9 +6,6 @@
     </a>
   </div>
 </nav>
-<!-- <div *ngIf="!display">
-  <app-sidebar></app-sidebar>
-  </div> -->
 <div class="site-section">
   <div class="container">
     <div class="row">
@@ -37,7 +34,7 @@
           <div class="form-group">
             <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Connecter </button>
             <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
-              Login failed: {{errorMessage}}
+              Login failed
             </div>
           </div>
         </form>

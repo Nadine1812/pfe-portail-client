@@ -31,11 +31,11 @@ export class FormsComponent implements OnInit {
             this.ajouterClientForm = this.formBuilder.group({
                 id: [''],
                 code: [''],
-                nom: [''],
+                username: [''],
                 raisonSocial: [''],
                 adress: [''],
                 tel: ['']
-            })
+            });
         }
     }
 
