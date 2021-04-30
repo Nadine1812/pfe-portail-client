@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
     constructor(private authService: AuthService,
                 private formBuilder: FormBuilder,
                 private clientService: ClientsService,
-                private tokenStorage: TokenStorageService,
+                private tokenStorage: TokenStorageService
     ) {
     }
 
@@ -47,9 +47,11 @@ export class RegisterComponent implements OnInit {
     getCode(code) {
        return this.clientService.getUtilisateurByCode(code);
     }
-
+    getUsername(){
+        this.username = this.tokenStorage.getUsername();
+    }
     ok() {
-        this.getCode(this.code).subscribe(
+        this.getCode(this.form.code).subscribe(
             (data) => {
                 this.form = data;
                 console.log('Voici mes objets', data);
@@ -81,12 +83,17 @@ export class RegisterComponent implements OnInit {
     }
 
     signup() {
-        console.log('COMPTE', this.utilisateur);
-        this.authService.signUp(this.utilisateur).subscribe(
+        console.log('signup', JSON.stringify((this.form)));
+        this.authService.signUp(this.form).subscribe(
             (data) => {
-                console.log('Login', data);
+                console.log('signup', data);
             }
         );
+        // this.clientService.updateUtilisateur(this.form).subscribe(
+        //     (data)=> {
+        //         console.log('result edit abderrahmen', data)
+        //     }
+        // );
     }
 }
 

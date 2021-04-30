@@ -1,5 +1,5 @@
 <div class="row col-sm-6" style="max-width:350px;">
-    <form #signupInfo="ngForm" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+    <form #signupInfo="ngForm" name="form" (ngSubmit)="f.form.valid" #f="ngForm">
         <div class="form-group">
             <label>Code</label>
             <div>
@@ -11,12 +11,12 @@
                 <div *ngIf="code.errors.required">Code is required</div>
                 <div *ngIf="code.errors.code">Code must be valid</div>
             </div>
-            <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="ok">Ok</button>
+                <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="ok()">Ok</button>
             <div>
-                <h5>Nom: {{username}} </h5>
-                <h5>Raison social: {{raisonSocial}} </h5>
-                <h5>Adress: {{adress}} </h5>
-                <h5>Téléphone: {{tel}} </h5>
+                <h5>Nom: {{form.username}} </h5>
+                <h5>Raison social: {{form.raisonSocial}} </h5>
+                <h5>Adress: {{form.adress}} </h5>
+                <h5>Téléphone: {{form.tel}} </h5>
             </div>
         </div>
         <div class="form-group">
@@ -34,9 +34,13 @@
             <select name="role" class="form-control" id="role" [(ngModel)]="form.role"
                     [ngModelOptions]="{standalone: true}">
                 <option value="">Choisissez le role d'utilisateur</option>
-                <option *ngFor="let r of roles" [ngValue]="r">{{r.role}}</option>
-                <option value="admin" *ngIf="roles == 'ROLE_ADMIN'">Administrateur</option>
-                <option value="user" *ngIf="roles == 'ROLE_CLIENT'">Utilisateur</option>
+                <option value="ROLE_ADMIN">Admin</option>
+                <option value="ROLE_CLIENT">Client</option>
+
+
+                <!--                <option *ngFor="let r of roles" [ngValue]="r">{{r.role}}</option>-->
+<!--                <option value="admin" *ngIf="roles == 'ROLE_ADMIN'">Administrateur</option>-->
+<!--                <option value="user" *ngIf="roles == 'ROLE_CLIENT'">Utilisateur</option>-->
             </select>
         </div>
         <div class="form-group">
@@ -50,7 +54,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="signup">S'inscrire</button>
+            <button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="signup()">S'inscrire</button>
             <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
                 Signup failed!<br/>{{errorMessage}}
             </div>
