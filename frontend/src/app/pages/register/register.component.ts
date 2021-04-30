@@ -89,11 +89,7 @@ export class RegisterComponent implements OnInit {
                 console.log('signup', data);
             }
         );
-        // this.clientService.updateUtilisateur(this.form).subscribe(
-        //     (data)=> {
-        //         console.log('result edit abderrahmen', data)
-        //     }
-        // );
+
     }
 }
 
