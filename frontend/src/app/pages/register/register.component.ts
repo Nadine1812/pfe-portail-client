@@ -5,6 +5,7 @@ import {AuthService} from 'src/app/services/auth.service';
 import {ClientsService} from 'src/app/services/clients.service';
 import {SignUpInfo} from '../auth/signup-info';
 import {TokenStorageService} from "../auth/token-storage.service";
+import {User} from "../models/user";
 
 
 @Component({
@@ -13,18 +14,19 @@ import {TokenStorageService} from "../auth/token-storage.service";
     styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-    form: any = {};
+    form: User = new User();
     signupInfo: SignUpInfo;
     isSignedUp = false;
     isSignUpFailed = false;
     errorMessage = '';
     utilisateur: any;
-    roles: any;
+    roles: string;
     code: string;
     username: string;
     raisonSocial: string;
     adress: string;
     tel: string;
+    role;
 
 
     constructor(private authService: AuthService,
@@ -35,21 +37,17 @@ export class RegisterComponent implements OnInit {
     }
 
     ngOnInit() {
-        // this.getRole();
         this.getCode(this.code);
-        // this.ok();
     }
-
-    // getRole() {
-    //     this.roles = this.tokenStorage.getAuthorities();
-    // }
 
     getCode(code) {
-       return this.clientService.getUtilisateurByCode(code);
+        return this.clientService.getUtilisateurByCode(code);
     }
-    getUsername(){
+
+    getUsername() {
         this.username = this.tokenStorage.getUsername();
     }
+
     ok() {
         this.getCode(this.form.code).subscribe(
             (data) => {
@@ -62,11 +60,11 @@ export class RegisterComponent implements OnInit {
     onSubmit() {
         console.log(this.form);
 
-        this.signupInfo = new SignUpInfo(
-            this.form.username,
-            this.form.role,
-            this.form.pwd,
-            this.form.code);
+        // this.signupInfo = new SignUpInfo(
+        //     this.form.username,
+        //     this.form.role,
+        //     this.form.pwd,
+        //     this.form.code);
 
         this.authService.signUp(this.signupInfo).subscribe(
             data => {
@@ -83,13 +81,12 @@ export class RegisterComponent implements OnInit {
     }
 
     signup() {
+        this.form.roles = [this.role];
         console.log('signup', JSON.stringify((this.form)));
         this.authService.signUp(this.form).subscribe(
             (data) => {
                 console.log('signup', data);
             }
         );
-
     }
 }
-

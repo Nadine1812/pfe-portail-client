@@ -1,6 +1,7 @@
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
+import {User} from "../pages/models/user";
 
 @Injectable({
     providedIn: 'root'
@@ -26,7 +27,7 @@ export class ClientsService {
     }
 
     getUtilisateurByCode(code) {
-        return this.httpClient.get(`${this.utilisateurURL}/code/${code}`);
+        return this.httpClient.get<User>(`${this.utilisateurURL}/code/${code}`);
     }
 
     updateUtilisateur(utilisateur: any) {

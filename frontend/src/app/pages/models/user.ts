@@ -2,13 +2,13 @@ import { Role } from './Role';
 
 export class User {
     id: number;
-    code: string;
-    username: string;
+    code: String;
+    username: String;
     pwd: number;
-    raisonsocial: string;
-    tel: string;
-    adress: string;
-    status: string;
-    role: Role[];
+    raisonSocial: String;
+    tel: String;
+    adress: String;
+    status: String;
+    roles: String[];
     active: String;
 }

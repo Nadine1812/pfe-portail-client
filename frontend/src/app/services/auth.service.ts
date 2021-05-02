@@ -23,8 +23,7 @@ export class AuthService {
   attemptAuth(credentials: AuthLoginInfo): Observable<JwtResponse> {
     return this.httpClient.post<JwtResponse>(this.loginUrl, credentials);
   }
-  signUp(info: SignUpInfo): Observable<string> {
-    return this.httpClient.post<string>(this.signupUrl, info, httpOptions);
+  signUp(info): Observable<any> {
+    return this.httpClient.post<any>(this.signupUrl, info, httpOptions);
   }
-
 }
