@@ -3,6 +3,7 @@ import { AppService } from './../../services/app.service';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TokenStorageService } from 'src/app/pages/auth/token-storage.service';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +16,7 @@ export class NavbarComponent implements OnInit {
   user:boolean;
   private authListenerSubs: Subscription;
   constructor(private appService: AppService,
-    private token: TokenStorageService,private authService: AuthService) { }
+    private token: TokenStorageService,private authService: AuthService,private router:Router) { }
   isCollapsed = true;
   ngOnInit() {
     // this.userIsAuthenticated = this.authService.isUserAuth();
@@ -26,11 +27,16 @@ export class NavbarComponent implements OnInit {
     // )
   }
   signOut() {
+    window.localStorage.removeItem("USER_ROLE");
+    console.log("hello");
+    this.token.signOut();
     window.sessionStorage.clear();
+    this.router.navigate(['']);
+
   }
-  ngOnDestroy() {
-    this.authListenerSubs.unsubscribe();
-  }
+  // ngOnDestroy() {
+  //   this.authListenerSubs.unsubscribe();
+  // }
 
   toggleSidebarPin() {
     this.appService.toggleSidebarPin();

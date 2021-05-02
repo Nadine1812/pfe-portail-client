@@ -11,16 +11,17 @@ import {Menu} from "../../pages/models/menu";
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit, OnDestroy {
+export class SidebarComponent implements OnInit, OnDestroy{
  info:any;
  activeMenuItem$: Observable<Menu>;
-  private authListenerSubs: Subscription;
+  authListenerSubs: Subscription = new Subscription();
   constructor(private token: TokenStorageService,
     private clientService: ClientsService,
               private route: Router
     ) {}
 
   ngOnInit() {
+
       // this.info = {
       //   username: this.token.getUsername(),
       // };

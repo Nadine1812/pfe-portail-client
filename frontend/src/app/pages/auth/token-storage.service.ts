@@ -15,6 +15,7 @@ export class TokenStorageService {
     }
 
     signOut() {
+        this.roles = [];
         window.sessionStorage.clear();
     }
 

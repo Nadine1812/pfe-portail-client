@@ -38,6 +38,10 @@ export class ClientsService {
         return this.httpClient.delete(`${this.utilisateurURL}/${id}`);
     }
 
+    activateAccount(code, active) {
+        return this.httpClient.put(this.utilisateurURL + "/" + code + "/activate-account?active=" + active, null);
+    }
+
     getUserBoard(): Observable<string> {
         return this.httpClient.get(this.userUrl, {responseType: 'text'});
     }

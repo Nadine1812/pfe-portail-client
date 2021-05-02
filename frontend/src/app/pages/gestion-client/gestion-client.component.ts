@@ -34,8 +34,8 @@ export class GestionClientComponent implements OnInit {
         this.router.navigate([`modifierClient`]);
     }
 
-    activerClient() {
-        this.router.navigate([`activerClient`]);
+    DesactiverCompte() {
+        this.router.navigate([`desactiverCompte`]);
     }
 
     supprimerClient() {

@@ -1,4 +1,3 @@
-<!-- <app-sidebar></app-sidebar> -->
 <div class="btn-group">
     <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="consulter()"> Consulter</button>
 </div>
@@ -17,12 +16,6 @@
             Client
         </button>
     </div>
-    <div class="btn-group">
-        <div class="btn-group">
-            <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="activerClient()">
-                Activer client
-            </button>
-        </div>
         <div class="btn-group">
             <div class="btn-group">
                 <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="ajouterCompte()">
@@ -30,57 +23,10 @@
                 </button>
             </div>
             <div class="btn-group">
-                <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2">
-                    Desactiver client
+                <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="DesactiverCompte()">
+                    Desactiver compte
                 </button>
             </div>
+        </div>
+    </div>
 
-
-            <!-- <div class="row mb-4">
-
-          <div class="col-md-12">
-            <div class="card border-0 rounded-0">
-              <div class="card-title mb-1 p-3">
-                <h5>Liste des clients</h5>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive-md">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Code</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Raison social</th>
-                        <th scope="col">Adress</th>
-                        <th scope="col">Téléphone/Fax</th>
-                      </tr>
-                    </thead>
-                    <tbody *ngFor="let c of clients; index as i">
-                      <tr>
-                        <th scope="row">{{i+1}}</th>
-                        <td>{{c.code}}</td>
-                        <td>{{c.nom}}</td>
-                        <td>{{c.raisonSocial}}</td>
-                        <td>{{c.adress}}</td>
-                        <td>{{c.tel}}</td> -->
-            <!-- <td><button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="afficherClient(c.id)">Afficher</button></td> -->
-
-            <!-- <td><button class="btn btn-lightning rounded-0 mb-2 mr-2"
-                            (click)="modifierClient(c.id)">Modifier</button></td> -->
-            <!-- <td><button class="btn btn-lightning rounded-0 mb-2 mr-2 "
-                            (click)="supprimerClient(c.id)">Supprimer</button></td> -->
-            <!-- <button type="button" class="btn btn-deep-orange waves-light" mdbWavesEffect>Deep-orange</button> -->
-            <!-- </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <br> -->
-            <!-- <button type="button" class="btn btn-lightning rounded-0 btn-lg btn-block"
-                  (click)="ajouterClient()">Ajouter</button> -->
-
-            <!-- </div>
-            </div>
-
-          </div>
-        </div> -->

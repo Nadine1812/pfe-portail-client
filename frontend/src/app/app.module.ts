@@ -31,7 +31,6 @@ import {CommandesClientComponent} from './pages/commandes-client/commandes-clien
 import {ReclamationsClientComponent} from './pages/reclamations-client/reclamations-client.component';
 import {ConsultationComponent} from './pages/consultation/consultation.component';
 import {ModifierClientComponent} from './pages/modifier-client/modifier-client.component';
-import {ActiverClientComponent} from './pages/activer-client/activer-client.component';
 import {ReclamationsAdminComponent} from './pages/reclamations-admin/reclamations-admin.component';
 import {ModifFormComponent} from './pages/modif-form/modif-form.component';
 import {SuppClientComponent} from './pages/supp-client/supp-client.component';
@@ -39,6 +38,7 @@ import {RegisterComponent} from './pages/register/register.component';
 import {AdminComponent} from './pages/admin/admin.component';
 import {AuthGuard} from "./services/auth.guard";
 import {AuthInterceptor} from "./pages/auth/auth-interceptor";
+import { DesactiverCompteComponent } from './pages/desactiver-compte/desactiver-compte.component';
 
 
 @NgModule({
@@ -59,12 +59,12 @@ import {AuthInterceptor} from "./pages/auth/auth-interceptor";
         ReclamationsClientComponent,
         ConsultationComponent,
         ModifierClientComponent,
-        ActiverClientComponent,
         ReclamationsAdminComponent,
         ModifFormComponent,
         SuppClientComponent,
         RegisterComponent,
         AdminComponent,
+        DesactiverCompteComponent,
     ],
     imports: [
         AppMaterialModule,

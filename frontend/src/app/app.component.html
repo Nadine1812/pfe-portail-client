@@ -6,8 +6,8 @@
   <main>
     <!-- <app-sidebar *ngIf="isLoggedIn$ | async as isLoggedIn"></app-sidebar> -->
     <!-- <app-sidebar *ngIf="!isAuth"></app-sidebar> -->
-    <app-sidebar *ngIf="isLoggedIn"></app-sidebar>
-    <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
+    <app-sidebar *ngIf="roles"></app-sidebar>
+    <div class="pages container-fluid p-0 m-0">
       <router-outlet></router-outlet>
       <hr>
       <app-footer></app-footer>

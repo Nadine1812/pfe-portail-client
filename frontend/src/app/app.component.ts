@@ -13,13 +13,14 @@ import { AuthService } from './services/auth.service';
 export class AppComponent implements OnInit {
   isLoggedIn: Observable<boolean>;
   // isLogin:boolean=false;
-  private roles: string[];
+  roles: String = null;
   public authority: string;
   constructor(private tokenStorage: TokenStorageService,
     private appService: AppService,private authService: AuthService) { }
 
 
   ngOnInit() {
+    this.roles =  window.localStorage.getItem("USER_ROLE");
 }
 
   get data(): string {

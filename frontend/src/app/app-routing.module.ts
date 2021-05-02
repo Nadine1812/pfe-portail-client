@@ -13,32 +13,40 @@ import { CommandesClientComponent } from './pages/commandes-client/commandes-cli
 import { ReclamationsClientComponent } from './pages/reclamations-client/reclamations-client.component';
 import { ConsultationComponent } from './pages/consultation/consultation.component';
 import { ModifierClientComponent } from './pages/modifier-client/modifier-client.component';
-import { ActiverClientComponent } from './pages/activer-client/activer-client.component';
 import { ReclamationsAdminComponent } from './pages/reclamations-admin/reclamations-admin.component';
 import { ModifFormComponent } from './pages/modif-form/modif-form.component';
 import { SuppClientComponent } from './pages/supp-client/supp-client.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthGuard } from './services/auth.guard';
+import {DesactiverCompteComponent} from "./pages/desactiver-compte/desactiver-compte.component";
+import {SidebarComponent} from "./components/sidebar/sidebar.component";
+import {AppComponent} from "./app.component";
 
 const routes: Routes = [
   // { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: '', component: LoginComponent },
-  { path: 'home', component: HomeComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+    // contenu de home dans router outelet
+  { path: 'home', component: AppComponent ,
+  children:[{
+    path: '', component: HomeComponent
+  }
+  , { path: 'reclamations', component: ReclamationsAdminComponent, canActivate:[AuthGuard]},
+    { path: 'gestionclients', component: GestionClientComponent, canActivate:[AuthGuard] },
+    { path: 'commandes-client', component: CommandesClientComponent, canActivate:[AuthGuard] },
+    { path: 'reclamations-client', component: ReclamationsClientComponent, canActivate:[AuthGuard] },
+    { path: 'listecommandes', component: ListeCommandesComponent, canActivate:[AuthGuard] },
+    { path: 'ajouterClient', component: FormsComponent, canActivate:[AuthGuard] },
+    { path: 'afficherClient/:id', component: AffichComponent, canActivate:[AuthGuard] },
+    { path: 'consulter', component: ConsultationComponent, canActivate:[AuthGuard] },
+    { path: 'modifierClient', component: ModifierClientComponent, canActivate:[AuthGuard] },
+    { path: 'modifClient/:id', component: ModifFormComponent, canActivate:[AuthGuard] },
+    { path: 'supprimerClient', component: SuppClientComponent, canActivate:[AuthGuard] },
+
+    {path: 'desactiverCompte', component: DesactiverCompteComponent }]},
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: 'client', component: ClientComponent, canActivate: [AuthGuard] },
-  { path: 'reclamations', component: ReclamationsAdminComponent, canActivate:[AuthGuard]},
-  { path: 'gestionclients', component: GestionClientComponent, canActivate:[AuthGuard] },
-  { path: 'commandes-client', component: CommandesClientComponent, canActivate:[AuthGuard] },
-  { path: 'reclamations-client', component: ReclamationsClientComponent, canActivate:[AuthGuard] },
-  { path: 'listecommandes', component: ListeCommandesComponent, canActivate:[AuthGuard] },
-  { path: 'ajouterClient', component: FormsComponent, canActivate:[AuthGuard] },
-  { path: 'afficherClient/:id', component: AffichComponent, canActivate:[AuthGuard] },
-  { path: 'consulter', component: ConsultationComponent, canActivate:[AuthGuard] },
-  { path: 'modifierClient', component: ModifierClientComponent, canActivate:[AuthGuard] },
-  { path: 'activerClient', component: ActiverClientComponent, canActivate:[AuthGuard] },
-  { path: 'modifClient/:id', component: ModifFormComponent, canActivate:[AuthGuard] },
-  { path: 'supprimerClient', component: SuppClientComponent, canActivate:[AuthGuard] },
-  { path: 'register', component: RegisterComponent, canActivate:[AuthGuard] }
+  { path: 'register', component: RegisterComponent, canActivate:[AuthGuard] },
+
 ];
 
 @NgModule({
