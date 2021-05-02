@@ -33,14 +33,14 @@ public class UtilisateurPricipal implements UserDetails {
 	
 	private String status;
 	
-	private Integer active;
+	private Boolean active;
 	@JsonIgnore
 	private String pwd;
 	
 	private Collection<? extends GrantedAuthority> authorities;
 
 	public UtilisateurPricipal(Long id, String code, String userName, String raisonSocial, String tel,
-			String adress, Integer active, String pwd,
+			String adress, Boolean active, String pwd,
 			Collection<? extends GrantedAuthority> authorities) {
 		super();
 		this.id = id;
@@ -106,7 +106,7 @@ public class UtilisateurPricipal implements UserDetails {
 		return status;
 	}
 
-	public Integer getActive() {
+	public Boolean getActive() {
 		return active;
 	}
 
@@ -189,7 +189,7 @@ public class UtilisateurPricipal implements UserDetails {
 		this.status = status;
 	}
 
-	public void setActive(Integer active) {
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
 

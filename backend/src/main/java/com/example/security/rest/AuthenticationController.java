@@ -5,6 +5,7 @@ import com.example.repository.UtilisateurRepository;
 import com.example.security.jwt.JwtProvider;
 import com.example.security.util.JwtResponse;
 import com.example.security.util.ResponseMessage;
+import com.example.service.UtilisateurService;
 import com.example.util.LoginForm;
 import com.example.util.SignUpForm;
 import io.swagger.annotations.ApiResponse;
@@ -25,54 +26,57 @@ import javax.validation.Valid;
 @RequestMapping("/api/auth")
 public class AuthenticationController {
 
-	@Autowired
-	AuthenticationManager authenticationManager;
+    @Autowired
+    UtilisateurService utilisateurService;
 
-	@Autowired
-	UtilisateurRepository utilisateurRepository;
+    @Autowired
+    AuthenticationManager authenticationManager;
 
-	@Autowired
-	PasswordEncoder encoder;
+    @Autowired
+    UtilisateurRepository utilisateurRepository;
 
-	@Autowired
-	JwtProvider jwtProvider;
+    @Autowired
+    PasswordEncoder encoder;
 
-	@PostMapping("/signin")
-	public ResponseEntity<?> authenticateUser(@RequestBody LoginForm loginRequest) {
-		Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPwd()));
-		SecurityContextHolder.getContext().setAuthentication(authentication);
-		String jwt = jwtProvider.generateJwtToken(authentication);
-		JwtResponse body = new JwtResponse(jwt);
+    @Autowired
+    JwtProvider jwtProvider;
 
-		return ResponseEntity.ok(body);
-	}
+    @PostMapping("/signin")
+    public ResponseEntity<?> authenticateUser(@RequestBody LoginForm loginRequest) {
+        Utilisateur utilisateur = this.utilisateurService.getByUsername(loginRequest.getUsername());
+//if utilisateur.getActive == false
+        if (!utilisateur.getActive()) {
+            return new ResponseEntity<>(new ResponseMessage("Fail -> Account is inactive!"), HttpStatus.FORBIDDEN);
+        }
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPwd()));
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String jwt = jwtProvider.generateJwtToken(authentication);
+        JwtResponse body = new JwtResponse(jwt);
 
-	@PostMapping("/signup")
-	@ApiResponse(code = 201, message = "L'utilisateur a été créé avec succées")
-	public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
+        return ResponseEntity.ok(body);
+    }
 
-		if (utilisateurRepository.existsByCode(signUpRequest.getCode())) {
-			System.out.println(utilisateurRepository.existsByCode(signUpRequest.getCode()));
-			return new ResponseEntity<>(new ResponseMessage("Fail -> Code is already taken!"),
-					HttpStatus.BAD_REQUEST);
-		}
+    @PostMapping("/signup")
+    @ApiResponse(code = 201, message = "L'utilisateur a été créé avec succées")
+    public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
 
-		if (utilisateurRepository.existsByCode(signUpRequest.getUsername())) {
-			return new ResponseEntity<>(new ResponseMessage("Fail -> username is already in use!"),
-					HttpStatus.BAD_REQUEST);
-		}
+        if (utilisateurService.hasAccount(signUpRequest.getCode())) {
 
-		Utilisateur utilisateur = new Utilisateur();
+            return new ResponseEntity<>(new ResponseMessage("Fail -> Account is already taken!"),
+                    HttpStatus.BAD_REQUEST);
+        }
 
-		utilisateur.setUsername(signUpRequest.getUsername());
-		utilisateur.setPwd(encoder.encode(signUpRequest.getPwd()));
-		utilisateur.setRoles(signUpRequest.getRole());
+        Utilisateur utilisateur = this.utilisateurService.getByCode(signUpRequest.getCode());
 
-		System.out.println("Roles: "+signUpRequest.getRole());
+        utilisateur.setPwd(encoder.encode(signUpRequest.getPwd()));
+        utilisateur.setRoles(signUpRequest.getRoles());
+        utilisateur.setHasAccount(true);
+        utilisateur.setActive(true);
 
+        System.out.println("Roles: " + signUpRequest.getRoles());
 
-		utilisateurRepository.save(utilisateur);
+        utilisateurRepository.save(utilisateur);
 
-		return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
-	}
+        return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
+    }
 }

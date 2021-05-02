@@ -14,39 +14,43 @@ import java.util.List;
 @Api(value = "Rest Controller: Utilisateur")
 public class UtilisateurController {
 
-	@Autowired
-	private UtilisateurService utilisateurService;
+    @Autowired
+    private UtilisateurService utilisateurService;
 
-	@PostMapping
-	public Utilisateur  createUser(@RequestBody Utilisateur utilisateur) {
-		return utilisateurService.create(utilisateur);
-	}
+    @PostMapping
+    public Utilisateur createUser(@RequestBody Utilisateur utilisateur) {
+        return utilisateurService.create(utilisateur);
+    }
 
-	@GetMapping("/{id}")
-	public Utilisateur  getUtilisateurById(@PathVariable  Long id) {
-		return utilisateurService.findById(id);
-	}
+    @GetMapping("/{id}")
+    public Utilisateur getUtilisateurById(@PathVariable Long id) {
+        return utilisateurService.findById(id);
+    }
 
-	@GetMapping("/code/{code}")
-	public Utilisateur getByCode(@PathVariable String code){
-		return utilisateurService.getByCode(code);
-	}
+    @GetMapping("/code/{code}")
+    public Utilisateur getByCode(@PathVariable String code) {
+        return utilisateurService.getByCode(code);
+    }
 
-	@GetMapping
-	public List<Utilisateur> getAllUtilisateurs(){
-		return utilisateurService.getAllUtilisateurs();
-	}
+    @GetMapping
+    public List<Utilisateur> getAllUtilisateurs() {
+        return utilisateurService.getAllUtilisateurs();
+    }
 
-	@DeleteMapping("/{id}")
-	public void delete(@PathVariable Long id) {
-		utilisateurService.delete(id);
-	}
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        utilisateurService.delete(id);
+    }
 
-	@PutMapping("/{id}")
-	public  Utilisateur update(@PathVariable Long id ,@RequestBody Utilisateur utilisateur) {
-    	return  utilisateurService.update(utilisateur);
-	}
+    @PutMapping("/{id}")
+    public Utilisateur update(@PathVariable Long id, @RequestBody Utilisateur utilisateur) {
+        return utilisateurService.update(utilisateur);
+    }
 
+    @PutMapping("/{code}")
+    public Utilisateur activateAccount(@PathVariable String code, @RequestParam Boolean active) {
+        return utilisateurService.ActivateAccount(active, code);
+    }
 }
 
 

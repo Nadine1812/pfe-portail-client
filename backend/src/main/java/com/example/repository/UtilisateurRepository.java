@@ -18,7 +18,7 @@ public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> 
 	
 	public Utilisateur deleteByCode (String code);
 	
-	public Optional<Utilisateur> findByUsername (String userName);
+	public Utilisateur getByUsername (String userName);
 
 	public Utilisateur getByCode (String code);
 

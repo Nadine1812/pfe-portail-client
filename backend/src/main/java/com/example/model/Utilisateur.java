@@ -25,7 +25,10 @@ public class Utilisateur {
 
 	private String adress;
 
-	private Integer active;
+	private Boolean active;
+
+	private Boolean hasAccount;
+
 
 	@ElementCollection
 	private Set<Role> roles = new HashSet<>();
