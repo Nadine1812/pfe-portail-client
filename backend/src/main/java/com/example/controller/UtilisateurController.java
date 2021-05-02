@@ -47,7 +47,7 @@ public class UtilisateurController {
         return utilisateurService.update(utilisateur);
     }
 
-    @PutMapping("/{code}")
+    @PutMapping("/{code}/activate-account")
     public Utilisateur activateAccount(@PathVariable String code, @RequestParam Boolean active) {
         return utilisateurService.ActivateAccount(active, code);
     }
