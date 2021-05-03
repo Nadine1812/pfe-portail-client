@@ -1,39 +1,36 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Observable, Subscription} from 'rxjs';
-import { TokenStorageService } from 'src/app/pages/auth/token-storage.service';
-import { ClientsService } from 'src/app/services/clients.service';
-import { Router} from "@angular/router";
+import {TokenStorageService} from 'src/app/pages/auth/token-storage.service';
+import {ClientsService} from 'src/app/services/clients.service';
+import {Router} from "@angular/router";
 import {Menu} from "../../pages/models/menu";
 
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+    selector: 'app-sidebar',
+    templateUrl: './sidebar.component.html',
+    styleUrls: ['./sidebar.component.scss']
 })
-export class SidebarComponent implements OnInit, OnDestroy{
- info:any;
- activeMenuItem$: Observable<Menu>;
-  authListenerSubs: Subscription = new Subscription();
-  constructor(private token: TokenStorageService,
-    private clientService: ClientsService,
-              private route: Router
-    ) {}
+export class SidebarComponent implements OnInit, OnDestroy {
+    info: any;
+    activeMenuItem$: Observable<Menu>;
+    authListenerSubs: Subscription = new Subscription();
 
-  ngOnInit() {
+    constructor(private token: TokenStorageService,
+                private clientService: ClientsService,
+                private route: Router
+    ) {
+    }
 
-      // this.info = {
-      //   username: this.token.getUsername(),
-      // };
-      // tslint:disable-next-line:no-unused-expression
+    ngOnInit() {
+    }
 
-  }
-  ngOnDestroy() {
-    this.authListenerSubs.unsubscribe();
-  }
+    ngOnDestroy() {
+        this.authListenerSubs.unsubscribe();
+    }
 
-  logout() {
-    this.token.signOut();
-    window.location.reload();
-  }
+    logout() {
+        this.token.signOut();
+        window.location.reload();
+    }
 }

@@ -21,11 +21,9 @@ import {ListeCommandesComponent} from './pages/liste-commandes/liste-commandes.c
 import {LoginComponent} from './pages/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {DataService} from './services/data.service';
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {AffichComponent} from './pages/affich/affich.component';
 import {AppMaterialModule} from './app-material.module';
-// import { AuthGuard } from './services/auth.guard';
 import {HomeComponent} from './pages/home/home.component';
 import {CommandesClientComponent} from './pages/commandes-client/commandes-client.component';
 import {ReclamationsClientComponent} from './pages/reclamations-client/reclamations-client.component';
@@ -35,7 +33,6 @@ import {ReclamationsAdminComponent} from './pages/reclamations-admin/reclamation
 import {ModifFormComponent} from './pages/modif-form/modif-form.component';
 import {SuppClientComponent} from './pages/supp-client/supp-client.component';
 import {RegisterComponent} from './pages/register/register.component';
-import {AdminComponent} from './pages/admin/admin.component';
 import {AuthGuard} from "./services/auth.guard";
 import {AuthInterceptor} from "./pages/auth/auth-interceptor";
 import { DesactiverCompteComponent } from './pages/desactiver-compte/desactiver-compte.component';
@@ -63,7 +60,6 @@ import { DesactiverCompteComponent } from './pages/desactiver-compte/desactiver-
         ModifFormComponent,
         SuppClientComponent,
         RegisterComponent,
-        AdminComponent,
         DesactiverCompteComponent,
     ],
     imports: [
