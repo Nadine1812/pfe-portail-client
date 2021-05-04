@@ -1,45 +1,38 @@
 <nav class="navbar navbar-expand-md fixed-top navbar-dark flex-fill">
-  <div class="navbar-header pl-2 pr-2 ml-3 text-center">
-    <a class="navbar-brand m-0 w-100" href="#">
-      <i class="fa fa-flash mr-1"></i>
-      <img src="./assets/img/logo-white.png" alt="lightning logo" width="125px">
-    </a>
-  </div>
-</nav>
-<div class="site-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <!-- <div style="text-align: center;margin-bottom: 1px;">
-          <img  src="./assets/img/SmartUP1.ico">
-        </div> -->
-        <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="form-login" #f="ngForm" novalidate>
-          <div class="form-group">
-            <label for="username">Nom d'utilisateur</label>
-            <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
-              required />
-            <div *ngIf="f.submitted && username.invalid">
-              <div *ngIf="username.errors.required">Username is required</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="pwd">Mot de passe</label>
-            <input type="password" class="form-control" name="pwd" [(ngModel)]="form.pwd" #pwd="ngModel" required
-              minlength="4" />
-            <div *ngIf="f.submitted && pwd.invalid">
-              <div *ngIf="pwd.errors.required">Password is required</div>
-              <div *ngIf="pwd.errors.minlength">Password must be at least 6 characters</div>
-            </div>
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Connecter </button>
-            <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
-              Login failed
-            </div>
-          </div>
-        </form>
-      </div>
+    <div class="navbar-header pl-2 pr-2 ml-3 text-center">
+        <a class="navbar-brand m-0 w-100" href="#">
+            <i class="fa fa-flash mr-1"></i>
+            <img src="./assets/img/logo-white.png" alt="lightning logo" width="125px">
+        </a>
     </div>
-  </div>
+</nav>
+<div class="login">
+    <div class="login-header">
+        <h1>Login</h1>
+    </div>
+    <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="form-login" #f="ngForm" novalidate>
+    <div class="login-form">
+        <h6 >Nom d'utilisateur</h6>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+         required />
+        <div *ngIf="f.submitted && username.invalid">
+         <div *ngIf="username.errors.required">Username is required</div>
+        </div>
+        <h6 >Mot de passe</h6>
+        <input type="password" class="form-control" name="pwd" [(ngModel)]="form.pwd" #pwd="ngModel" required
+        minlength="4" />
+        <div *ngIf="f.submitted && pwd.invalid">
+         <div *ngIf="pwd.errors.required">Password is required</div>
+       <div *ngIf="pwd.errors.minlength">Password must be at least 4 characters</div>
+          </div>
+        <br>
+
+       <button type="submit"value="Login" class="btn btn-lightning rounded">Connecter </button>
+       <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+        Login failed
+
+</div>
+    </div>
+    </form>
 </div>
 

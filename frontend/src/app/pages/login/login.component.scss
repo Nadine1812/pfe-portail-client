@@ -1,0 +1,33 @@
+.login {
+  margin:0 auto;
+  max-width:1000px;
+}
+.login-header {
+  color:#fff;
+  text-align:center;
+  font-size:300%;
+}
+
+.login-form {
+  border:.5px solid #fff;
+  background:#f29915;
+  border-radius:10px;
+  box-shadow:0px 0px 10px #000;
+}
+
+.login-form {
+  box-sizing:border-box;
+  padding-top:15px;
+  padding-bottom:10%;
+  text-align:center;
+}
+.login input[type="text"],
+.login input[type="password"] {
+  width: 80%;
+  margin:1em 3em;
+}
+
+
+
+
+
