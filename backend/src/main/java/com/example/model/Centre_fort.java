@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@IdClass(Etablissement.class)
+@IdClass(Centre_fort.class)
 public class Centre_fort implements Serializable {
 
     @Id
