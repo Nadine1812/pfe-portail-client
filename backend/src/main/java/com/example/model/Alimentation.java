@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
+@IdClass(Alimentation.class)
 public class Alimentation  implements Serializable {
 
     @Id
@@ -22,8 +23,5 @@ public class Alimentation  implements Serializable {
 
     private Long montant;
 
-    @ManyToOne
-    @JoinColumn(name="passage_id")
-    private Passage passage;
 
 }
