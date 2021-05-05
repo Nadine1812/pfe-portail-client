@@ -10,7 +10,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class Passage  {
+public class Passage{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,8 +27,6 @@ public class Passage  {
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate passage_date;
 
-    @OneToMany(mappedBy="passage")
-    private List<Alimentation> Alimentation;
 
 
 }

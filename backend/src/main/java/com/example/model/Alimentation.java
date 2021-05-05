@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
-public class Alimentation implements Serializable {
+public class Alimentation  implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

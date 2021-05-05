@@ -3,12 +3,12 @@ package com.example.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
+
 
 @Data
 @Entity
-public class Societe {
+public class Societe implements Serializable {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,12 +16,9 @@ public class Societe {
 
         private String societe_nom;
 
-        private Number societe_type;
+        private Long societe_type;
 
         private String abrv;
-
-        @OneToMany(mappedBy="societe")
-        private List<Etablissement> Etablissement;
 
 
     }

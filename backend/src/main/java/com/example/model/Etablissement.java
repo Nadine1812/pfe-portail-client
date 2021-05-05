@@ -22,9 +22,7 @@ public class Etablissement implements Serializable {
 
     private String etablissement_libelle;
 
-    @ManyToOne
-    @JoinColumn(name="societe_id")
-    private Societe societe;
+
 
 
 }
