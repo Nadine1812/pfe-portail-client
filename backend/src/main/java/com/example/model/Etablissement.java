@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
+@IdClass(Etablissement.class)
 public class Etablissement implements Serializable {
 
     @Id
@@ -21,7 +22,6 @@ public class Etablissement implements Serializable {
     private String cen_societe_id;
 
     private String etablissement_libelle;
-
 
 
 

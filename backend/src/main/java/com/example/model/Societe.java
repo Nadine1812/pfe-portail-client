@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-
+import java.util.List;
 
 @Data
 @Entity
@@ -19,6 +19,5 @@ public class Societe implements Serializable {
         private Long societe_type;
 
         private String abrv;
-
 
     }
