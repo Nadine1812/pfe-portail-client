@@ -6,7 +6,6 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.List;
 
 @Data
 @Entity
@@ -20,9 +19,9 @@ public class Passage{
 
     private String cen_societe_id;
 
-    private Long etablissement_id;
+    private String etablissement_id;
 
-    private Long societe_id;
+    private String societe_id;
 
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate passage_date;
