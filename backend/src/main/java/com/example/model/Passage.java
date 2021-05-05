@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
-public class Passage{
+public class Passage  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,7 +25,5 @@ public class Passage{
 
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate passage_date;
-
-
 
 }
