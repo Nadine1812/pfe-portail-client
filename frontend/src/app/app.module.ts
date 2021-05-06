@@ -38,6 +38,7 @@ import { DesactiverCompteComponent } from './pages/desactiver-compte/desactiver-
 import { AffichEtablissementComponent } from './pages/affich-etablissement/affich-etablissement.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {NgxPaginationModule} from "ngx-pagination";
+import { AffichPassagesComponent } from './pages/affich-passages/affich-passages.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import {NgxPaginationModule} from "ngx-pagination";
         RegisterComponent,
         DesactiverCompteComponent,
         AffichEtablissementComponent,
+        AffichPassagesComponent,
     ],
     imports: [
         AppMaterialModule,
