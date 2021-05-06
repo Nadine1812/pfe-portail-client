@@ -4,56 +4,61 @@
         <div class="form-group">
             <label>Code</label>
             <div>
-                <input type="text" class="form-control" name="code" [(ngModel)]="form.code"
-                       [ngModelOptions]="{standalone: true}" #code="ngModel"
-                       required/>
-            </div>
-            <div *ngIf="f.submitted && code.invalid">
-                <div *ngIf="code.errors.required">Code is required</div>
-                <div *ngIf="code.errors.code">Code must be valid</div>
-            </div>
+                <div class="row">
+
+                    <input type="text" class="form-control" name="code" [(ngModel)]="form.code"
+                           [ngModelOptions]="{standalone: true}" #code="ngModel"
+                           required/>
+                </div>
+                <div *ngIf="f.submitted && code.invalid">
+                    <div *ngIf="code.errors.required">Code is required</div>
+                    <div *ngIf="code.errors.code">Code must be valid</div>
+                </div>
                 <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="ok()">Ok</button>
-            <div>
-                <h5>Nom: {{form.username}} </h5>
-                <h5>Raison social: {{form.raisonSocial}} </h5>
-                <h5>Adress: {{form.adress}} </h5>
-                <h5>Téléphone: {{form.tel}} </h5>
+                <div>
+                    <h5>Nom: {{form.username}} </h5>
+                    <h5>Raison social: {{form.raisonSocial}} </h5>
+                    <h5>Adress: {{form.adress}} </h5>
+                    <h5>Téléphone: {{form.tel}} </h5>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label>Nom d'utilisateur</label>
-            <input type="text" class="form-control" name="username" [(ngModel)]="form.username"
-                   [ngModelOptions]="{standalone: true}" #username="ngModel"
-                   required/>
-            <div *ngIf="f.submitted && username.invalid">
-                <div *ngIf="username.errors.required">Username is required</div>
+            <div class="form-group">
+                <label>Nom d'utilisateur</label>
+                <input type="text" class="form-control" name="username" [(ngModel)]="form.username"
+                       [ngModelOptions]="{standalone: true}" #username="ngModel"
+                       required/>
+                <div *ngIf="f.submitted && username.invalid">
+                    <div *ngIf="username.errors.required">Username is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Role : </label>
+                <select name="role" class="form-control" id="role" [(ngModel)]="role"
+                        [ngModelOptions]="{standalone: true}">
+                    <option value="">Choisissez le role d'utilisateur</option>
+                    <option value="ROLE_ADMIN">Admin</option>
+                    <option value="ROLE_CLIENT">Client</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Mot de passe</label>
+                <input type="password" class="form-control" name="pwd" [(ngModel)]="form.pwd"
+                       [ngModelOptions]="{standalone: true}" #pwd="ngModel"
+                       required minlength="4"/>
+                <div *ngIf="f.submitted && pwd.invalid">
+                    <div *ngIf="pwd.errors.required">Password is required</div>
+                    <div *ngIf="pwd.errors.minlength">Password must be at least 4 characters</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="signup()">S'inscrire</button>
+                <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
+                    Signup failed!<br/>{{errorMessage}}
+                </div>
             </div>
         </div>
 
-        <div class="form-group">
-            <label>Role : </label>
-            <select name="role" class="form-control" id="role" [(ngModel)]="role"
-                    [ngModelOptions]="{standalone: true}">
-                <option value="">Choisissez le role d'utilisateur</option>
-                <option value="ROLE_ADMIN">Admin</option>
-                <option value="ROLE_CLIENT">Client</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label>Mot de passe</label>
-            <input type="password" class="form-control" name="pwd" [(ngModel)]="form.pwd"
-                   [ngModelOptions]="{standalone: true}" #pwd="ngModel"
-                   required minlength="4"/>
-            <div *ngIf="f.submitted && pwd.invalid">
-                <div *ngIf="pwd.errors.required">Password is required</div>
-                <div *ngIf="pwd.errors.minlength">Password must be at least 4 characters</div>
-            </div>
-        </div>
-        <div class="form-group">
-            <button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="signup()">S'inscrire</button>
-            <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-                Signup failed!<br/>{{errorMessage}}
-            </div>
-        </div>
+
     </form>
 </div>

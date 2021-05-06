@@ -22,10 +22,10 @@
                             <td>{{c.code}}</td>
                             <td>{{c.username}}</td>
                             <td>
-                                <button *ngIf="c.active" class="btn btn-lightning rounded-0 mb-2 mr-2"
+                                <button *ngIf="c.active" class="btn btn red-background white rounded-0 mb-2 mr-2"
                                         (click)="DesactiverCompte(c.code)">Desactiver le compte
                                 </button>
-                                <button *ngIf="!c.active" class="btn btn-lightning rounded-0 mb-2 mr-2"
+                                <button *ngIf="!c.active" class="btn btn-success rounded-0 mb-2 mr-2"
                                         (click)="ActiverCompte(c.code)">Activer le compte
                                 </button>
                             </td>

@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="center" [style.color]="'Chocolate'">
+    <h3 class="text-center mt-5 mb-5">
+        ETABLISSEMENTS
+    </h3>
+        </div>
+
+    <div class="d-flex flex-row-reverse bd-highlight mb-2">
+        <div class="p-2 bd-highlight">
+            <select (change)="onTableSizeChange($event)" class="custom-select">
+                <option *ngFor="let size of tableSizes" [ngValue]="size">
+                    {{ size }}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID etablissement</th>
+            <th>ID société</th>
+            <th>ID centre fort</th>
+            <th>Société</th>
+            <th>libellé etablissement</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let e of etablissement | paginate : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };
+        ">
+            <th scope="row">{{e.etablissement_id}}</th>
+            <td>{{e.societe_id}}</td>
+            <td>{{e.centre_fort_id}}</td>
+            <td>{{e.cen_societe_id}}</td>
+            <td>{{e.etablissement_libelle}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center">
+        <pagination-controls
+                responsive="true"
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+    </div>
+
+</div>

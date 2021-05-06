@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
     isLoginFailed = false;
     errorMessage = '';
     roles: string[] = [];
+    hide: boolean = true;
     private loginInfo: AuthLoginInfo;
 
     constructor(
@@ -30,6 +31,10 @@ export class LoginComponent implements OnInit {
             this.isLoggedIn = true;
             this.roles = this.tokenStorage.getAuthorities();
         }
+    }
+
+    myFunction() {
+        this.hide = !this.hide;
     }
 
     onSubmit() {

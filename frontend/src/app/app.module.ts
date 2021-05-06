@@ -16,7 +16,6 @@ import {FooterComponent} from './components/footer/footer.component';
 import {ListeReclamationsComponent} from './pages/liste-reclamations/liste-reclamations';
 import {GestionClientComponent} from './pages/gestion-client/gestion-client.component';
 import {FormsComponent} from './pages/forms/forms.component';
-import {ClientComponent} from './pages/client/client.component';
 import {ListeCommandesComponent} from './pages/liste-commandes/liste-commandes.component';
 import {LoginComponent} from './pages/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -36,6 +35,9 @@ import {RegisterComponent} from './pages/register/register.component';
 import {AuthGuard} from "./services/auth.guard";
 import {AuthInterceptor} from "./pages/auth/auth-interceptor";
 import { DesactiverCompteComponent } from './pages/desactiver-compte/desactiver-compte.component';
+import { AffichEtablissementComponent } from './pages/affich-etablissement/affich-etablissement.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 @NgModule({
@@ -47,7 +49,6 @@ import { DesactiverCompteComponent } from './pages/desactiver-compte/desactiver-
         ListeReclamationsComponent,
         GestionClientComponent,
         FormsComponent,
-        ClientComponent,
         ListeCommandesComponent,
         LoginComponent,
         AffichComponent,
@@ -61,6 +62,7 @@ import { DesactiverCompteComponent } from './pages/desactiver-compte/desactiver-
         SuppClientComponent,
         RegisterComponent,
         DesactiverCompteComponent,
+        AffichEtablissementComponent,
     ],
     imports: [
         AppMaterialModule,
@@ -73,7 +75,8 @@ import { DesactiverCompteComponent } from './pages/desactiver-compte/desactiver-
         // InMemoryWebApiModule.forRoot(DataService),
         BrowserAnimationsModule,
         CollapseModule.forRoot(),
-        ToastrModule.forRoot()
+        ToastrModule.forRoot(),
+        MatPaginatorModule, NgxPaginationModule
     ],
     providers: [AuthService,
         AuthGuard,

@@ -17,6 +17,7 @@ import {RegisterComponent} from './pages/register/register.component';
 import {AuthGuard} from './services/auth.guard';
 import {DesactiverCompteComponent} from "./pages/desactiver-compte/desactiver-compte.component";
 import {AppComponent} from "./app.component";
+import {AffichEtablissementComponent} from "./pages/affich-etablissement/affich-etablissement.component";
 
 const routes: Routes = [
     {path: '', component: LoginComponent},
@@ -40,7 +41,8 @@ const routes: Routes = [
     {path: 'modifClient/:id', component: ModifFormComponent, canActivate: [AuthGuard]},
     {path: 'supprimerClient', component: SuppClientComponent, canActivate: [AuthGuard]},
 
-    {path: 'desactiverCompte', component: DesactiverCompteComponent}
+    {path: 'desactiverCompte', component: DesactiverCompteComponent},
+    {path: 'etablissements', component: AffichEtablissementComponent}
 ];
 
 @NgModule({
