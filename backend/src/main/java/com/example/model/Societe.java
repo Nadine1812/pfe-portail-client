@@ -19,7 +19,7 @@ public class Societe  {
 
         private String abrv;
 
-        @OneToMany(mappedBy="societe")
-        private List<Etablissement> etablissement;
+//        @OneToMany(mappedBy="societe")
+//        private List<Etablissement> etablissement;
 }
 
