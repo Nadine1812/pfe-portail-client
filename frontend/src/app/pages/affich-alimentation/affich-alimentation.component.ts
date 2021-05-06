@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import {PassagesService} from "../../services/passages.service";
+import {AlimentationService} from "../../services/alimentation.service";
 
 @Component({
-  selector: 'app-affich-passages',
-  templateUrl: './affich-passages.component.html',
-  styleUrls: ['./affich-passages.component.scss']
+  selector: 'app-affich-alimentation',
+  templateUrl: './affich-alimentation.component.html',
+  styleUrls: ['./affich-alimentation.component.scss']
 })
-export class AffichPassagesComponent implements OnInit {
+export class AffichAlimentationComponent implements OnInit {
 
-  passage: any;
+  alimentation: any;
   page = 1;
   count = 0;
   tableSize = 5;
   tableSizes = [3, 6, 9, 12];
-  constructor(private passageService: PassagesService) { }
+  constructor(private alimentationService: AlimentationService) { }
 
   ngOnInit() {
     this.fetchPosts();
   }
   fetchPosts(): void {
-    this.passageService.getAllPassage()
+    this.alimentationService.getAllAlimentation()
         .subscribe(
             response => {
-              this.passage = response;
+              this.alimentation = response;
               console.log(response);
             },
             error => {

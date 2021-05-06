@@ -4,7 +4,6 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {GestionClientComponent} from './pages/gestion-client/gestion-client.component';
 import {FormsComponent} from './pages/forms/forms.component';
-import {AffichComponent} from './pages/affich/affich.component';
 import {HomeComponent} from './pages/home/home.component';
 import {CommandesClientComponent} from './pages/commandes-client/commandes-client.component';
 import {ReclamationsClientComponent} from './pages/reclamations-client/reclamations-client.component';
@@ -19,6 +18,8 @@ import {DesactiverCompteComponent} from "./pages/desactiver-compte/desactiver-co
 import {AppComponent} from "./app.component";
 import {AffichEtablissementComponent} from "./pages/affich-etablissement/affich-etablissement.component";
 import {AffichPassagesComponent} from "./pages/affich-passages/affich-passages.component";
+import {AlimentationService} from "./services/alimentation.service";
+import {AffichAlimentationComponent} from "./pages/affich-alimentation/affich-alimentation.component";
 
 const routes: Routes = [
     {path: '', component: LoginComponent},
@@ -36,7 +37,7 @@ const routes: Routes = [
     {path: 'reclamations-client', component: ReclamationsClientComponent, canActivate: [AuthGuard]},
     {path: 'listecommandes', component: ListeCommandesComponent, canActivate: [AuthGuard]},
     {path: 'ajouterClient', component: FormsComponent, canActivate: [AuthGuard]},
-    {path: 'afficherClient/:id', component: AffichComponent, canActivate: [AuthGuard]},
+    // {path: 'afficherClient/:id', component: AffichComponent, canActivate: [AuthGuard]},
     {path: 'consulter', component: ConsultationComponent, canActivate: [AuthGuard]},
     {path: 'modifierClient', component: ModifierClientComponent, canActivate: [AuthGuard]},
     {path: 'modifClient/:id', component: ModifFormComponent, canActivate: [AuthGuard]},
@@ -44,7 +45,8 @@ const routes: Routes = [
 
     {path: 'desactiverCompte', component: DesactiverCompteComponent},
     {path: 'etablissements', component: AffichEtablissementComponent},
-    {path: 'passages', component: AffichPassagesComponent}
+    {path: 'passages', component: AffichPassagesComponent},
+    {path: 'alimentations', component: AffichAlimentationComponent}
 ];
 
 @NgModule({

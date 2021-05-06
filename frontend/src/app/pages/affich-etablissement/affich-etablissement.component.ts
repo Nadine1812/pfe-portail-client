@@ -12,7 +12,7 @@ export class AffichEtablissementComponent implements OnInit {
   etablissement: any;
     page = 1;
     count = 0;
-    tableSize = 7;
+    tableSize = 5;
     tableSizes = [3, 6, 9, 12];
 
     constructor(private etablissementService: EtablissementService) {}

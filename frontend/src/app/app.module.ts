@@ -39,6 +39,7 @@ import { AffichEtablissementComponent } from './pages/affich-etablissement/affic
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {NgxPaginationModule} from "ngx-pagination";
 import { AffichPassagesComponent } from './pages/affich-passages/affich-passages.component';
+import { AffichAlimentationComponent } from './pages/affich-alimentation/affich-alimentation.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { AffichPassagesComponent } from './pages/affich-passages/affich-passages
         DesactiverCompteComponent,
         AffichEtablissementComponent,
         AffichPassagesComponent,
+        AffichAlimentationComponent,
     ],
     imports: [
         AppMaterialModule,
