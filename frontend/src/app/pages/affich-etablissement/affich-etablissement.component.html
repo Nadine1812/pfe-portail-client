@@ -20,22 +20,25 @@
         <tr>
             <th>ID etablissement</th>
             <th>ID société</th>
+            <th>Nom société</th>
             <th>Société</th>
             <th>libellé etablissement</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let e of etablissement | paginate : {
+        <ng-container *ngFor="let e of etablissement | paginate : {
                 itemsPerPage: tableSize,
                 currentPage: page,
                 totalItems: count
               };
         ">
+            <tr *ngFor="let s of societe">
             <th scope="row">{{e.etablissement_id}}</th>
             <td>{{e.societe_id}}</td>
+            <td>{{s.societe_nom}}</td>
             <td>{{e.cen_societe_id}}</td>
             <td>{{e.etablissement_libelle}}</td>
-        </tr>
+        </ng-container>
         </tbody>
     </table>
 

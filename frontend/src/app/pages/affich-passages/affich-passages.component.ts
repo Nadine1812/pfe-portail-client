@@ -9,16 +9,18 @@ import {PassagesService} from "../../services/passages.service";
 export class AffichPassagesComponent implements OnInit {
 
   passage: any;
+  centre: any;
   page = 1;
   count = 0;
-  tableSize = 5;
+  tableSize = 1;
   tableSizes = [3, 6, 9, 12];
   constructor(private passageService: PassagesService) { }
 
   ngOnInit() {
     this.fetchPosts();
+      this.getAllCentres();
   }
-  fetchPosts(): void {
+    fetchPosts(): void {
     this.passageService.getAllPassage()
         .subscribe(
             response => {
@@ -28,6 +30,16 @@ export class AffichPassagesComponent implements OnInit {
             error => {
               console.log(error);
             });
+  }
+  getAllCentres() {
+    this.passageService.getAllCentresFort().subscribe(
+        response => {
+          this.centre = response;
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
   }
   onTableDataChange(event){
     this.page = event;

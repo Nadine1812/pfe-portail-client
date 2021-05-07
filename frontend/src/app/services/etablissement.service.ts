@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class EtablissementService {
     etabllisementURL = 'http://localhost:8080/api/etablissement';
+    societeURL = 'http://localhost:8080/api/societe';
 
     constructor(private httpClient: HttpClient) {
     }
@@ -13,5 +14,7 @@ export class EtablissementService {
     getAllEstablishment() {
         return this.httpClient.get(this.etabllisementURL);
     }
-
+    getAllSocieties(){
+        return this.httpClient.get(this.societeURL);
+    }
 }

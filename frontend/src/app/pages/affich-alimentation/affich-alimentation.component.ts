@@ -9,20 +9,33 @@ import {AlimentationService} from "../../services/alimentation.service";
 export class AffichAlimentationComponent implements OnInit {
 
   alimentation: any;
+  font: any;
   page = 1;
   count = 0;
-  tableSize = 5;
-  tableSizes = [3, 6, 9, 12];
+  tableSize = 1;
+  tableSizes = [1, 3, 6, 9, 12];
   constructor(private alimentationService: AlimentationService) { }
 
   ngOnInit() {
     this.fetchPosts();
+    this.getAllTypeFont();
   }
   fetchPosts(): void {
     this.alimentationService.getAllAlimentation()
         .subscribe(
             response => {
               this.alimentation = response;
+              console.log(response);
+            },
+            error => {
+              console.log(error);
+            });
+  }
+  getAllTypeFont() {
+    this.alimentationService.getAllTypeFont()
+        .subscribe(
+            response => {
+              this.font = response;
               console.log(response);
             },
             error => {

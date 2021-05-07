@@ -17,7 +17,7 @@
         <thead>
         <tr>
             <th>ID passage</th>
-            <th>ID centre fort</th>
+            <th>Centre fort</th>
             <th>Societe</th>
             <th>ID etablissement</th>
             <th>ID société</th>
@@ -25,19 +25,21 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let p of passage | paginate : {
+        <ng-container *ngFor="let p of passage | paginate : {
                 itemsPerPage: tableSize,
                 currentPage: page,
                 totalItems: count
-              };
-        ">
-            <th scope="row">{{p.passage_id}}</th>
-            <td>{{p.centre_fort_id}}</td>
-            <td>{{p.cen_societe_id}}</td>
-            <td>{{p.etablissement_id}}</td>
-            <td>{{p.societe_id}}</td>
-            <td>{{p.passage_date}}</td>
-        </tr>
+              };">
+            <tr *ngFor="let c of centre ">
+                <th scope="row">{{p.passage_id}}</th>
+                <td>{{c.centre_fort_libelle}}</td>
+                <td>{{p.cen_societe_id}}</td>
+                <td>{{p.etablissement_id}}</td>
+                <td>{{p.societe_id}}</td>
+                <td>{{p.passage_date}}</td>
+
+            </tr>
+        </ng-container>
         </tbody>
     </table>
 

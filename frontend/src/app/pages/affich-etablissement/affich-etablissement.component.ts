@@ -10,6 +10,7 @@ import {EtablissementService} from "../../services/etablissement.service";
 export class AffichEtablissementComponent implements OnInit {
 
   etablissement: any;
+  societe: any;
     page = 1;
     count = 0;
     tableSize = 5;
@@ -19,6 +20,7 @@ export class AffichEtablissementComponent implements OnInit {
 
   ngOnInit() {
       this.fetchPosts();
+      this.getAllSocieties()
   }
     fetchPosts(): void {
         this.etablissementService.getAllEstablishment()
@@ -30,6 +32,16 @@ export class AffichEtablissementComponent implements OnInit {
                 error => {
                     console.log(error);
                 });
+    }
+    getAllSocieties() {
+        this.etablissementService.getAllSocieties().subscribe(
+            response => {
+                this.societe = response;
+                console.log(response);
+            },
+            error => {
+                console.log(error);
+            });
     }
     onTableDataChange(event){
         this.page = event;

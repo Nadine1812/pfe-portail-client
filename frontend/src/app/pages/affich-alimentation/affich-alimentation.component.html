@@ -19,25 +19,24 @@
     <thead>
     <tr>
       <th>ID alimentation</th>
-      <th>ID passage</th>
       <th>Type de font</th>
       <th>Quantité</th>
       <th>Montant</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let a of alimentation | paginate : {
+    <ng-container *ngFor="let a of alimentation | paginate : {
                 itemsPerPage: tableSize,
                 currentPage: page,
                 totalItems: count
               };
         ">
+      <tr *ngFor="let f of font">
       <th scope="row">{{a.alimentation_id}}</th>
-      <td>{{a.passage_id}}</td>
-      <td>{{a.font_type_id}}</td>
+      <td>{{f.libelle}}</td>
       <td>{{a.qte}}</td>
       <td>{{a.montant}}</td>
-    </tr>
+    </ng-container>
     </tbody>
   </table>
 
