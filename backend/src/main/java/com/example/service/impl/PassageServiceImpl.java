@@ -6,6 +6,7 @@ import com.example.service.PassageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Service
@@ -18,4 +19,6 @@ public class PassageServiceImpl implements PassageService {
     public List<Passage> getAllPassage() {
         return passageRepository.findAll();
     }
+
+
 }

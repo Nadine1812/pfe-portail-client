@@ -5,11 +5,13 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
-public class Passage  {
+public class Passage {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +25,12 @@ public class Passage  {
 
     private String societe_id;
 
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate passage_date;
+
+
+    @OneToMany(targetEntity=Passage.class,cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+     private List<Centre_fort> centres = new ArrayList();
+
 
 }
