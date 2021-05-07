@@ -29,6 +29,8 @@ public class Utilisateur {
 
 	private Boolean hasAccount;
 
+	private String emailAddress;
+
 
 	@ElementCollection
 	private Set<Role> roles = new HashSet<>();
