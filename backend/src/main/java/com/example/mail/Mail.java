@@ -4,9 +4,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class Mail {
 
-    @ApiModelProperty(value = "Mail sender address")
-    public String MAIL_FROM ;
-
     @ApiModelProperty(value = "user receiver code")
     private String codeUser;
 
@@ -41,17 +38,9 @@ public class Mail {
         this.emailContent = emailContent;
     }
 
-    public String getMAIL_FROM() {
-        return MAIL_FROM;
-    }
-
-    public void setMAIL_FROM(String mail) {
-        this.MAIL_FROM = mail;
-    }
-
     @Override
     public String toString() {
-        return "Mail [MAIL_FROM=" + MAIL_FROM + ", codeUser=" + codeUser + ", emailSubject=" + emailSubject
+        return "Mail [codeUser=" + codeUser + ", emailSubject=" + emailSubject
                 + ", emailContent=" + emailContent + "]";
     }
 
