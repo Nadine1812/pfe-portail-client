@@ -22,9 +22,6 @@ export class RegisterComponent implements OnInit {
     roles: string;
     code: string;
     username: string;
-    raisonSocial: string;
-    adress: string;
-    tel: string;
     role;
 
 
