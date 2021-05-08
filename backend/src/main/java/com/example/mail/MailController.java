@@ -39,16 +39,16 @@ public class MailController {
     @PostMapping("/sendEmailToUser")
     public ResponseEntity<Boolean> sendEmail(@RequestBody Mail mailDto) {
         Utilisateur utilisateur = utilisateurService.getByCode(mailDto.getCodeUser());
-//
-//        if (utilisateur == null) {
-//            String errorMessage = "The selected user for sending email is not found in the database";
-//            LOGGER.info(errorMessage);
-//            return new ResponseEntity<Boolean>(false, HttpStatus.NOT_FOUND);
-//        } else if (utilisateur != null && StringUtils.isEmpty(utilisateur.getEmailAddress())) {
-//            String errorMessage = "No existing email for the selected user for sending email to";
-//            LOGGER.info(errorMessage);
-//            return new ResponseEntity<Boolean>(false, HttpStatus.NOT_FOUND);
-//        }
+
+        if (utilisateur == null) {
+            String errorMessage = "The selected user for sending email is not found in the database";
+            LOGGER.info(errorMessage);
+            return new ResponseEntity<Boolean>(false, HttpStatus.NOT_FOUND);
+        } else if (utilisateur != null && utilisateur.getEmailAddress()==null) {
+            String errorMessage = "No existing email for the selected user for sending email to";
+            LOGGER.info(errorMessage);
+            return new ResponseEntity<Boolean>(false, HttpStatus.NOT_FOUND);
+        }
 
         SimpleMailMessage mail = new SimpleMailMessage();
         mail.setFrom("smartup.pfe2021@gmail.com");
@@ -59,6 +59,7 @@ public class MailController {
         mail.setText(mailDto.getEmailContent(utilisateur.getUsername(),utilisateur.getPwd()));
 
         try {
+
             javaMailSender.send(mail);
         } catch (MailException e) {
             return new ResponseEntity<Boolean>(false, HttpStatus.FORBIDDEN);
