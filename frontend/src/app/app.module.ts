@@ -40,6 +40,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {NgxPaginationModule} from "ngx-pagination";
 import { AffichPassagesComponent } from './pages/affich-passages/affich-passages.component';
 import { AffichAlimentationComponent } from './pages/affich-alimentation/affich-alimentation.component';
+import { SendMailComponent } from './pages/send-mail/send-mail.component';
 
 
 @NgModule({
@@ -67,6 +68,7 @@ import { AffichAlimentationComponent } from './pages/affich-alimentation/affich-
         AffichEtablissementComponent,
         AffichPassagesComponent,
         AffichAlimentationComponent,
+        SendMailComponent,
     ],
     imports: [
         AppMaterialModule,

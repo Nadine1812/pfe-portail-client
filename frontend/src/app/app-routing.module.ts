@@ -20,6 +20,7 @@ import {AffichEtablissementComponent} from "./pages/affich-etablissement/affich-
 import {AffichPassagesComponent} from "./pages/affich-passages/affich-passages.component";
 import {AlimentationService} from "./services/alimentation.service";
 import {AffichAlimentationComponent} from "./pages/affich-alimentation/affich-alimentation.component";
+import {SendMailComponent} from "./pages/send-mail/send-mail.component";
 
 const routes: Routes = [
     {path: '', component: LoginComponent},
@@ -46,7 +47,8 @@ const routes: Routes = [
     {path: 'desactiverCompte', component: DesactiverCompteComponent},
     {path: 'etablissements', component: AffichEtablissementComponent},
     {path: 'passages', component: AffichPassagesComponent},
-    {path: 'alimentations', component: AffichAlimentationComponent}
+    {path: 'alimentations', component: AffichAlimentationComponent},
+    {path: 'envoie-mail', component: SendMailComponent}
 ];
 
 @NgModule({

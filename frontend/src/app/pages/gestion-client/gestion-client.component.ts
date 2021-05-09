@@ -45,4 +45,7 @@ export class GestionClientComponent implements OnInit {
     ajouterCompte() {
         this.router.navigate([`register`]);
     }
+    EnvoieMail(){
+        this.router.navigate([`envoie-mail`]);
+    }
 }
