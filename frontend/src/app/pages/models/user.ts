@@ -8,7 +8,7 @@ export class User {
     raisonSocial: String;
     tel: String;
     adress: String;
-    status: String;
     roles: String[];
     active: String;
+    emailAddress: String;
 }

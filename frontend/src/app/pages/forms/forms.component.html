@@ -43,6 +43,14 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Adresse email</label>
+                        <div class="form-group">
+                            <input type="email" class="form-control" [(ngModel)]='utilisateur.mail'
+                                   [ngModelOptions]="{standalone: true}"
+                                   placeholder="Adresse email">
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Téléphone ou Fax</label>
                         <div class="form-group">
                             <input type="text" class="form-control" [(ngModel)]='utilisateur.tel'

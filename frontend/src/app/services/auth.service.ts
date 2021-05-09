@@ -16,6 +16,7 @@ export class AuthService {
   isAuth: boolean;
   private loginUrl = 'http://localhost:8080/api/auth/signin';
   private signupUrl = 'http://localhost:8080/api/auth/signup';
+  private mailUrl = 'http://localhost:8080/api/mail/sendEmailToUser';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -25,5 +26,8 @@ export class AuthService {
   }
   signUp(info): Observable<any> {
     return this.httpClient.post<any>(this.signupUrl, info, httpOptions);
+  }
+  sendMail(mail): Observable<any> {
+    return this.httpClient.post<any>(this.mailUrl, mail);
   }
 }

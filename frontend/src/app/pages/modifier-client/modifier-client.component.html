@@ -15,6 +15,7 @@
                 <th scope="col">Nom</th>
                 <th scope="col">Raison social</th>
                 <th scope="col">Adress</th>
+                <th scope="col">E-mail</th>
                 <th scope="col">Téléphone/Fax</th>
                 <th scope="col">Action</th>
               </tr>
@@ -26,6 +27,7 @@
                 <td>{{c.username}}</td>
                 <td>{{c.raisonSocial}}</td>
                 <td>{{c.adress}}</td>
+                <td>{{c.mail}}</td>
                 <td>{{c.tel}}</td>
                 <td><button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="modifierClient(c.id)">Modifier</button></td>
               </tr>
