@@ -35,4 +35,6 @@ public class Utilisateur {
 	@ElementCollection
 	private Set<Role> roles = new HashSet<>();
 
+//	@OneToMany(mappedBy="utilisateur",cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+//	private Set<Reclamation> reclamations;
 }

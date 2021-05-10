@@ -1,11 +1,9 @@
 package com.example.repository;
 
-import com.example.model.Passage;
+import com.example.model.Reclamation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PassageRepository extends JpaRepository<Passage, Long> {
-
-
+public interface ReclamationRepository extends JpaRepository<Reclamation, Long> {
 }

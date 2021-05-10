@@ -1,6 +1,8 @@
 package com.example.mail;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+
 
 public class Mail {
 
