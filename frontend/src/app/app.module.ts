@@ -16,12 +16,10 @@ import {FooterComponent} from './components/footer/footer.component';
 import {ListeReclamationsComponent} from './pages/liste-reclamations/liste-reclamations';
 import {GestionClientComponent} from './pages/gestion-client/gestion-client.component';
 import {FormsComponent} from './pages/forms/forms.component';
-import {ListeCommandesComponent} from './pages/liste-commandes/liste-commandes.component';
 import {LoginComponent} from './pages/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
-import {AffichComponent} from './pages/affich/affich.component';
 import {AppMaterialModule} from './app-material.module';
 import {HomeComponent} from './pages/home/home.component';
 import {CommandesClientComponent} from './pages/commandes-client/commandes-client.component';
@@ -52,9 +50,7 @@ import { SendMailComponent } from './pages/send-mail/send-mail.component';
         ListeReclamationsComponent,
         GestionClientComponent,
         FormsComponent,
-        ListeCommandesComponent,
         LoginComponent,
-        AffichComponent,
         HomeComponent,
         CommandesClientComponent,
         ReclamationsClientComponent,

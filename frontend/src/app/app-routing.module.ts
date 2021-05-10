@@ -1,5 +1,4 @@
 import {LoginComponent} from './pages/login/login.component';
-import {ListeCommandesComponent} from './pages/liste-commandes/liste-commandes.component';
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {GestionClientComponent} from './pages/gestion-client/gestion-client.component';
@@ -36,9 +35,7 @@ const routes: Routes = [
     {path: 'gestionclients', component: GestionClientComponent, canActivate: [AuthGuard]},
     {path: 'commandes-client', component: CommandesClientComponent, canActivate: [AuthGuard]},
     {path: 'reclamations-client', component: ReclamationsClientComponent, canActivate: [AuthGuard]},
-    {path: 'listecommandes', component: ListeCommandesComponent, canActivate: [AuthGuard]},
     {path: 'ajouterClient', component: FormsComponent, canActivate: [AuthGuard]},
-    // {path: 'afficherClient/:id', component: AffichComponent, canActivate: [AuthGuard]},
     {path: 'consulter', component: ConsultationComponent, canActivate: [AuthGuard]},
     {path: 'modifierClient', component: ModifierClientComponent, canActivate: [AuthGuard]},
     {path: 'modifClient/:id', component: ModifFormComponent, canActivate: [AuthGuard]},

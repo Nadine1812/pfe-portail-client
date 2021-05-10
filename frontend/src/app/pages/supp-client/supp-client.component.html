@@ -13,9 +13,6 @@
                 <th scope="col">ID</th>
                 <th scope="col">Code</th>
                 <th scope="col">Nom</th>
-                <th scope="col">Raison social</th>
-                <th scope="col">Adress</th>
-                <th scope="col">Téléphone/Fax</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
@@ -24,9 +21,6 @@
                 <th scope="row">{{i+1}}</th>
                 <td>{{c.code}}</td>
                 <td>{{c.username}}</td>
-                <td>{{c.raisonSocial}}</td>
-                <td>{{c.adress}}</td>
-                <td>{{c.tel}}</td>
                 <td><button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="supprimerClient(c.id)">Supprimer</button></td>
               </tr>
             </tbody>

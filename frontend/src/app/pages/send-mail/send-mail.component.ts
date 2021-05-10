@@ -31,15 +31,6 @@ export class SendMailComponent implements OnInit {
         return this.clientService.getUtilisateurByCode(code);
     }
 
-    ok() {
-        this.getCode(this.form.code).subscribe(
-            (data) => {
-                this.form = data;
-                console.log('Voici mes objets', data);
-            }
-        );
-    }
-
     onSubmit() {
         this.authService.sendMail(this.dataset).subscribe(
             (res) => {

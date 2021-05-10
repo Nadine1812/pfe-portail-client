@@ -1,53 +1,40 @@
-<div class="site-section">
-  <div class="container">
-    <div>
-      <h2>Modifier client :</h2>
-      <br>
-    </div>
-    <div class="row">
-      <div class="col-lg-7">
-        <form #modifierClientForm='ngForm' (ngSubmit)='Utilisateur()'>
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Code:</label>
-            <div class="form-group">
-              <input type="text" class="form-control" [(ngModel)]='utilisateur.code' [ngModelOptions]="{standalone: true}"
-                placeholder="Code">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Nom:</label>
-            <div class="form-group">
-              <input type="text" class="form-control" [(ngModel)]='utilisateur.username' [ngModelOptions]="{standalone: true}"
-                placeholder="Nom">
-            </div>
-          </div>
-         
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Riason social</label>
-            <div class="form-group">
-              <input type="text" class="form-control" [(ngModel)]='utilisateur .raisonSocial'
-                [ngModelOptions]="{standalone: true}" placeholder="Raison social">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Adresse</label>
-            <div class="form-group">
-              <input type="text" class="form-control" [(ngModel)]='utilisateur.adress' [ngModelOptions]="{standalone: true}"
-                placeholder="Adresse">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Téléphone ou Fax</label>
-            <div class="form-group">
-              <input type="text" class="form-control" [(ngModel)]='utilisateur.tel' [ngModelOptions]="{standalone: true}"
-                placeholder="Téléphone/Fax">
-            </div>
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Modifier</button>
-          </div>
-        </form>
+<div class="card m-3">
+  <h5 class="card-header">MODIFIER CLIENT</h5>
+  <div class="card-body">
+    <form #modifierClientForm='ngForm' (ngSubmit)='Utilisateur()'>
+      <div class="form-group">
+        <label>Code </label>
+        <input type="text" class="form-control" [(ngModel)]='utilisateur.code' [ngModelOptions]="{standalone: true}"
+        placeholder="Code">
       </div>
-    </div>
+      <div class="form-group">
+        <label>Nom</label>
+        <input type="text" class="form-control" [(ngModel)]='utilisateur.username' [ngModelOptions]="{standalone: true}"
+       placeholder="Nom">
+      </div>
+      <div class="form-group">
+        <label>Raison social</label>
+        <input type="text" class="form-control" [(ngModel)]='utilisateur .raisonSocial'
+         [ngModelOptions]="{standalone: true}" placeholder="Raison social">
+       </div>
+      <div class="form-group">
+        <label>Adresse</label>
+        <input type="text" class="form-control" [(ngModel)]='utilisateur.adress' [ngModelOptions]="{standalone: true}"
+       placeholder="Adresse">
+      </div>
+      <div class="form-group">
+        <label>Adresse e-mail</label>
+        <input type="text" class="form-control" [(ngModel)]='utilisateur.emailAddress' [ngModelOptions]="{standalone: true}"
+       placeholder="Adresse e-mail">
+      </div>
+      <div class="form-group">
+        <label>Téléphone/Fax</label>
+        <input type="text" class="form-control" [(ngModel)]='utilisateur.tel' [ngModelOptions]="{standalone: true}"
+         placeholder="Téléphone/Fax">
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Modifier</button>
+      </div>
+    </form>
   </div>
 </div>

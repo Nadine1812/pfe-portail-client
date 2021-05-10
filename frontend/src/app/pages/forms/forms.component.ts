@@ -34,7 +34,7 @@ export class FormsComponent implements OnInit {
                 username: [''],
                 raisonSocial: [''],
                 adress: [''],
-                mail:[''],
+                emailAddress: [''],
                 tel: ['']
             });
         }
