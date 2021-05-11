@@ -1,3 +1,20 @@
-<p>
-  reclamations-client works!
-</p>
+<div class="card m-3">
+  <h5 class="card-header">ENVOYER UNE RECLAMATION</h5>
+  <div class="card-body">
+    <form >
+
+      <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" [(ngModel)]="reclamation.description"/>
+      </div>
+      <div class="form-group">
+        <label>Rapport</label>
+        <textarea class="form-control" [(ngModel)]="reclamation.rapport" rows="10"></textarea>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-lightning rounded-0 mb-2 mr-2"  (click)="saveReclamation()">Envoyer</button>
+      </div>
+    </form>
+  </div>
+</div>
+

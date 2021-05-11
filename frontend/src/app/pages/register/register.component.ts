@@ -58,12 +58,6 @@ export class RegisterComponent implements OnInit {
     onSubmit() {
         console.log(this.form);
 
-        // this.signupInfo = new SignUpInfo(
-        //     this.form.username,
-        //     this.form.role,
-        //     this.form.pwd,
-        //     this.form.code);
-
         this.authService.signUp(this.signupInfo).subscribe(
             data => {
                 console.log(data);
@@ -84,6 +78,7 @@ export class RegisterComponent implements OnInit {
         this.authService.signUp(this.form).subscribe(
             (data) => {
                 console.log('signup', data);
+                alert('Le compte est bien crée');
             }
         );
     }

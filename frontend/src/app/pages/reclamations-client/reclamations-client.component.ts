@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from "../auth/token-storage.service";
+import {ReclamationService} from "../../services/reclamation.service";
 
 @Component({
   selector: 'app-reclamations-client',
@@ -7,13 +8,17 @@ import {TokenStorageService} from "../auth/token-storage.service";
   styleUrls: ['./reclamations-client.component.scss']
 })
 export class ReclamationsClientComponent implements OnInit {
-reclamation
-  constructor(private tokenStrage: TokenStorageService) { }
+reclamation: any;
+  constructor(private tokenStrage: TokenStorageService,
+              private reclamationService: ReclamationService) { }
 
   ngOnInit() {
   }
-saveReclamation(){
+  saveReclamation() {
     this.reclamation.utilisateur = this.tokenStrage.getUser();
-    //je termine le service ici
+    this.reclamationService.createReclamation().subscribe(
+        (data) => {
+          console.log('reclamation', data);
+        });
 }
 }
