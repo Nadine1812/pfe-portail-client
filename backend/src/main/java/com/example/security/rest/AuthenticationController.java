@@ -50,7 +50,6 @@ public class AuthenticationController {
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginForm loginRequest) {
         Utilisateur utilisateur = this.utilisateurService.getByUsername(loginRequest.getUsername());
-//if utilisateur.getActive == false
         if (!utilisateur.getActive()) {
             return new ResponseEntity<>(new ResponseMessage("Fail -> Account is inactive!"), HttpStatus.FORBIDDEN);
         }
@@ -67,7 +66,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/signup")
-    @ApiResponse(code = 201, message = "L'utilisateur a été créé avec succées")
+    @ApiResponse(code = 201, message = "L'utilisateur a été créé avec succée")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
 
         if (utilisateurService.hasAccount(signUpRequest.getCode())) {
@@ -91,10 +90,11 @@ public class AuthenticationController {
         requestMail.setSendTo(utilisateur.getEmailAddress());
         requestMail.setSubject("Activation de compte");
 
-            requestMail.setContent("Votre compte est maintenat créé");
+            requestMail.setContent("Votre compte est maintenant créé: \n  Votre nom d'utilisation est:" + utilisateur.getUsername() + " et votre mot de passe est: " + utilisateur.getPwd()+ " \n " +
+                    "PS : Vous ne pouvez jamais voir votre mot de passe pour des raisons de sécurité, merci de nous appeler sur 54963533.");
 
         sendMailService.sendMail(requestMail);
-        return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
+        return new ResponseEntity<>(new ResponseMessage("utilisateur est crée avec succée"), HttpStatus.OK);
 
     }
 }

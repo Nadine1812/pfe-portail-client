@@ -24,5 +24,5 @@ public class Reclamation {
     private String Rapport ;
 
     @ManyToOne
-   Utilisateur utilisateur;
+    Utilisateur utilisateur;
 }

@@ -59,10 +59,10 @@ public class UtilisateurController {
         requestMail.setSendTo(utilisateur.getEmailAddress());
         requestMail.setSubject("Activation de compte");
         if (active) {
-            requestMail.setContent("Votre compte est maintenat activé");
+            requestMail.setContent("Votre compte est maintenant activé, vous pouvez connecter à tous moment");
         }
         else {
-            requestMail.setContent("Votre compte est maintenat désactivé");
+            requestMail.setContent("Votre compte est maintenant désactivé, merci pour votre fidélisation!");
         }
         sendMailService.sendMail(requestMail);
         return utilisateur;

@@ -27,10 +27,8 @@ public class MailController {
     @Autowired
     private UtilisateurServiceImpl utilisateurService;
 
-//    @Autowired
-//    private JavaMailSender javaMailSender;
-@Autowired
-private SendMailService sendMailService;
+    @Autowired
+    private SendMailService sendMailService;
 
     @PostMapping("/sendEmailToUser")
     public ResponseEntity<Boolean> sendEmail(@RequestBody RequestMail mail) {
@@ -40,23 +38,11 @@ private SendMailService sendMailService;
             String errorMessage = "The selected user for sending email is not found in the database";
             LOGGER.info(errorMessage);
             return new ResponseEntity<Boolean>(false, HttpStatus.NOT_FOUND);
-        } else if (utilisateur != null && utilisateur.getEmailAddress()==null) {
+        } else if (utilisateur != null && utilisateur.getEmailAddress() == null) {
             String errorMessage = "No existing email for the selected user for sending email to";
             LOGGER.info(errorMessage);
             return new ResponseEntity<Boolean>(false, HttpStatus.NOT_FOUND);
         }
-
-
-
-
-//        SimpleMailMessage mail = new SimpleMailMessage();
-//        mail.setFrom("smartup.pfe2021@gmail.com");
-//        mail.setTo(utilisateur.getEmailAddress());
-//        System.out.println(utilisateur.getEmailAddress());
-//        mail.setSentDate(new Date());
-//        mail.setSubject(mailDto.getEmailSubject());
-//        mail.setText(mailDto.getEmailContent(utilisateur.getUsername(),utilisateur.getPwd()));
-
         try {
 
             this.sendMailService.sendMail(mail);
@@ -66,4 +52,4 @@ private SendMailService sendMailService;
 
         return new ResponseEntity<Boolean>(true, HttpStatus.OK);
     }
-    }
+}
