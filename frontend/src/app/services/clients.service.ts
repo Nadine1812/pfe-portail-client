@@ -27,7 +27,7 @@ export class ClientsService {
     }
 
     getUtilisateurByCode(code) {
-        return this.httpClient.get<User>(`${this.utilisateurURL}/code/${code}`);
+        return this.httpClient.get<User>(this.utilisateurURL + "/code/" + code);
     }
 
     updateUtilisateur(utilisateur: any) {

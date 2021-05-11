@@ -1,5 +1,13 @@
-export interface Mail {
+export class Mail {
     codeUser: String;
-    emailSubject: String;
-    emailContent: String;
+    subject: String;
+    content: String;
+    sendTo: String;
+
+    constructor() {
+        this.codeUser = ''
+            this.subject = ''
+            this.content = ''
+        this.sendTo = ''
+    }
 }

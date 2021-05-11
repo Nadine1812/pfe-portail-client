@@ -13,30 +13,42 @@ export class SendMailComponent implements OnInit {
     form: User = new User();
     code: String;
     emailAddress: String;
-    dataset: Mail = {
-        codeUser: '',
-        emailSubject: '',
-        emailContent: ''
-    };
+    dataset: Mail = new Mail();
 
     constructor(private authService: AuthService,
                 private clientService: ClientsService) {
     }
 
     ngOnInit() {
-        this.getCode(this.code);
     }
 
-    getCode(code) {
-        return this.clientService.getUtilisateurByCode(code);
-    }
+    getCode(event) {
+        let code = event.target.value;
+        console.log(code);
+        return this.clientService.getUtilisateurByCode(code).subscribe(
+            data => {
+                if (data) {
+                    this.dataset.sendTo = data.emailAddress
+              }
+              },
+                 error => {
+                   console.log(error);}
+               );
+             }
 
-    onSubmit() {
-        this.authService.sendMail(this.dataset).subscribe(
-            (res) => {
-                this.dataset = res;
-                console.log(this.dataset);
-                alert('Email Sent successfully');
-            });
-    }
+onSubmit()
+{
+    console.log("dataset", this.dataset);
+    this.authService.sendMail(this.dataset).subscribe(
+        res => {
+            this.dataset = new Mail();
+            console.log("res", this.dataset);
+
+            alert('Email a étè envoyé avec succés');
+        },
+        error => {
+            console.log(error);
+        }
+    );
+}
 }

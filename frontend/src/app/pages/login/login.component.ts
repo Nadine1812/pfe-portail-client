@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
         this.authService.attemptAuth(this.loginInfo).subscribe(
             (data) => {
                 this.tokenStorage.saveToken(data.accessToken);
+                this.tokenStorage.saveUser(data);
                 this.isLoginFailed = false;
                 this.isLoggedIn = true;
 
