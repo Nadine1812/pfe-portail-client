@@ -23,6 +23,6 @@ public class Reclamation {
 
     private String Rapport ;
 
-//    @ManyToOne
-//    Utilisateur utilisateur;
+    @ManyToOne
+   Utilisateur utilisateur;
 }

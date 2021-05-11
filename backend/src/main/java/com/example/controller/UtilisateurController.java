@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import com.example.mail.RequestMail;
+import com.example.mail.SendMailService;
 import com.example.model.Utilisateur;
 import com.example.service.UtilisateurService;
 import io.swagger.annotations.Api;
@@ -17,6 +19,8 @@ public class UtilisateurController {
     @Autowired
     private UtilisateurService utilisateurService;
 
+    @Autowired
+    private SendMailService sendMailService;
     @PostMapping
     public Utilisateur createUser(@RequestBody Utilisateur utilisateur) {
         return utilisateurService.create(utilisateur);
@@ -49,7 +53,19 @@ public class UtilisateurController {
 
     @PutMapping("/{code}/activate-account")
     public Utilisateur activateAccount(@PathVariable String code, @RequestParam Boolean active) {
-        return utilisateurService.ActivateAccount(active, code);
+        Utilisateur utilisateur = utilisateurService.ActivateAccount(active, code);
+        RequestMail requestMail = new RequestMail();
+        requestMail.setSendFrom("smartup.pfe2021@gmail.com");
+        requestMail.setSendTo(utilisateur.getEmailAddress());
+        requestMail.setSubject("Activation de compte");
+        if (active) {
+            requestMail.setContent("Votre compte est maintenat activé");
+        }
+        else {
+            requestMail.setContent("Votre compte est maintenat désactivé");
+        }
+        sendMailService.sendMail(requestMail);
+        return utilisateur;
     }
 }
 

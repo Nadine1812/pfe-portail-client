@@ -27,13 +27,14 @@ public class MailController {
     @Autowired
     private UtilisateurServiceImpl utilisateurService;
 
-    @Autowired
-    private JavaMailSender javaMailSender;
-
+//    @Autowired
+//    private JavaMailSender javaMailSender;
+@Autowired
+private SendMailService sendMailService;
 
     @PostMapping("/sendEmailToUser")
-    public ResponseEntity<Boolean> sendEmail(@RequestBody Mail mailDto) {
-        Utilisateur utilisateur = utilisateurService.getByCode(mailDto.getCodeUser());
+    public ResponseEntity<Boolean> sendEmail(@RequestBody RequestMail mail) {
+        Utilisateur utilisateur = utilisateurService.getByCode(mail.getCodeUser());
 
         if (utilisateur == null) {
             String errorMessage = "The selected user for sending email is not found in the database";
@@ -45,17 +46,20 @@ public class MailController {
             return new ResponseEntity<Boolean>(false, HttpStatus.NOT_FOUND);
         }
 
-        SimpleMailMessage mail = new SimpleMailMessage();
-        mail.setFrom("smartup.pfe2021@gmail.com");
-        mail.setTo(utilisateur.getEmailAddress());
-        System.out.println(utilisateur.getEmailAddress());
-        mail.setSentDate(new Date());
-        mail.setSubject(mailDto.getEmailSubject());
-        mail.setText(mailDto.getEmailContent(utilisateur.getUsername(),utilisateur.getPwd()));
+
+
+
+//        SimpleMailMessage mail = new SimpleMailMessage();
+//        mail.setFrom("smartup.pfe2021@gmail.com");
+//        mail.setTo(utilisateur.getEmailAddress());
+//        System.out.println(utilisateur.getEmailAddress());
+//        mail.setSentDate(new Date());
+//        mail.setSubject(mailDto.getEmailSubject());
+//        mail.setText(mailDto.getEmailContent(utilisateur.getUsername(),utilisateur.getPwd()));
 
         try {
 
-            javaMailSender.send(mail);
+            this.sendMailService.sendMail(mail);
         } catch (MailException e) {
             return new ResponseEntity<Boolean>(false, HttpStatus.FORBIDDEN);
         }

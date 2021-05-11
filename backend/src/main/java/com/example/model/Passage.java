@@ -29,8 +29,4 @@ public class Passage {
     private LocalDate passage_date;
 
 
-//    @OneToMany(targetEntity=Passage.class,cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-//     private List<Centre_fort> centres = new ArrayList();
-
-
 }

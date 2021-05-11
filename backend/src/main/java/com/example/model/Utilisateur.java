@@ -1,5 +1,7 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -35,6 +37,7 @@ public class Utilisateur {
 	@ElementCollection
 	private Set<Role> roles = new HashSet<>();
 
-//	@OneToMany(mappedBy="utilisateur",cascade=CascadeType.ALL,fetch = FetchType.LAZY)
-//	private Set<Reclamation> reclamations;
+	@OneToMany(mappedBy="utilisateur",cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+	@JsonIgnoreProperties("utilisateur")
+	private Set<Reclamation> reclamations;
 }

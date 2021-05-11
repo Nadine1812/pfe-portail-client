@@ -1,5 +1,8 @@
 package com.example.security.rest;
 
+import com.example.DTO.UtilisateurDTO;
+import com.example.mail.RequestMail;
+import com.example.mail.SendMailService;
 import com.example.model.Utilisateur;
 import com.example.repository.UtilisateurRepository;
 import com.example.security.jwt.JwtProvider;
@@ -41,6 +44,9 @@ public class AuthenticationController {
     @Autowired
     JwtProvider jwtProvider;
 
+    @Autowired
+    SendMailService sendMailService;
+
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@RequestBody LoginForm loginRequest) {
         Utilisateur utilisateur = this.utilisateurService.getByUsername(loginRequest.getUsername());
@@ -51,9 +57,13 @@ public class AuthenticationController {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPwd()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtProvider.generateJwtToken(authentication);
-        JwtResponse body = new JwtResponse(jwt);
-
-        return ResponseEntity.ok(body);
+        JwtResponse jwtResponse = new JwtResponse(jwt);
+        UtilisateurDTO utilisateurDTO = new UtilisateurDTO();
+        utilisateurDTO.setUsername(utilisateur.getUsername());
+        utilisateurDTO.setCode(utilisateur.getCode());
+        utilisateurDTO.setAccessToken(jwtResponse.getAccessToken());
+        utilisateurDTO.setType(jwtResponse.getType());
+        return ResponseEntity.ok(utilisateurDTO);
     }
 
     @PostMapping("/signup")
@@ -76,7 +86,15 @@ public class AuthenticationController {
         System.out.println("Roles: " + signUpRequest.getRoles());
 
         utilisateurRepository.save(utilisateur);
+        RequestMail requestMail = new RequestMail();
+        requestMail.setSendFrom("smartup.pfe2021@gmail.com");
+        requestMail.setSendTo(utilisateur.getEmailAddress());
+        requestMail.setSubject("Activation de compte");
 
+            requestMail.setContent("Votre compte est maintenat créé");
+
+        sendMailService.sendMail(requestMail);
         return new ResponseEntity<>(new ResponseMessage("User registered successfully!"), HttpStatus.OK);
+
     }
 }
