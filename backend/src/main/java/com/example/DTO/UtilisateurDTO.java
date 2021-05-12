@@ -25,5 +25,6 @@ public class UtilisateurDTO {
     private String emailAddress;
 
     private String accessToken;
+
     private String type = "Bearer";
 }
