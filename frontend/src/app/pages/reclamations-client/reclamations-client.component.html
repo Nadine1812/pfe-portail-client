@@ -5,11 +5,11 @@
 
       <div class="form-group">
         <label>Description</label>
-        <input type="text" class="form-control" [(ngModel)]="reclamation.description"/>
+        <input type="text" class="form-control" [(ngModel)]="reclamation.description" [ngModelOptions]="{standalone: true}"/>
       </div>
       <div class="form-group">
         <label>Rapport</label>
-        <textarea class="form-control" [(ngModel)]="reclamation.rapport" rows="10"></textarea>
+        <textarea class="form-control" [(ngModel)]="reclamation.rapport" rows="10" [ngModelOptions]="{standalone: true}"></textarea>
       </div>
       <div class="text-center">
         <button class="btn btn-lightning rounded-0 mb-2 mr-2"  (click)="saveReclamation()">Envoyer</button>

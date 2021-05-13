@@ -10,7 +10,6 @@ import {User} from "../models/user";
     styleUrls: ['./send-mail.component.scss']
 })
 export class SendMailComponent implements OnInit {
-    form: User = new User();
     code: String;
     emailAddress: String;
     dataset: Mail = new Mail();

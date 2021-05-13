@@ -48,4 +48,7 @@ export class GestionClientComponent implements OnInit {
     EnvoieMail(){
         this.router.navigate([`envoie-mail`]);
     }
+    getAllReclamations(){
+        this.router.navigate([`liste-reclamations`]);
+    }
 }

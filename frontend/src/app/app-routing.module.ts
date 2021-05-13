@@ -46,7 +46,8 @@ const routes: Routes = [
     {path: 'passages', component: AffichPassagesComponent},
     {path: 'alimentations', component: AffichAlimentationComponent},
     {path: 'envoie-mail', component: SendMailComponent},
-    {path: 'envoie-reclamation', component: ReclamationsClientComponent}
+    {path: 'envoie-reclamation', component: ReclamationsClientComponent},
+    {path: 'liste-reclamations', component: ReclamationsAdminComponent}
 ];
 
 @NgModule({

@@ -1,8 +1,53 @@
-<div class="btn-group">
-  <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" > Consulter les reclamations</button>
-</div>
-<div class="btn-group">
-  <div class="btn-group">
-    <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" >Répondre aux reclamations</button>
-  </div>
+<div class="container">
+    <div class="center" [style.color]="'Chocolate'">
+        <h3 class="text-center mt-5 mb-5">
+            LISTE DES RECLAMATIONS
+        </h3>
+    </div>
+
+    <div class="d-flex flex-row-reverse bd-highlight mb-2">
+        <div class="p-2 bd-highlight">
+            <select (change)="onTableSizeChange($event)" class="custom-select">
+                <option *ngFor="let size of tableSizes" [ngValue]="size">
+                    {{ size }}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Rapport</th>
+            <th>Date création</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let r of reclamation | paginate : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };
+        let i = index" [class.active]="i == currentIndex">
+            <th scope="row">{{r.id}}</th>
+            <td>{{r.codeUser}}</td>
+            <td>{{r.description}}</td>
+            <td>{{r.rapport}}</td>
+            <td>{{r.date_creation}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center">
+        <pagination-controls
+                responsive="true"
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+    </div>
+
 </div>

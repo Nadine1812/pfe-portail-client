@@ -13,15 +13,7 @@ reclamationURL = 'http://localhost:8080/api/reclamation';
   createReclamation() {
     return this.httpClient.get(this.reclamationURL);
   }
-
-  getReclamationById(id) {
-    return this.httpClient.get(this.reclamationURL + id);
-  }
-
-  delete(id: any) {
-    return this.httpClient.delete(`${this.reclamationURL}/${id}`);
-  }
-  update(reclamation: any) {
-    return this.httpClient.put(`${this.reclamationURL}/${reclamation.id}`, reclamation );
+  getAllReclamations() {
+    return this.httpClient.get(this.reclamationURL);
   }
 }

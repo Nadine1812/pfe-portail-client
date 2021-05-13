@@ -3,17 +3,13 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import {CollapseModule} from 'ngx-bootstrap/collapse';
 import {ToastrModule} from 'ngx-toastr';
-
 import {AppRoutingModule} from './app-routing.module';
-
 import {AppComponent} from './app.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {ListeReclamationsComponent} from './pages/liste-reclamations/liste-reclamations';
 import {GestionClientComponent} from './pages/gestion-client/gestion-client.component';
 import {FormsComponent} from './pages/forms/forms.component';
 import {LoginComponent} from './pages/login/login.component';
@@ -47,7 +43,6 @@ import { SendMailComponent } from './pages/send-mail/send-mail.component';
         NavbarComponent,
         SidebarComponent,
         FooterComponent,
-        ListeReclamationsComponent,
         GestionClientComponent,
         FormsComponent,
         LoginComponent,
