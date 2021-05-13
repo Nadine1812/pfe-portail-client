@@ -1,10 +1,11 @@
 package com.example.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Date;
 
 @Data
@@ -23,6 +24,12 @@ public class Reclamation {
 
     private String Rapport ;
 
-    @ManyToOne
-    Utilisateur utilisateur;
+//    @ManyToOne
+//    Utilisateur utilisateur;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "utilisateur_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Utilisateur utilisateur;;
 }

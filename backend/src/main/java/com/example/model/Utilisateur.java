@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -37,7 +39,11 @@ public class Utilisateur {
 	@ElementCollection
 	private Set<Role> roles = new HashSet<>();
 
-	@OneToMany(mappedBy="utilisateur",cascade=CascadeType.ALL)
-	@JsonIgnoreProperties("utilisateur")
-	private Set<Reclamation> reclamations;
+//	@OneToMany(mappedBy="utilisateur",cascade=CascadeType.ALL)
+//	@JsonIgnoreProperties("utilisateur")
+//	private Set<Reclamation> reclamations;
+
+	@OneToMany(mappedBy="utilisateur",cascade=CascadeType.ALL,orphanRemoval = true)
+
+	private List<Reclamation> reclamations = new ArrayList<>();
 }
