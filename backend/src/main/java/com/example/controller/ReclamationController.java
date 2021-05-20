@@ -27,17 +27,6 @@ public class ReclamationController {
     @Autowired
     UtilisateurService utilisateurService;
 
-//    @PostMapping
-//    public Reclamation createReclamation(@RequestBody Reclamation reclamation) {
-//        RequestMail requestMail = new RequestMail();
-//        requestMail.setSendFrom(reclamation.getUtilisateur().getEmailAddress());
-//        requestMail.setSendTo("smartup.pfe2021@gmail.com");
-//        requestMail.setSubject("Reclamation: " + reclamation.getDescription());
-//        requestMail.setContent(reclamation.getRapport());
-//        sendMailService.sendMail(requestMail);
-//        return reclamationService.create(reclamation);
-//    }
-
     @PostMapping("utilisateur/{id}/reclamation")
     public Reclamation createReclamation(@PathVariable(value = "id") long id,@RequestBody Reclamation reclamation) {
 
@@ -53,23 +42,12 @@ public class ReclamationController {
         sendMailService.sendMail(requestMail);
         return userReclamation;}
 
-    @GetMapping("/{id}")
-    public Reclamation getReclamationById(@PathVariable Long id) {
-        return reclamationService.getById(id);
-    }
-
     @GetMapping
     public List<Reclamation> getAllReclamations() {
         return reclamationService.getAllReclamations();
     }
-
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         reclamationService.delete(id);
-    }
-
-    @PutMapping("/{id}")
-    public Reclamation update(@PathVariable Long id, @RequestBody Reclamation reclamation) {
-        return reclamationService.update(reclamation);
     }
 }

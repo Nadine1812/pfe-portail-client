@@ -17,6 +17,7 @@ public class JwtAuthEntryPoint implements AuthenticationEntryPoint {
 
 	private static final Logger logger = LoggerFactory.getLogger(JwtAuthEntryPoint.class);
 
+	//Commence le schéma d'authentification
 	@Override
 	public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException e)
 			throws IOException, ServletException {

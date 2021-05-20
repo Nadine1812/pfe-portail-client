@@ -23,23 +23,13 @@ public class ReclamationServiceImpl implements ReclamationService {
     }
 
     @Override
-    public Reclamation update(Reclamation reclamation) {
-        return reclamationRepository.save(reclamation);
-    }
-
-    @Override
-    public void delete(Long id) {
-reclamationRepository.deleteById(id);
-    }
-
-    @Override
     public Reclamation create(Reclamation reclamation) {
         return reclamationRepository.save(reclamation);
     }
 
     @Override
-    public Reclamation getById(Long id) {
-        Optional<Reclamation> Reclamation = reclamationRepository.findById(id);
-        return Reclamation.isPresent() ? Reclamation.get() : null;
+    public void delete(Long id) {
+        reclamationRepository.deleteById(id);
     }
+
 }

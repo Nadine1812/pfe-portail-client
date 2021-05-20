@@ -39,11 +39,6 @@ public class Utilisateur {
 	@ElementCollection
 	private Set<Role> roles = new HashSet<>();
 
-//	@OneToMany(mappedBy="utilisateur",cascade=CascadeType.ALL)
-//	@JsonIgnoreProperties("utilisateur")
-//	private Set<Reclamation> reclamations;
-
 	@OneToMany(mappedBy="utilisateur",cascade=CascadeType.ALL,orphanRemoval = true)
-
 	private List<Reclamation> reclamations = new ArrayList<>();
 }
