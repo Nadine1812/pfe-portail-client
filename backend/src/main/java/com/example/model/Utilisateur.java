@@ -1,9 +1,5 @@
 package com.example.model;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -34,7 +30,6 @@ public class Utilisateur {
 	private Boolean hasAccount;
 
 	private String emailAddress;
-
 
 	@ElementCollection
 	private Set<Role> roles = new HashSet<>();
