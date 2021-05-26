@@ -1,4 +1,5 @@
 package com.example.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -16,4 +17,9 @@ public class Centre_fort implements Serializable  {
     private String societe_id;
 
     private String centre_fort_libelle;
+
+    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+    @JoinColumn(name = "societe_id",nullable = false, insertable = false, updatable = false)
+    @JsonBackReference
+    private Societe societe;
 }
