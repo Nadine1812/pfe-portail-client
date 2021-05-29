@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {EtablissementService} from "../../services/etablissement.service";
+import {Component, OnInit} from '@angular/core';
+import {EtablissementService} from '../../services/etablissement.service';
 
 
 @Component({
@@ -11,6 +11,7 @@ export class AffichEtablissementComponent implements OnInit {
 
   etablissement: any;
   societe: any;
+    centre_fort: any;
     page = 1;
     count = 0;
     tableSize = 5;
@@ -37,6 +38,16 @@ export class AffichEtablissementComponent implements OnInit {
         this.etablissementService.getAllSocieties().subscribe(
             response => {
                 this.societe = response;
+                console.log(response);
+            },
+            error => {
+                console.log(error);
+            });
+    }
+    getAllCentre_fort(){
+        this.etablissementService.getAllCentre_fort().subscribe(
+            response => {
+                this.centre_fort = response;
                 console.log(response);
             },
             error => {

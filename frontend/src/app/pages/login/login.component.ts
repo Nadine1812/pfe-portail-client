@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
-        window.localStorage.removeItem("USER_ROLE");
+        window.localStorage.removeItem('USER_ROLE');
         if (this.tokenStorage.getToken()) {
             this.isLoggedIn = true;
             this.roles = this.tokenStorage.getAuthorities();
@@ -55,8 +55,8 @@ export class LoginComponent implements OnInit {
                 this.isLoginFailed = true;
             }, () => {
                 this.roles = this.tokenStorage.getAuthorities();
-                window.localStorage.removeItem("USER_ROLE");
-                window.localStorage.setItem("USER_ROLE", this.roles[0]);
+                window.localStorage.removeItem('USER_ROLE');
+                window.localStorage.setItem('USER_ROLE', this.roles[0]);
                 console.log(this.tokenStorage.getAuthorities());
                 this.router.navigate(['/home']).then(() => {
                     // do whatever you need after navigation succeeds

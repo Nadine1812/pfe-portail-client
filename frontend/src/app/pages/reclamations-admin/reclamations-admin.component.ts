@@ -30,7 +30,7 @@ export class ReclamationsAdminComponent implements OnInit {
                     console.log(error);
                 });
     }
-    onTableDataChange(event){
+    onTableDataChange(event) {
         this.page = event;
         this.fetchPosts();
     }

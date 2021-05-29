@@ -14,7 +14,7 @@ import {GestionClientComponent} from './pages/gestion-client/gestion-client.comp
 import {FormsComponent} from './pages/forms/forms.component';
 import {LoginComponent} from './pages/login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {AppMaterialModule} from './app-material.module';
 import {HomeComponent} from './pages/home/home.component';
@@ -26,15 +26,15 @@ import {ReclamationsAdminComponent} from './pages/reclamations-admin/reclamation
 import {ModifFormComponent} from './pages/modif-form/modif-form.component';
 import {SuppClientComponent} from './pages/supp-client/supp-client.component';
 import {RegisterComponent} from './pages/register/register.component';
-import {AuthGuard} from "./services/auth.guard";
-import {AuthInterceptor} from "./pages/auth/auth-interceptor";
-import { DesactiverCompteComponent } from './pages/desactiver-compte/desactiver-compte.component';
-import { AffichEtablissementComponent } from './pages/affich-etablissement/affich-etablissement.component';
-import {MatPaginatorModule} from "@angular/material/paginator";
-import {NgxPaginationModule} from "ngx-pagination";
-import { AffichPassagesComponent } from './pages/affich-passages/affich-passages.component';
-import { AffichAlimentationComponent } from './pages/affich-alimentation/affich-alimentation.component';
-import { SendMailComponent } from './pages/send-mail/send-mail.component';
+import {AuthGuard} from './services/auth.guard';
+import {AuthInterceptor} from './pages/auth/auth-interceptor';
+import {DesactiverCompteComponent} from './pages/desactiver-compte/desactiver-compte.component';
+import {AffichEtablissementComponent} from './pages/affich-etablissement/affich-etablissement.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {AffichPassagesComponent} from './pages/affich-passages/affich-passages.component';
+import {AffichAlimentationComponent} from './pages/affich-alimentation/affich-alimentation.component';
+import {SendMailComponent} from './pages/send-mail/send-mail.component';
 
 
 @NgModule({
@@ -73,7 +73,10 @@ import { SendMailComponent } from './pages/send-mail/send-mail.component';
         BrowserAnimationsModule,
         CollapseModule.forRoot(),
         ToastrModule.forRoot(),
-        MatPaginatorModule, NgxPaginationModule
+        MatPaginatorModule,
+        NgxPaginationModule
+    ],
+    exports: [
     ],
     providers: [AuthService,
         AuthGuard,

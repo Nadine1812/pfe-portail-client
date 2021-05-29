@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
 
 
     ngOnInit() {
-        this.roles = window.localStorage.getItem("USER_ROLE");
+        this.roles = window.localStorage.getItem('USER_ROLE');
     }
 
     get data(): string {

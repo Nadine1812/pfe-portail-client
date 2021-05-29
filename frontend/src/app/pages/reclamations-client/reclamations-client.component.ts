@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {TokenStorageService} from "../auth/token-storage.service";
-import {ReclamationService} from "../../services/reclamation.service";;
+import {TokenStorageService} from '../auth/token-storage.service';
+import {ReclamationService} from '../../services/reclamation.service';
 
 @Component({
     selector: 'app-reclamations-client',

@@ -27,7 +27,6 @@ export class NavbarComponent implements OnInit {
 
     signOut() {
         window.localStorage.removeItem("USER_ROLE");
-        console.log("hello");
         this.token.signOut();
         window.sessionStorage.clear();
         this.router.navigate(['']);

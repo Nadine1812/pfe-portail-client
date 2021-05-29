@@ -1,12 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, NgForm} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {AuthService} from 'src/app/services/auth.service';
 import {ClientsService} from 'src/app/services/clients.service';
 import {SignUpInfo} from '../auth/signup-info';
-import {TokenStorageService} from "../auth/token-storage.service";
-import {User} from "../models/user";
-import {HttpClient} from "@angular/common/http";
-
+import {TokenStorageService} from '../auth/token-storage.service';
+import {User} from '../models/user';
 
 @Component({
     selector: 'app-register',
@@ -30,7 +28,6 @@ export class RegisterComponent implements OnInit {
                 private formBuilder: FormBuilder,
                 private clientService: ClientsService,
                 private tokenStorage: TokenStorageService,
-                private http: HttpClient
     ) {
     }
 

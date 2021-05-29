@@ -29,5 +29,8 @@ public class Etablissement implements Serializable {
     @JsonBackReference
     private Societe societe;
 
-
+//    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+//    @JoinColumn(name = "centre_fort_libelle",nullable = false, insertable = false, updatable = false)
+//    @JsonBackReference
+//    private Centre_fort centreFort;
 }

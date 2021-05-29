@@ -42,7 +42,6 @@ export class TokenStorageService {
 
     public getUsername(): string {
         const decodedToken = this.getDecodedAccessToken(sessionStorage.getItem(TOKEN_KEY));
-        console.log("******", sessionStorage.getItem(TOKEN_KEY));
         if (decodedToken != null) {
                 return decodedToken.sub;
         }

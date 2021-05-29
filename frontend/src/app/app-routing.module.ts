@@ -13,13 +13,12 @@ import {ModifFormComponent} from './pages/modif-form/modif-form.component';
 import {SuppClientComponent} from './pages/supp-client/supp-client.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {AuthGuard} from './services/auth.guard';
-import {DesactiverCompteComponent} from "./pages/desactiver-compte/desactiver-compte.component";
-import {AppComponent} from "./app.component";
-import {AffichEtablissementComponent} from "./pages/affich-etablissement/affich-etablissement.component";
-import {AffichPassagesComponent} from "./pages/affich-passages/affich-passages.component";
-import {AlimentationService} from "./services/alimentation.service";
-import {AffichAlimentationComponent} from "./pages/affich-alimentation/affich-alimentation.component";
-import {SendMailComponent} from "./pages/send-mail/send-mail.component";
+import {DesactiverCompteComponent} from './pages/desactiver-compte/desactiver-compte.component';
+import {AppComponent} from './app.component';
+import {AffichEtablissementComponent} from './pages/affich-etablissement/affich-etablissement.component';
+import {AffichPassagesComponent} from './pages/affich-passages/affich-passages.component';
+import {AffichAlimentationComponent} from './pages/affich-alimentation/affich-alimentation.component';
+import {SendMailComponent} from './pages/send-mail/send-mail.component';
 
 const routes: Routes = [
     {path: '', component: LoginComponent},
@@ -40,7 +39,6 @@ const routes: Routes = [
     {path: 'modifierClient', component: ModifierClientComponent, canActivate: [AuthGuard]},
     {path: 'modifClient/:id', component: ModifFormComponent, canActivate: [AuthGuard]},
     {path: 'supprimerClient', component: SuppClientComponent, canActivate: [AuthGuard]},
-
     {path: 'desactiverCompte', component: DesactiverCompteComponent},
     {path: 'etablissements', component: AffichEtablissementComponent},
     {path: 'passages', component: AffichPassagesComponent},

@@ -5,11 +5,8 @@
         <img src="./assets/img/user.jpg" class="img-fluid" alt="">
       </div>
     </div>
-    <div *ngIf="authority === 'admin'" class="profile-details text-center pb-4">
-      <small class="text-uppercase role">{{info.username}}</small>
-    </div>
-    <div *ngIf="authority === 'user'" class="profile-details text-center pb-4">
-      <small class="text-uppercase role">{{info.username}}</small>
+    <div class="profile-details text-center pb-4">
+      <small class="text-uppercase role">{{authService.loggedUser}}</small>
     </div>
   </div>
   <div class="sidebar-search pt-1 pb-1 pl-3 pr-3">
@@ -20,20 +17,19 @@
       Les options
     </div>
     <ul class="menu-items">
-      <li *ngIf="authority === 'admin'">
-
+      <li *ngIf="isAdmin">
         <a href="#" routerLink="/reclamations" routerLinkActive="active">
           <i class="fa fa-exclamation" aria-hidden="true"></i>
           <span>Reclamations</span>
         </a>
       </li>
-      <li *ngIf="authority === 'admin'">
+      <li *ngIf="isAdmin">
         <a href="#" routerLink="/listecommandes" routerLinkActive="active">
           <i class="fas fa-box-open"></i>
           <span>Télécommande</span>
         </a>
       </li>
-      <li *ngIf="authority === 'admin'">
+      <li *ngIf="isAdmin">
         <a href="#" routerLink="/gestionclients" routerLinkActive="active">
           <i class="fas fa-address-book"></i>
 
