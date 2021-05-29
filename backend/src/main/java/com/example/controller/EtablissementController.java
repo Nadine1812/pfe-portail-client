@@ -21,6 +21,8 @@ public class EtablissementController {
 
     @GetMapping
     public List<Etablissement> getAllEstablishment(){
+        List<Etablissement> etablissements =etablissementService.getAllEstablishment();
+        System.out.println(etablissements.get(0).getCentre_fort().getCentre_fort_id());
         return etablissementService.getAllEstablishment();
     }
 }

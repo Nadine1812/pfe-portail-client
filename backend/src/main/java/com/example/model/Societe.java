@@ -1,5 +1,6 @@
 package com.example.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
@@ -12,22 +13,26 @@ import java.util.List;
 public class Societe implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String societe_id;
 
     private String societe_nom;
 
     private Integer societe_type;
 
-    private String   abrv;
+    private String  abrv;
 
-    @OneToMany( cascade = CascadeType.ALL)
-    @Column(nullable = true)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "societe", cascade = CascadeType.ALL)
+    @Column(nullable = false)
+    @JsonIgnore
     private List<Etablissement> etablissements;
 
 //    @OneToMany(mappedBy = "societe", cascade = CascadeType.ALL)
 //    @Column(nullable = true)
 //    @JsonManagedReference
 //    private List<Centre_fort> centre_forts;
+
+    @OneToMany(mappedBy = "societe", cascade = CascadeType.ALL)
+    @Column(nullable = false)
+    @JsonIgnore
+    private List<Passage> passages;
 }

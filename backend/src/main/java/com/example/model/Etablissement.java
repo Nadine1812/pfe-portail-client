@@ -1,6 +1,7 @@
 package com.example.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,29 +9,20 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@IdClass(Etablissement.class)
 public class Etablissement implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String etablissement_id;
-
-//    @Id
-//    private String societe_id;
-//
-//    private String centre_fort_id;
-//
-//    private String cen_societe_id;
 
     private String etablissement_libelle;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "societe_id")
-   // @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER,optional = false)
+    @JoinColumn(name = "societe_id",insertable=false, updatable=false)
     private Societe societe;
 
-//    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-//    @JoinColumn(name = "centre_fort_libelle",nullable = false, insertable = false, updatable = false)
-//    @JsonBackReference
-//    private Centre_fort centreFort;
+    @ManyToOne
+    @JoinColumn(name = "centre_fort_id")
+    private Centre_fort centre_fort;
+
+
 }
