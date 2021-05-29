@@ -17,13 +17,13 @@ public class Societe implements Serializable {
 
     private String societe_nom;
 
-    private Number societe_type;
+    private Integer societe_type;
 
     private String   abrv;
 
-    @OneToMany(mappedBy = "societe", cascade = CascadeType.ALL)
+    @OneToMany( cascade = CascadeType.ALL)
     @Column(nullable = true)
-//    @JsonManagedReference
+    @JsonManagedReference
     private List<Etablissement> etablissements;
 
 //    @OneToMany(mappedBy = "societe", cascade = CascadeType.ALL)

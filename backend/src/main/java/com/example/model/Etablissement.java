@@ -24,9 +24,9 @@ public class Etablissement implements Serializable {
 
     private String etablissement_libelle;
 
-    @ManyToOne(fetch = FetchType.EAGER,optional = false)
-   @JoinColumn(name = "societe_id",insertable=false, updatable=false)
-    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "societe_id")
+   // @JsonBackReference
     private Societe societe;
 
 //    @ManyToOne(fetch = FetchType.LAZY,optional = false)
