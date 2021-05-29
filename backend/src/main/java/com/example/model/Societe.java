@@ -12,6 +12,7 @@ import java.util.List;
 public class Societe implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String societe_id;
 
     private String societe_nom;

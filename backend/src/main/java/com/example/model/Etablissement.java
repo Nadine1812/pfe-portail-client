@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class Etablissement implements Serializable {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String etablissement_id;
 
 //    @Id
