@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class Etablissement implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private String etablissement_id;
 
 //    @Id
@@ -24,8 +24,8 @@ public class Etablissement implements Serializable {
 
     private String etablissement_libelle;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "societe_id",insertable=false, updatable=false)
+    @ManyToOne(fetch = FetchType.EAGER,optional = false)
+   @JoinColumn(name = "societe_id",insertable=false, updatable=false)
     @JsonBackReference
     private Societe societe;
 
