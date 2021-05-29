@@ -15,15 +15,15 @@ public class Centre_fort implements Serializable  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long centre_fort_id;
 
-    @Id
-    private String societe_id;
+//    @Id
+//    private String societe_id;
 
     private String centre_fort_libelle;
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = false)
-    @JoinColumn(name = "societe_id",nullable = false, insertable = false, updatable = false)
-    @JsonBackReference
-    private Societe societe;
+//    @ManyToOne(fetch = FetchType.LAZY,optional = false)
+//    @JoinColumn(name = "societe_id",nullable = false, insertable = false, updatable = false)
+//    @JsonBackReference
+//    private Societe societe;
 
 //    @OneToMany(mappedBy = "centre_fort", cascade = CascadeType.ALL)
 //    @JsonManagedReference

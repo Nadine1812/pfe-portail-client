@@ -17,13 +17,13 @@ public class Passage {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long passage_id;
 
-    private Long centre_fort_id;
+//    private Long centre_fort_id;
 
-    private String cen_societe_id;
+//    private String cen_societe_id;
 
-    private String etablissement_id;
-
-    private String societe_id;
+//    private String etablissement_id;
+//
+//    private String societe_id;
 
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate passage_date;

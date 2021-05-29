@@ -22,11 +22,11 @@ public class Societe implements Serializable {
 
     @OneToMany(mappedBy = "societe", cascade = CascadeType.ALL)
     @Column(nullable = true)
-    @JsonManagedReference
+//    @JsonManagedReference
     private List<Etablissement> etablissements;
 
-    @OneToMany(mappedBy = "societe", cascade = CascadeType.ALL)
-    @Column(nullable = true)
-    @JsonManagedReference
-    private List<Centre_fort> centre_forts;
+//    @OneToMany(mappedBy = "societe", cascade = CascadeType.ALL)
+//    @Column(nullable = true)
+//    @JsonManagedReference
+//    private List<Centre_fort> centre_forts;
 }

@@ -14,10 +14,10 @@ public class Alimentation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long alimentation_id;
 
-    @Id
-    private Long  passage_id;
-
-    private Long font_type_id;
+//    @Id
+//    private Long  passage_id;
+//
+//    private Long font_type_id;
 
     private Long qte;
 

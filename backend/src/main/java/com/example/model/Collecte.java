@@ -14,10 +14,10 @@ public class Collecte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long collecte_id;
+//
+//    private Long passage_id;
 
-    private Long passage_id;
-
-    private Long font_type_id;
+//    private Long font_type_id;
 
     private Long qte;
 
