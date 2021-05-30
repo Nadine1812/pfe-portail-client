@@ -21,6 +21,7 @@ public class UtilisateurController {
 
     @Autowired
     private SendMailService sendMailService;
+
     @PostMapping
     public Utilisateur createUser(@RequestBody Utilisateur utilisateur) {
         return utilisateurService.create(utilisateur);

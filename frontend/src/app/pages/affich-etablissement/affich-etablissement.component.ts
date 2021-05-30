@@ -10,18 +10,15 @@ import {EtablissementService} from '../../services/etablissement.service';
 export class AffichEtablissementComponent implements OnInit {
 
   etablissement: any;
-  societe: any;
-    centre_fort: any;
-    page = 1;
+    page;
     count = 0;
-    tableSize = 5;
+    tableSize = 7;
     tableSizes = [3, 6, 9, 12];
 
     constructor(private etablissementService: EtablissementService) {}
 
   ngOnInit() {
       this.fetchPosts();
-      this.getAllSocieties()
   }
     fetchPosts(): void {
         this.etablissementService.getAllEstablishment()
@@ -33,26 +30,6 @@ export class AffichEtablissementComponent implements OnInit {
                 error => {
                     console.log(error);
                 });
-    }
-    getAllSocieties() {
-        this.etablissementService.getAllSocieties().subscribe(
-            response => {
-                this.societe = response;
-                console.log(response);
-            },
-            error => {
-                console.log(error);
-            });
-    }
-    getAllCentre_fort(){
-        this.etablissementService.getAllCentre_fort().subscribe(
-            response => {
-                this.centre_fort = response;
-                console.log(response);
-            },
-            error => {
-                console.log(error);
-            });
     }
     onTableDataChange(event){
         this.page = event;

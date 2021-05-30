@@ -1,11 +1,9 @@
 package com.example.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -21,8 +19,11 @@ public class Etablissement implements Serializable {
     @JoinColumn(name = "societe_id")
     private Societe societe;
 
-//    @ManyToOne
-//    @JoinColumn(name = "centre_fort_id", nullable = false)
-//    private Centre_fort centre_fort;
+//    @OneToMany
+//    @JoinColumn(name = "centre_fort_id",  insertable = false, updatable = false)
+//    private List<Centre_fort> centre_fort;
 
+     @ManyToOne
+   @JoinColumn(name = "centre_fort_id")
+   private Centre_fort centre_fort;
 }

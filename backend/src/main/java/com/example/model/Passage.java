@@ -21,4 +21,11 @@ public class Passage {
     @JoinColumn(name = "etablissement_id")
     private Etablissement etablissement;
 
+//    @ManyToOne
+//    @JoinColumn(name = "centre_fort_id")
+//    private Centre_fort centre_fort;
+
+//    @OneToMany
+//    @JoinColumn(name = "centre_fort_id",  insertable = false, updatable = false)
+//    private List<Centre_fort> centre_fort;
 }
