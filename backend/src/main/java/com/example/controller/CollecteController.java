@@ -20,7 +20,7 @@ public class CollecteController {
     public CollecteService collecteService;
 
     @GetMapping
-    public List<Collecte> getAllEstablishment(){
+    public List<Collecte> getAllCollecte(){
         return collecteService.getAllCollecte();
     }
 }
