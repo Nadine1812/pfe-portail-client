@@ -1,9 +1,11 @@
 <div class="container">
     <div class="center" [style.color]="'Chocolate'">
         <h3 class="text-center mt-5 mb-5">
-            PASSAGES
+            LES PASSAGES
         </h3>
     </div>
+
+
     <div class="d-flex flex-row-reverse bd-highlight mb-2">
         <div class="p-2 bd-highlight">
             <select (change)="onTableSizeChange($event)" class="custom-select">
@@ -13,33 +15,26 @@
             </select>
         </div>
     </div>
+
     <table class="table">
         <thead>
         <tr>
-            <th>ID passage</th>
-            <th>Centre fort</th>
-            <th>Societe</th>
-            <th>ID etablissement</th>
-            <th>ID société</th>
+            <th>ID</th>
+            <th>Centres fort</th>
             <th>Date de passage</th>
         </tr>
         </thead>
         <tbody>
-        <ng-container *ngFor="let p of passage | paginate : {
+        <tr *ngFor="let p of passage | paginate : {
                 itemsPerPage: tableSize,
                 currentPage: page,
                 totalItems: count
-              };">
-            <tr *ngFor="let c of centre ">
-                <th scope="row">{{p.passage_id}}</th>
-                <td>{{c.centre_fort_libelle}}</td>
-                <td>{{p.cen_societe_id}}</td>
-                <td>{{p.etablissement_id}}</td>
-                <td>{{p.societe_id}}</td>
-                <td>{{p.passage_date}}</td>
-
-            </tr>
-        </ng-container>
+              };
+        let i = index" [class.active]="i == currentIndex">
+            <th scope="row">{{p.passage_id}}</th>
+            <td>{{p.centre_fort?.centre_fort_libelle}}</td>
+            <td>{{p.passage_date}}</td>
+        </tr>
         </tbody>
     </table>
 
@@ -51,4 +46,5 @@
                 (pageChange)="onTableDataChange($event)">
         </pagination-controls>
     </div>
+
 </div>
