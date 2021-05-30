@@ -1,9 +1,10 @@
 <div class="container">
   <div class="center" [style.color]="'Chocolate'">
     <h3 class="text-center mt-5 mb-5">
-      ALIMENTATIONS
+      LES MONTANTS ALIMENENTES
     </h3>
   </div>
+
 
   <div class="d-flex flex-row-reverse bd-highlight mb-2">
     <div class="p-2 bd-highlight">
@@ -18,25 +19,24 @@
   <table class="table">
     <thead>
     <tr>
-      <th>ID alimentation</th>
+      <th>ID</th>
       <th>Type de font</th>
       <th>Quantité</th>
       <th>Montant</th>
     </tr>
     </thead>
     <tbody>
-    <ng-container *ngFor="let a of alimentation | paginate : {
+    <tr *ngFor="let a of allimente | paginate : {
                 itemsPerPage: tableSize,
                 currentPage: page,
                 totalItems: count
               };
-        ">
-      <tr *ngFor="let f of font">
+        let i = index" [class.active]="i == currentIndex">
       <th scope="row">{{a.alimentation_id}}</th>
-      <td>{{f.libelle}}</td>
+      <td>{{a.font_type?.libelle}}</td>
       <td>{{a.qte}}</td>
       <td>{{a.montant}}</td>
-    </ng-container>
+    </tr>
     </tbody>
   </table>
 

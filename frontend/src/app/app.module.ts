@@ -33,8 +33,9 @@ import {AffichEtablissementComponent} from './pages/affich-etablissement/affich-
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {AffichPassagesComponent} from './pages/affich-passages/affich-passages.component';
-import {AffichAlimentationComponent} from './pages/affich-alimentation/affich-alimentation.component';
 import {SendMailComponent} from './pages/send-mail/send-mail.component';
+import { AffichMontantCollecteComponent } from './pages/affich-montant-collecte/affich-montant-collecte.component';
+import { AffichMontantAlimenteComponent } from './pages/affich-montant-alimente/affich-montant-alimente.component';
 
 
 @NgModule({
@@ -58,8 +59,9 @@ import {SendMailComponent} from './pages/send-mail/send-mail.component';
         DesactiverCompteComponent,
         AffichEtablissementComponent,
         AffichPassagesComponent,
-        AffichAlimentationComponent,
         SendMailComponent,
+        AffichMontantCollecteComponent,
+        AffichMontantAlimenteComponent,
     ],
     imports: [
         AppMaterialModule,

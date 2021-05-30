@@ -17,8 +17,9 @@ import {DesactiverCompteComponent} from './pages/desactiver-compte/desactiver-co
 import {AppComponent} from './app.component';
 import {AffichEtablissementComponent} from './pages/affich-etablissement/affich-etablissement.component';
 import {AffichPassagesComponent} from './pages/affich-passages/affich-passages.component';
-import {AffichAlimentationComponent} from './pages/affich-alimentation/affich-alimentation.component';
 import {SendMailComponent} from './pages/send-mail/send-mail.component';
+import {AffichMontantCollecteComponent} from './pages/affich-montant-collecte/affich-montant-collecte.component';
+import {AffichMontantAlimenteComponent} from './pages/affich-montant-alimente/affich-montant-alimente.component';
 
 const routes: Routes = [
     {path: '', component: LoginComponent},
@@ -42,10 +43,11 @@ const routes: Routes = [
     {path: 'desactiverCompte', component: DesactiverCompteComponent},
     {path: 'etablissements', component: AffichEtablissementComponent},
     {path: 'passages', component: AffichPassagesComponent},
-    {path: 'alimentations', component: AffichAlimentationComponent},
     {path: 'envoie-mail', component: SendMailComponent},
     {path: 'envoie-reclamation', component: ReclamationsClientComponent},
-    {path: 'liste-reclamations', component: ReclamationsAdminComponent}
+    {path: 'liste-reclamations', component: ReclamationsAdminComponent},
+    {path: 'montantsCollecte', component: AffichMontantCollecteComponent},
+    {path: 'montantsAllimente', component: AffichMontantAlimenteComponent},
 ];
 
 @NgModule({
