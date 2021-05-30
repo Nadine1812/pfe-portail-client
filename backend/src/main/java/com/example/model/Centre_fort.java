@@ -23,4 +23,8 @@ public class Centre_fort implements Serializable {
     @OneToMany(mappedBy = "centre_fort")
     @JsonIgnore
     private List<Etablissement> etablissements;
+
+    @OneToMany(mappedBy = "centre_fort")
+    @JsonIgnore
+    private List<Passage> passages;
 }
