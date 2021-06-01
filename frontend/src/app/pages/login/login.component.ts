@@ -55,7 +55,6 @@ export class LoginComponent implements OnInit {
                 this.isLoginFailed = true;
             }, () => {
                 this.roles = this.tokenStorage.getAuthorities();
-                window.localStorage.removeItem('USER_ROLE');
                 window.localStorage.setItem('USER_ROLE', this.roles[0]);
                 console.log(this.tokenStorage.getAuthorities());
                 this.router.navigate(['/home']).then(() => {

@@ -58,12 +58,6 @@ body {
     .nav-alert {
       border-color: #2f3546;
 
-      &.notifications {
-        background-color: #ff61c5;
-        box-shadow: 0px 0px 4px #ff61c5;
-
-      }
-
       &.messages {
         background-color: #61b8ff;
         box-shadow: 0px 0px 4px #61b8ff;
@@ -110,8 +104,7 @@ body {
 
             i {
               color: $sidebar-icon-color;
-              color: #abb7da;
-              color: rgba(140, 165, 239, 0.6);
+              color: #000033FF;
               border: none;
               width: auto;
               font-size: 1rem;

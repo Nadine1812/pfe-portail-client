@@ -26,9 +26,9 @@ const routes: Routes = [
     // contenu de home dans router outelet
     {
         path: 'home', component: AppComponent,
-        children: [{
-            path: '', component: HomeComponent
-        }]
+        // children: [{
+        //     path: '', component: HomeComponent
+        // }]
     },
     {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
     {path: 'reclamations', component: ReclamationsAdminComponent, canActivate: [AuthGuard]},

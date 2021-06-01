@@ -20,8 +20,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     username: string;
     authListenerSubs: Subscription = new Subscription();
 
-    constructor(private tokenStorage: TokenStorageService,
-                public authService: AuthService) {
+    constructor(private tokenStorage: TokenStorageService) {
     }
 
     ngOnInit() {
@@ -36,7 +35,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     getRole() {
         this.roles = this.tokenStorage.getAuthorities();
     }
-    getUsername(){
+    getUsername() {
         this.username = this.tokenStorage.getUsername();
     }
 }

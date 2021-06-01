@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     public authority: string;
 
     constructor(private tokenStorage: TokenStorageService,
-                private appService: AppService, private authService: AuthService) {
+                private appService: AppService) {
     }
 
 
