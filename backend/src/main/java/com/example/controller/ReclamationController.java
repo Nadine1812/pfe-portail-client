@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("api/reclamation")
 @Api(value = "Rest Controller: Reclamation")
@@ -27,10 +27,10 @@ public class ReclamationController {
     @Autowired
     UtilisateurService utilisateurService;
 
-    @PostMapping("utilisateur/{id}/reclamation")
-    public Reclamation createReclamation(@PathVariable(value = "id") long id,@RequestBody Reclamation reclamation) {
+    @PostMapping("utilisateur/reclamation")
+    public Reclamation createReclamation(@RequestBody Reclamation reclamation) {
 
-        Utilisateur utilisateur = utilisateurService.findById(id);
+        Utilisateur utilisateur = utilisateurService.getByCode(reclamation.getCodeUser());
         reclamation.setUtilisateur(utilisateur);
         Reclamation userReclamation = reclamationService.create(reclamation);
 
@@ -40,7 +40,8 @@ public class ReclamationController {
         requestMail.setSubject("Reclamation: " + reclamation.getDescription());
         requestMail.setContent(reclamation.getRapport());
         sendMailService.sendMail(requestMail);
-        return userReclamation;}
+        return userReclamation;
+    }
 
     @GetMapping
     public List<Reclamation> getAllReclamations() {
