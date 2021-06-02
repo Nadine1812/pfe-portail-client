@@ -1,20 +1,80 @@
-<div class="btn-group">
-    <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="consulter()"> Consulter clients</button>
+<!--<div class="btn-group">-->
+<!--    <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="consulter()"> Consulter clients</button>-->
+<!--</div>-->
+<!--<div class="btn-group">-->
+<!--    <div class="btn-group">-->
+<!--        <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="ajouterClient()"> Ajouter-->
+<!--            client-->
+<!--        </button>-->
+<!--    </div>-->
+<!--    <div class="btn-group">-->
+<!--        <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="modifierClient()">Modifier Client-->
+<!--        </button>-->
+<!--    </div>-->
+<!--    <div class="btn-group">-->
+<!--        <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="supprimerClient()">Supprimer-->
+<!--            Client-->
+<!--        </button>-->
+<!--    </div>-->
+<!--</div>-->
+<div class="container">
+    <div class="center" [style.color]="'Chocolate'">
+        <h3 class="text-center mt-5 mb-5">
+           GESTION CLIENTS
+        </h3>
+    </div>
+    <div class="d-flex flex-row-reverse bd-highlight mb-2">
+        <div class="p-2 bd-highlight">
+            <select (change)="onTableSizeChange($event)" class="custom-select">
+                <option *ngFor="let size of tableSizes" [ngValue]="size">
+                    {{ size }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Code</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Raison social</th>
+            <th scope="col">Adress</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Téléphone/Fax</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let u of utilisateur | paginate : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };
+        let i = index" [class.active]="i == currentIndex">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{u.code}}</td>
+            <td>{{u.username}}</td>
+            <td>{{u.raisonSocial}}</td>
+            <td>{{u.adress}}</td>
+            <td>{{u.emailAddress}}</td>
+            <td>{{u.tel}}</td>
+            <td><button class="btn btn-success" (click)="modifierClient(u.id)">Modifier</button></td>
+            <td><button class="btn btn-danger" (click)="supprimerClient(u.id)">Supprimer</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="ajouterClient()">Ajouter</button>
+    <br>
+    <div class="d-flex justify-content-center">
+        <pagination-controls
+                responsive="true"
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+    </div>
+
 </div>
-<div class="btn-group">
-    <div class="btn-group">
-        <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="ajouterClient()"> Ajouter
-            client
-        </button>
-    </div>
-    <div class="btn-group">
-        <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="modifierClient()">Modifier Client
-        </button>
-    </div>
-    <div class="btn-group">
-        <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="supprimerClient()">Supprimer
-            Client
-        </button>
-    </div>
-</div>
+
 

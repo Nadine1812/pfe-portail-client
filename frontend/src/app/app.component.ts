@@ -1,9 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
 import {TokenStorageService} from './pages/auth/token-storage.service';
 import {AppService} from './services/app.service';
-import {AuthService} from './services/auth.service';
 
 @Component({
     selector: 'app-root',
@@ -17,8 +14,6 @@ export class AppComponent implements OnInit {
     constructor(private tokenStorage: TokenStorageService,
                 private appService: AppService) {
     }
-
-
     ngOnInit() {
         this.roles = window.localStorage.getItem('USER_ROLE');
     }
@@ -40,11 +35,9 @@ export class AppComponent implements OnInit {
     }
 
     public isConnected(): boolean {
-        if(this.tokenStorage.token){
-            return true ;
-    }
+        if (this.tokenStorage.token) {
+            return true;
+        }
         return false;
     }
-
-
 }

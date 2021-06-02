@@ -38,10 +38,4 @@ export class AuthService {
     sendMail(mail): Observable<Mail> {
         return this.httpClient.post<Mail>(this.mailUrl, mail);
     }
-
-    public isAuthenticated(): boolean {
-        this.token = localStorage.getItem('token');
-        this.currentUser = sessionStorage.getItem('user');
-        return !!this.token && !!this.currentUser;
-    }
 }

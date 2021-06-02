@@ -9,46 +9,59 @@ import {ClientsService} from 'src/app/services/clients.service';
 })
 export class GestionClientComponent implements OnInit {
     utilisateur: any;
+    page;
+    count = 0;
+    tableSize = 7;
+    tableSizes = [3, 6, 9, 12];
 
     constructor(private router: Router,
                 private clientService: ClientsService) {
     }
 
     ngOnInit() {
+        this.fetchPosts();
     }
 
+    fetchPosts(): void {
+        this.clientService.getAllUtilisateur()
+            .subscribe(
+                response => {
+                    this.utilisateur = response;
+                    console.log(response);
+                },
+                error => {
+                    console.log(error);
+                });
+    }
+
+    onTableDataChange(event) {
+        this.page = event;
+        this.fetchPosts();
+    }
+
+    onTableSizeChange(event): void {
+        this.tableSize = event.target.value;
+        this.page = 1;
+        this.fetchPosts();
+    }
 
     ajouterClient() {
         this.router.navigate([`ajouterClient`]);
 
     }
 
-    consulter() {
-        this.clientService.getAllUtilisateur().subscribe(
-            () => {
-                this.router.navigate([`consulter`]);
-            });
+    modifierClient(id) {
+        this.router.navigate([`modifClient/${id}`]);
     }
 
-    modifierClient() {
-        this.router.navigate([`modifierClient`]);
-    }
-
-    DesactiverCompte() {
-        this.router.navigate([`desactiverCompte`]);
-    }
-
-    supprimerClient() {
-        this.router.navigate([`supprimerClient`]);
-    }
-
-    ajouterCompte() {
-        this.router.navigate([`register`]);
-    }
-    EnvoieMail(){
-        this.router.navigate([`envoie-mail`]);
-    }
-    getAllReclamations(){
-        this.router.navigate([`liste-reclamations`]);
+    supprimerClient(id) {
+        this.clientService.deleteUtilisateur(id).subscribe(() => {
+            console.log('Employee deleted successfully');
+            this.clientService.getAllUtilisateur().subscribe(
+                (data) => {
+                    this.utilisateur = data;
+                }
+            )
+        })
     }
 }

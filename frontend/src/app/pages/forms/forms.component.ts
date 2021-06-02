@@ -43,8 +43,8 @@ export class FormsComponent implements OnInit {
     Client() {
         this.clientService.createUser(this.utilisateur).subscribe(
             () => {
-                this.router.navigate(['/consulter']);
-                console.log("client crée");
+                this.router.navigate(['/gestionclients']);
+                console.log('client crée');
             });
     }
 }

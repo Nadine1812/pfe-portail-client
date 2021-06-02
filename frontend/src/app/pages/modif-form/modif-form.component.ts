@@ -25,7 +25,7 @@ export class ModifFormComponent implements OnInit {
             (data) => {
 
                 this.utilisateur = data;
-                console.log('voila mon client', this.utilisateur)
+                console.log('voila mon client', this.utilisateur);
             }
         );
         this.modifierClientForm = this.formBuilder.group({
@@ -35,14 +35,14 @@ export class ModifFormComponent implements OnInit {
             raisonSocial: [''],
             adress: [''],
             tel: ['']
-        })
+        });
     }
 
     Utilisateur() {
         if (this.id) {
             this.clientService.updateUtilisateur(this.utilisateur).subscribe(
                 () => {
-                    this.router.navigate(['/consulter']);
+                    this.router.navigate(['/gestionclients']);
                     console.log('client modifié');
                 }
             )

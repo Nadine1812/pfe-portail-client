@@ -1,97 +1,81 @@
 <aside class="sidebar shadow-sm">
-  <div class="sidebar-profile d-flex flex-column justify-content-center pt-5 pb-3">
-    <div class="picture-wrapper mb-4">
-      <div class="user-picture m-auto">
-        <img src="./assets/img/user.jpg" class="img-fluid" alt="">
-      </div>
+    <div class="sidebar-profile d-flex flex-column justify-content-center pt-5 pb-3">
+        <div class="picture-wrapper mb-4">
+            <div class="user-picture m-auto">
+                <img src="./assets/img/user.jpg" class="img-fluid" alt="">
+            </div>
+        </div>
+        <div class="profile-details text-center pb-4">
+            <p class="mb-0 text-uppercase name">{{username}}</p>
+            <small *ngIf="roles == 'ROLE_ADMIN'">Admin</small>
+            <small *ngIf="roles == 'ROLE_CLIENT'">Client</small>
+        </div>
     </div>
-    <div class="profile-details text-center pb-4">
-      <p class="mb-0 text-uppercase name">{{username}}</p>
-      <small *ngIf="roles == 'ROLE_ADMIN'">Admin</small>
-      <small *ngIf="roles == 'ROLE_CLIENT'">Client</small>
-    </div>
-  </div>
-  <nav class="sidebar-menu pt-3 pb-3">
-    <div class="menu-header mt-3 mb-2">
-      Les options
-    </div>
-    <ul class="menu-items">
-      <li *ngIf="showTo('ROLE_ADMIN')">
-<!--      <li class="sub-menu">-->
-        <a href="#" routerLink="/gestionclients" routerLinkActive="active">
-<!--        <a href="javascript:;" class="">-->
-          <i class="fas fa-address-book"></i>
-          <span>Gestion Clients</span>
-<!--          <span class="menu-arrow arrow_carrot-right"></span>-->
-        </a>
-<!--        <ul class="sub">-->
-<!--          <li><a class="" routerLink="/ajout">Ajout</a></li>-->
-<!--          <li><a class="" routerLink="/intervention">Affichage</a></li>-->
-<!--          <li><a class="" routerLink="/affectationtechnicien">Affectation technicien</a></li>-->
-<!--          <li><a class="" routerLink="/diagnostic">Diagnostic</a></li>-->
-<!--          <li><a class="" routerLink="/mouvement">Mouvement</a></li>-->
-
-<!--        </ul>-->
-
-      </li>
-      <li>
-        <a href="#" routerLink="/register" routerLinkActive="active">
-          <i class="fas fa-address-book"></i>
-
-          <span>Ajouter compte</span>
-        </a>
-      </li>
-      <li *ngIf="showTo('ROLE_ADMIN')">
-        <a href="#" routerLink="/desactiverCompte" routerLinkActive="active">
-          <i class="fas fa-address-book"></i>
-
-          <span>Gestion des comptes</span>
-        </a>
-      </li>
-      <li *ngIf="showTo('ROLE_ADMIN')">
-        <a href="#" routerLink="/envoie-mail" routerLinkActive="active">
-            <i class="far fa-envelope"></i>
-
-          <span>Envoyer mail</span>
-        </a>
-      </li>
-      <li *ngIf="showTo('ROLE_ADMIN')">
-        <a href="#" routerLink="/liste-reclamations" routerLinkActive="active">
-          <i class="fa fa-exclamation"></i>
-
-          <span>Reclamations</span>
-        </a>
-      </li>
-      <li *ngIf="showTo('ROLE_CLIENT')">
-        <a href="#" routerLink="/envoie-reclamation" routerLinkActive="active">
-          <i class="fa fa-exclamation"></i>
-          <span> Envoyer Reclamation</span>
-        </a>
-      </li>
-      <li *ngIf="showTo('ROLE_CLIENT')">
-        <a href="#" routerLink="/passages" routerLinkActive="active">
-            <i class="fas fa-list"></i>
-          <span>Consulter les passages</span>
-        </a>
-      </li>
-      <li *ngIf="showTo('ROLE_CLIENT')">
-        <a href="#" routerLink="/montantsCollecte" routerLinkActive="active">
-            <i class="fas fa-list"></i>
-          <span>Montant collectés</span>
-        </a>
-      </li>
-      <li *ngIf="showTo('ROLE_CLIENT')">
-        <a href="#" routerLink="/montantsAllimente" routerLinkActive="active">
-            <i class="fas fa-list"></i>
-          <span>Montant allimentés</span>
-        </a>
-      </li>
-      <li *ngIf="showTo('ROLE_CLIENT')">
-        <a href="#" routerLink="/etablissements" routerLinkActive="active">
-            <i class="fas fa-list"></i>
-          <span>Consulter les établissements</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+    <nav class="sidebar-menu pt-3 pb-3">
+        <div class="menu-header mt-3 mb-2">
+            Les options
+        </div>
+        <ul class="menu-items">
+            <li *ngIf="showTo('ROLE_ADMIN')">
+                <a href="#" routerLink="/gestionclients" routerLinkActive="active">
+                    <i class="fas fa-address-book"></i>
+                    <span>Gestion Clients</span>
+                </a>
+            </li>
+            <li *ngIf="showTo('ROLE_ADMIN')">
+                <a href="#" routerLink="/register" routerLinkActive="active">
+                    <i class="fas fa-address-book"></i>
+                    <span>Ajouter compte</span>
+                </a>
+            </li>
+            <li *ngIf="showTo('ROLE_ADMIN')">
+                <a href="#" routerLink="/desactiverCompte" routerLinkActive="active">
+                    <i class="fas fa-address-book"></i>
+                    <span>Gestion des comptes</span>
+                </a>
+            </li>
+            <li *ngIf="showTo('ROLE_ADMIN')">
+                <a href="#" routerLink="/envoie-mail" routerLinkActive="active">
+                    <i class="far fa-envelope"></i>
+                    <span>Envoyer mail</span>
+                </a>
+            </li>
+            <li *ngIf="showTo('ROLE_ADMIN')">
+                <a href="#" routerLink="/liste-reclamations" routerLinkActive="active">
+                    <i class="fa fa-exclamation"></i>
+                    <span>Reclamations</span>
+                </a>
+            </li>
+            <li *ngIf="showTo('ROLE_CLIENT')">
+                <a href="#" routerLink="/envoie-reclamation" routerLinkActive="active">
+                    <i class="fa fa-exclamation"></i>
+                    <span> Envoyer Reclamation</span>
+                </a>
+            </li>
+            <li *ngIf="showTo('ROLE_CLIENT')">
+                <a href="#" routerLink="/passages" routerLinkActive="active">
+                    <i class="fas fa-list"></i>
+                    <span>Consulter les passages</span>
+                </a>
+            </li>
+            <li *ngIf="showTo('ROLE_CLIENT')">
+                <a href="#" routerLink="/montantsCollecte" routerLinkActive="active">
+                    <i class="fas fa-list"></i>
+                    <span>Montant collectés</span>
+                </a>
+            </li>
+            <li *ngIf="showTo('ROLE_CLIENT')">
+                <a href="#" routerLink="/montantsAllimente" routerLinkActive="active">
+                    <i class="fas fa-list"></i>
+                    <span>Montant allimentés</span>
+                </a>
+            </li>
+            <li *ngIf="showTo('ROLE_CLIENT')">
+                <a href="#" routerLink="/etablissements" routerLinkActive="active">
+                    <i class="fas fa-list"></i>
+                    <span>Consulter les établissements</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </aside>

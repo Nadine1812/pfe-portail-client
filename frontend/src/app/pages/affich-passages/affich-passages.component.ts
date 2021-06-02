@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PassagesService} from "../../services/passages.service";
+import {PassagesService} from '../../services/passages.service';
 
 @Component({
   selector: 'app-affich-passages',
