@@ -10,8 +10,8 @@ reclamationURL = 'http://localhost:8080/api/reclamation';
 
   constructor(private httpClient: HttpClient) { }
 
-  createReclamation() {
-    return this.httpClient.get(this.reclamationURL);
+  createReclamation(data:any) {
+    return this.httpClient.post(this.reclamationURL+'/utilisateur/reclamation',data);
   }
   getAllReclamations() {
     return this.httpClient.get(this.reclamationURL);

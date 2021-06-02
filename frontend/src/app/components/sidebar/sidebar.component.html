@@ -16,7 +16,7 @@
       Les options
     </div>
     <ul class="menu-items">
-      <li>
+      <li *ngIf="showTo('ROLE_ADMIN')">
 <!--      <li class="sub-menu">-->
         <a href="#" routerLink="/gestionclients" routerLinkActive="active">
 <!--        <a href="javascript:;" class="">-->
@@ -41,52 +41,52 @@
           <span>Ajouter compte</span>
         </a>
       </li>
-      <li>
+      <li *ngIf="showTo('ROLE_ADMIN')">
         <a href="#" routerLink="/desactiverCompte" routerLinkActive="active">
           <i class="fas fa-address-book"></i>
 
           <span>Gestion des comptes</span>
         </a>
       </li>
-      <li>
+      <li *ngIf="showTo('ROLE_ADMIN')">
         <a href="#" routerLink="/envoie-mail" routerLinkActive="active">
             <i class="far fa-envelope"></i>
 
           <span>Envoyer mail</span>
         </a>
       </li>
-      <li>
+      <li *ngIf="showTo('ROLE_ADMIN')">
         <a href="#" routerLink="/liste-reclamations" routerLinkActive="active">
           <i class="fa fa-exclamation"></i>
 
           <span>Reclamations</span>
         </a>
       </li>
-      <li>
+      <li *ngIf="showTo('ROLE_CLIENT')">
         <a href="#" routerLink="/envoie-reclamation" routerLinkActive="active">
           <i class="fa fa-exclamation"></i>
           <span> Envoyer Reclamation</span>
         </a>
       </li>
-      <li>
+      <li *ngIf="showTo('ROLE_CLIENT')">
         <a href="#" routerLink="/passages" routerLinkActive="active">
             <i class="fas fa-list"></i>
           <span>Consulter les passages</span>
         </a>
       </li>
-      <li>
+      <li *ngIf="showTo('ROLE_CLIENT')">
         <a href="#" routerLink="/montantsCollecte" routerLinkActive="active">
             <i class="fas fa-list"></i>
           <span>Montant collectés</span>
         </a>
       </li>
-      <li>
+      <li *ngIf="showTo('ROLE_CLIENT')">
         <a href="#" routerLink="/montantsAllimente" routerLinkActive="active">
             <i class="fas fa-list"></i>
           <span>Montant allimentés</span>
         </a>
       </li>
-      <li>
+      <li *ngIf="showTo('ROLE_CLIENT')">
         <a href="#" routerLink="/etablissements" routerLinkActive="active">
             <i class="fas fa-list"></i>
           <span>Consulter les établissements</span>

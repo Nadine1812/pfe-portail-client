@@ -45,9 +45,10 @@ export class LoginComponent implements OnInit {
             (data) => {
                 this.tokenStorage.saveToken(data.accessToken);
                 this.tokenStorage.saveUser(data);
+                localStorage.setItem('code', data.code);
                 this.isLoginFailed = false;
                 this.isLoggedIn = true;
-
+                this.router.navigate(['home']);
             },
             (error) => {
                 console.log(error);
@@ -56,10 +57,8 @@ export class LoginComponent implements OnInit {
             }, () => {
                 this.roles = this.tokenStorage.getAuthorities();
                 window.localStorage.setItem('USER_ROLE', this.roles[0]);
-                console.log(this.tokenStorage.getAuthorities());
-                this.router.navigate(['/home']).then(() => {
-                    // do whatever you need after navigation succeeds
-                });
+                // console.log(this.tokenStorage.getAuthorities());
+                this.router.navigate(['home']);
             }
         );
     }

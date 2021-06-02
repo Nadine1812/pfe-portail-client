@@ -38,4 +38,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
     getUsername() {
         this.username = this.tokenStorage.getUsername();
     }
+    showTo(role:string){
+        var roles = this.tokenStorage.getAuthorities();
+        if(roles.indexOf(role) ===-1){
+            return false;
+        }
+        return true;
+    }
 }

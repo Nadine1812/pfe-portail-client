@@ -11,18 +11,21 @@ const USER_KEY = null;
 })
 export class TokenStorageService {
     private roles: Array<string> = [];
-
+public token?: string | null;
     constructor() {
     }
 
     signOut() {
         this.roles = [];
         window.sessionStorage.clear();
+        this.token= null;
+
     }
 
     public saveToken(token: string) {
         window.sessionStorage.removeItem(TOKEN_KEY);
         window.sessionStorage.setItem(TOKEN_KEY, token);
+        this.token=token;
     }
     public saveUser(user) {
         window.sessionStorage.removeItem(USER_KEY);

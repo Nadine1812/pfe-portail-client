@@ -40,6 +40,11 @@ export class AppComponent implements OnInit {
     }
 
     public isConnected(): boolean {
+        if(this.tokenStorage.token){
+            return true ;
+    }
         return false;
     }
+
+
 }

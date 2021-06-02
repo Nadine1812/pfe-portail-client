@@ -9,17 +9,18 @@ import {ReclamationService} from '../../services/reclamation.service';
 })
 export class ReclamationsClientComponent implements OnInit {
     reclamation: any = {};
-
     constructor(private tokenStrage: TokenStorageService,
                 private reclamationService: ReclamationService) {
     }
 
     ngOnInit() {
+        this.reclamation.codeUser = localStorage.getItem('code');
+
     }
 
     saveReclamation() {
         // this.reclamation.utilisateur = this.tokenStrage.getUser();
-        this.reclamationService.createReclamation().subscribe(
+        this.reclamationService.createReclamation(this.reclamation).subscribe(
             () => {
                 console.log('reclamation crée');
                 alert('Reclamation est crée avec succée');
