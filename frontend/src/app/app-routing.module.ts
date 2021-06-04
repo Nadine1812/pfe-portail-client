@@ -4,9 +4,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {GestionClientComponent} from './pages/gestion-client/gestion-client.component';
 import {FormsComponent} from './pages/forms/forms.component';
 import {HomeComponent} from './pages/home/home.component';
-import {CommandesClientComponent} from './pages/commandes-client/commandes-client.component';
 import {ReclamationsClientComponent} from './pages/reclamations-client/reclamations-client.component';
-import {ConsultationComponent} from './pages/consultation/consultation.component';
 import {ModifierClientComponent} from './pages/modifier-client/modifier-client.component';
 import {ReclamationsAdminComponent} from './pages/reclamations-admin/reclamations-admin.component';
 import {ModifFormComponent} from './pages/modif-form/modif-form.component';
@@ -46,19 +44,12 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {
-        path: 'commandes-client',
-        component: CommandesClientComponent,
-        data: {roles: ['ROLE_ADMIN']},
-        canActivate: [AuthGuard]
-    },
-    {
         path: 'reclamations-client',
         component: ReclamationsClientComponent,
         data: {roles: ['ROLE_CLIENT']},
         canActivate: [AuthGuard]
     },
     {path: 'ajouterClient', component: FormsComponent, data: {roles: ['ROLE_ADMIN']}, canActivate: [AuthGuard]},
-    {path: 'consulter', component: ConsultationComponent, data: {roles: ['ROLE_ADMIN']}, canActivate: [AuthGuard]},
     {
         path: 'modifierClient',
         component: ModifierClientComponent,

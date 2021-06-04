@@ -18,9 +18,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {InMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {AppMaterialModule} from './app-material.module';
 import {HomeComponent} from './pages/home/home.component';
-import {CommandesClientComponent} from './pages/commandes-client/commandes-client.component';
 import {ReclamationsClientComponent} from './pages/reclamations-client/reclamations-client.component';
-import {ConsultationComponent} from './pages/consultation/consultation.component';
 import {ModifierClientComponent} from './pages/modifier-client/modifier-client.component';
 import {ReclamationsAdminComponent} from './pages/reclamations-admin/reclamations-admin.component';
 import {ModifFormComponent} from './pages/modif-form/modif-form.component';
@@ -48,9 +46,7 @@ import { AffichMontantAlimenteComponent } from './pages/affich-montant-alimente/
         FormsComponent,
         LoginComponent,
         HomeComponent,
-        CommandesClientComponent,
         ReclamationsClientComponent,
-        ConsultationComponent,
         ModifierClientComponent,
         ReclamationsAdminComponent,
         ModifFormComponent,
