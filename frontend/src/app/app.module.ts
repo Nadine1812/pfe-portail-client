@@ -25,15 +25,14 @@ import {ModifFormComponent} from './pages/modif-form/modif-form.component';
 import {SuppClientComponent} from './pages/supp-client/supp-client.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {AuthGuard} from './services/auth.guard';
-import {AuthInterceptor} from './pages/auth/auth-interceptor';
 import {DesactiverCompteComponent} from './pages/desactiver-compte/desactiver-compte.component';
 import {AffichEtablissementComponent} from './pages/affich-etablissement/affich-etablissement.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {AffichPassagesComponent} from './pages/affich-passages/affich-passages.component';
 import {SendMailComponent} from './pages/send-mail/send-mail.component';
-import { AffichMontantCollecteComponent } from './pages/affich-montant-collecte/affich-montant-collecte.component';
-import { AffichMontantAlimenteComponent } from './pages/affich-montant-alimente/affich-montant-alimente.component';
+import {AffichMontantCollecteComponent} from './pages/affich-montant-collecte/affich-montant-collecte.component';
+import {AffichMontantAlimenteComponent} from './pages/affich-montant-alimente/affich-montant-alimente.component';
 
 
 @NgModule({
@@ -74,11 +73,9 @@ import { AffichMontantAlimenteComponent } from './pages/affich-montant-alimente/
         MatPaginatorModule,
         NgxPaginationModule
     ],
-    exports: [
-    ],
+    exports: [],
     providers: [AuthService,
         AuthGuard,
-        {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
     ],
     bootstrap: [AppComponent]
 })
