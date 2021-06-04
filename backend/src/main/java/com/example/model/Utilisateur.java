@@ -36,4 +36,8 @@ public class Utilisateur {
 
 	@OneToMany(mappedBy="utilisateur",cascade=CascadeType.ALL,orphanRemoval = true)
 	private List<Reclamation> reclamations = new ArrayList<>();
+
+	@OneToOne
+	@JoinColumn(name = "societe_id")
+	private Societe societe;
 }

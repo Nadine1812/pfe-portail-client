@@ -18,5 +18,4 @@ public class Societe implements Serializable {
 
     private String  abrv;
 
-
 }

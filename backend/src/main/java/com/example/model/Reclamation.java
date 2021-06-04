@@ -21,7 +21,6 @@ public class Reclamation {
 
     private String codeUser;
 
-
     private LocalDateTime Date_creation;
 
     private String Description;
