@@ -61,7 +61,7 @@ export class GestionClientComponent implements OnInit {
                 (data) => {
                     this.utilisateur = data;
                 }
-            )
-        })
+            );
+        });
     }
 }

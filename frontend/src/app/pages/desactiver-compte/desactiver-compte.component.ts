@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ClientsService} from "../../services/clients.service";
+import {ClientsService} from '../../services/clients.service';
 
 @Component({
     selector: 'app-desactiver-compte',
@@ -9,6 +9,10 @@ import {ClientsService} from "../../services/clients.service";
 export class DesactiverCompteComponent implements OnInit {
     code: any;
     utilisateurs: any;
+    page;
+    count = 0;
+    tableSize = 7;
+    tableSizes = [3, 6, 9, 12];
 
     constructor(private clientService: ClientsService) {
     }
@@ -18,8 +22,8 @@ export class DesactiverCompteComponent implements OnInit {
     }
 
     search() {
-        if (this.code != "") {
-        } else if (this.code == "") {
+        if (this.code !== '') {
+        } else if (this.code === '') {
             this.ngOnInit();
         }
         this.utilisateurs = this.utilisateurs.filter(res => {
@@ -56,5 +60,15 @@ export class DesactiverCompteComponent implements OnInit {
                 console.log(error);
             }
         );
+    }
+    onTableDataChange(event) {
+        this.page = event;
+        this.getAllUtilisateur();
+    }
+
+    onTableSizeChange(event): void {
+        this.tableSize = event.target.value;
+        this.page = 1;
+        this.getAllUtilisateur();
     }
 }

@@ -59,12 +59,12 @@
             <td>{{u.adress}}</td>
             <td>{{u.emailAddress}}</td>
             <td>{{u.tel}}</td>
-            <td><button class="btn btn-success" (click)="modifierClient(u.id)">Modifier</button></td>
-            <td><button class="btn btn-danger" (click)="supprimerClient(u.id)">Supprimer</button></td>
+            <td><button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="modifierClient(u.id)">Modifier</button></td>
+            <td><button class="btn btn-danger rounded-0 mb-2 mr-2" (click)="supprimerClient(u.id)">Supprimer</button></td>
         </tr>
         </tbody>
     </table>
-    <button type="button" class="btn btn-primary btn-lg btn-block" (click)="ajouterClient()">Ajouter</button>
+    <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2 btn-block" (click)="ajouterClient()">Ajouter</button>
     <br>
     <div class="d-flex justify-content-center">
         <pagination-controls

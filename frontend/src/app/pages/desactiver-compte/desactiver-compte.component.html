@@ -1,43 +1,61 @@
-<input type="text" [(ngModel)]="code" (input)="search()"
-       placeholder="Cherchez votre client ">
-
-<div class="row mb-4">
-
-    <div class="col-md-12">
-        <div class="card border-0 rounded-0">
-            <div class="card-body">
-                <div class="table-responsive-md">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Code</th>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody *ngFor="let c of utilisateurs; index as i">
-                        <tr>
-                            <th scope="row">{{i + 1}}</th>
-                            <td>{{c.code}}</td>
-                            <td>{{c.username}}</td>
-                            <td>
-                                <button *ngIf="c.active" class="btn btn red-background white rounded-0 mb-2 mr-2"
-                                        (click)="DesactiverCompte(c.code)">Desactiver le compte
-                                </button>
-                                <button *ngIf="!c.active" class="btn btn-success rounded-0 mb-2 mr-2"
-                                        (click)="ActiverCompte(c.code)">Activer le compte
-                                </button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <br>
-
-            </div>
-        </div>
-
+<div class="container">
+    <div class="center" [style.color]="'Chocolate'">
+        <h3 class="text-center mt-5 mb-5">
+            GESTION DES COMPTES
+        </h3>
     </div>
+    <input type="text" [(ngModel)]="code" (input)="search()"
+           placeholder="Cherchez votre client ">
+    <div class="d-flex flex-row-reverse bd-highlight mb-2">
+        <div class="p-2 bd-highlight">
+            <select (change)="onTableSizeChange($event)" class="custom-select">
+                <option *ngFor="let size of tableSizes" [ngValue]="size">
+                    {{ size }}
+                </option>
+            </select>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Code</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let c of utilisateurs | paginate : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              };
+        let i = index" [class.active]="i == currentIndex">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{c.code}}</td>
+            <td>{{c.username}}</td>
+            <td>
+            <button *ngIf="c.active" class="btn btn red-background white rounded-0 mb-2 mr-2"
+                    (click)="DesactiverCompte(c.code)">Desactiver le compte
+            </button>
+            <button *ngIf="!c.active" class="btn btn-success rounded-0 mb-2 mr-2"
+                    (click)="ActiverCompte(c.code)">Activer le compte
+            </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <div class="d-flex justify-content-center">
+        <pagination-controls
+                responsive="true"
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)">
+        </pagination-controls>
+    </div>
+
 </div>
+
+
 

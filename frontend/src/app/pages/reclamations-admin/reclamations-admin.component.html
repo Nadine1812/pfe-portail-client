@@ -23,6 +23,7 @@
             <th>Description</th>
             <th>Rapport</th>
             <th>Date création</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -32,11 +33,12 @@
                 totalItems: count
               };
         let i = index" [class.active]="i == currentIndex">
-            <th scope="row">{{r.id}}</th>
+            <th scope="row">{{i + 1}}</th>
             <td>{{r.codeUser}}</td>
             <td>{{r.description}}</td>
             <td>{{r.rapport}}</td>
             <td>{{r.date_creation}}</td>
+            <td><button class="btn btn-danger" (click)="supprimerReclamation(r.id)">Supprimer</button></td>
         </tr>
         </tbody>
     </table>

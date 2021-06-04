@@ -16,4 +16,7 @@ reclamationURL = 'http://localhost:8080/api/reclamation';
   getAllReclamations() {
     return this.httpClient.get(this.reclamationURL);
   }
+  deleteReclamation(id: any) {
+    return this.httpClient.delete(`${this.reclamationURL}/${id}`);
+  }
 }
