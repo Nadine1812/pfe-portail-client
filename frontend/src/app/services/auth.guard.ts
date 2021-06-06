@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate {
 
         const token = this.tokenStorage.token;
         console.log('token', token);
-        var roles = this.tokenStorage.getAuthorities();
+        let roles = this.tokenStorage.getAuthorities();
         if (token) {
             if (next.data.roles && next.data.roles.indexOf(roles[0]) === -1) {
 

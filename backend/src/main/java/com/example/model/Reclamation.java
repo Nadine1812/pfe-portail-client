@@ -21,7 +21,8 @@ public class Reclamation {
 
     private String codeUser;
 
-    private LocalDateTime Date_creation;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date Date_creation;
 
     private String Description;
 

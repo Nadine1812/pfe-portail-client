@@ -12,6 +12,7 @@ export class ReclamationsAdminComponent implements OnInit {
     count = 0;
     tableSize = 5;
     tableSizes = [3, 6, 9, 12];
+
     constructor(private reclamationService: ReclamationService) {
     }
 
@@ -30,6 +31,7 @@ export class ReclamationsAdminComponent implements OnInit {
                     console.log(error);
                 });
     }
+
     onTableDataChange(event) {
         this.page = event;
         this.fetchPosts();
@@ -41,13 +43,17 @@ export class ReclamationsAdminComponent implements OnInit {
         this.fetchPosts();
     }
     supprimerReclamation(id) {
-        this.reclamationService.deleteReclamation(id).subscribe(() => {
-            console.log('Employee deleted successfully');
-            this.reclamationService.getAllReclamations().subscribe(
-                (data) => {
-                    this.reclamation = data;
-                }
-            );
-        });
+        let res = confirm('Êtes-vous sûr de vouloir supprimer?');
+        if (res) {
+            this.reclamationService.deleteReclamation(id).subscribe(() => {
+                console.log('Employee deleted successfully');
+                this.reclamationService.getAllReclamations().subscribe(
+                    (data) => {
+                        this.reclamation = data;
+                    }
+                );
+            });
+        }
+
     }
 }

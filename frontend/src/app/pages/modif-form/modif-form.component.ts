@@ -44,8 +44,9 @@ export class ModifFormComponent implements OnInit {
                 () => {
                     this.router.navigate(['/gestionclients']);
                     console.log('client modifié');
+                    alert('Les données sont bien modifiés');
                 }
-            )
+            );
 
         }
     }

@@ -11,6 +11,7 @@ import {ClientsService} from 'src/app/services/clients.service';
 export class FormsComponent implements OnInit {
     id: any;
     utilisateur: any = {};
+    societe: any = {};
     ajouterClientForm: FormGroup;
 
     constructor(private activatedRoute: ActivatedRoute,
@@ -25,12 +26,13 @@ export class FormsComponent implements OnInit {
             this.clientService.getUtilisateur(this.id).subscribe(
                 (data) => {
                     this.utilisateur = data;
-                    console.log('voila mon client', this.utilisateur)
+                    console.log('voila mon client', this.utilisateur);
                 }
             );
             this.ajouterClientForm = this.formBuilder.group({
                 id: [''],
                 code: [''],
+                societe_id: [''],
                 username: [''],
                 raisonSocial: [''],
                 adress: [''],
@@ -45,6 +47,7 @@ export class FormsComponent implements OnInit {
             () => {
                 this.router.navigate(['/gestionclients']);
                 console.log('client crée');
+                alert('Le nouveau utilisateur est bien crée');
             });
     }
 }

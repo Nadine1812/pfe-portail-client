@@ -1,11 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Observable, Subscription} from 'rxjs';
+import {Subscription} from 'rxjs';
 import {TokenStorageService} from 'src/app/pages/auth/token-storage.service';
-import {ClientsService} from 'src/app/services/clients.service';
-import {Router} from '@angular/router';
-import {Menu} from '../../pages/models/menu';
-import {AuthService} from '../../services/auth.service';
-import {Role} from '../../pages/models/role';
 
 
 @Component({
@@ -15,7 +10,6 @@ import {Role} from '../../pages/models/role';
 })
 export class SidebarComponent implements OnInit, OnDestroy {
     info: any;
-    activeMenuItem$: Observable<Menu>;
     roles: any;
     username: string;
     authListenerSubs: Subscription = new Subscription();
@@ -35,12 +29,14 @@ export class SidebarComponent implements OnInit, OnDestroy {
     getRole() {
         this.roles = this.tokenStorage.getAuthorities();
     }
+
     getUsername() {
         this.username = this.tokenStorage.getUsername();
     }
-    showTo(role:string){
-        var roles = this.tokenStorage.getAuthorities();
-        if(roles.indexOf(role) ===-1){
+
+    showTo(role: string) {
+        let roles = this.tokenStorage.getAuthorities();
+        if (roles.indexOf(role) === -1) {
             return false;
         }
         return true;

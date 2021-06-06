@@ -1,28 +1,11 @@
-<!--<div class="btn-group">-->
-<!--    <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="consulter()"> Consulter clients</button>-->
-<!--</div>-->
-<!--<div class="btn-group">-->
-<!--    <div class="btn-group">-->
-<!--        <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="ajouterClient()"> Ajouter-->
-<!--            client-->
-<!--        </button>-->
-<!--    </div>-->
-<!--    <div class="btn-group">-->
-<!--        <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="modifierClient()">Modifier Client-->
-<!--        </button>-->
-<!--    </div>-->
-<!--    <div class="btn-group">-->
-<!--        <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="supprimerClient()">Supprimer-->
-<!--            Client-->
-<!--        </button>-->
-<!--    </div>-->
-<!--</div>-->
 <div class="container">
     <div class="center" [style.color]="'Chocolate'">
         <h3 class="text-center mt-5 mb-5">
            GESTION CLIENTS
         </h3>
     </div>
+    <input type="text" [(ngModel)]="code" (input)="search()"
+           placeholder="Cherchez votre client ">
     <div class="d-flex flex-row-reverse bd-highlight mb-2">
         <div class="p-2 bd-highlight">
             <select (change)="onTableSizeChange($event)" class="custom-select">

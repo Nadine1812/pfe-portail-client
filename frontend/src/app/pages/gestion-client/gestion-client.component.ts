@@ -13,6 +13,7 @@ export class GestionClientComponent implements OnInit {
     count = 0;
     tableSize = 7;
     tableSizes = [3, 6, 9, 12];
+    code: any;
 
     constructor(private router: Router,
                 private clientService: ClientsService) {
@@ -53,15 +54,27 @@ export class GestionClientComponent implements OnInit {
     modifierClient(id) {
         this.router.navigate([`modifClient/${id}`]);
     }
-
     supprimerClient(id) {
-        this.clientService.deleteUtilisateur(id).subscribe(() => {
-            console.log('Employee deleted successfully');
-            this.clientService.getAllUtilisateur().subscribe(
-                (data) => {
-                    this.utilisateur = data;
-                }
-            );
+        let res = confirm('Êtes-vous sûr de vouloir supprimer?');
+        if (res) {
+            this.clientService.deleteUtilisateur(id).subscribe(() => {
+                console.log('Employee deleted successfully');
+                this.clientService.getAllUtilisateur().subscribe(
+                    (data) => {
+                        this.utilisateur = data;
+                    }
+                );
+            });
+
+        }
+    }
+    search() {
+        if (this.code !== '') {
+        } else if (this.code === '') {
+            this.ngOnInit();
+        }
+        this.utilisateur = this.utilisateur.filter(res => {
+            return res.code.toLocaleLowerCase().match(this.code.toLocaleLowerCase());
         });
     }
 }

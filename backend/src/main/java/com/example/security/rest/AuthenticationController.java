@@ -91,7 +91,7 @@ public class AuthenticationController {
         requestMail.setSubject("Activation de compte");
 
             requestMail.setContent("Votre compte est maintenant créé: \n  Votre nom d'utilisation est:" + utilisateur.getUsername() + " et votre mot de passe est: " + signUpRequest.getPwd()+ " \n " +
-                    "PS : Vous ne pouvez jamais voir votre mot de passe pour des raisons de sécurité, merci de nous appeler sur 54963533.");
+                    "PS : Pour plus d'information, merci de nous appeler sur 54963533.");
 
         sendMailService.sendMail(requestMail);
         return new ResponseEntity<>(new ResponseMessage("utilisateur est crée avec succée"), HttpStatus.OK);

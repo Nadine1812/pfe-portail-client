@@ -5,7 +5,6 @@ import {GestionClientComponent} from './pages/gestion-client/gestion-client.comp
 import {FormsComponent} from './pages/forms/forms.component';
 import {HomeComponent} from './pages/home/home.component';
 import {ReclamationsClientComponent} from './pages/reclamations-client/reclamations-client.component';
-import {ModifierClientComponent} from './pages/modifier-client/modifier-client.component';
 import {ReclamationsAdminComponent} from './pages/reclamations-admin/reclamations-admin.component';
 import {ModifFormComponent} from './pages/modif-form/modif-form.component';
 import {SuppClientComponent} from './pages/supp-client/supp-client.component';
@@ -50,12 +49,7 @@ const routes: Routes = [
         canActivate: [AuthGuard]
     },
     {path: 'ajouterClient', component: FormsComponent, data: {roles: ['ROLE_ADMIN']}, canActivate: [AuthGuard]},
-    {
-        path: 'modifierClient',
-        component: ModifierClientComponent,
-        data: {roles: ['ROLE_ADMIN']},
-        canActivate: [AuthGuard]
-    },
+
     {path: 'modifClient/:id', component: ModifFormComponent, data: {roles: ['ROLE_ADMIN']}, canActivate: [AuthGuard]},
     {path: 'supprimerClient', component: SuppClientComponent, data: {roles: ['ROLE_ADMIN']}, canActivate: [AuthGuard]},
     {
