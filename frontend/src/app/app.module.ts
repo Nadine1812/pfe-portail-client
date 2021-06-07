@@ -69,7 +69,7 @@ import {AffichMontantAlimenteComponent} from './pages/affich-montant-alimente/af
         CollapseModule.forRoot(),
         ToastrModule.forRoot(),
         MatPaginatorModule,
-        NgxPaginationModule
+        NgxPaginationModule,
     ],
     exports: [],
     providers: [AuthService,

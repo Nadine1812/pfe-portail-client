@@ -75,8 +75,10 @@ export class RegisterComponent implements OnInit {
         this.authService.signUp(this.form).subscribe(
             (data) => {
                 console.log('signup', data);
-                alert('Le compte est bien crée');
-            }
-        );
+            },
+            (error) => {
+                console.log(error);
+                alert('Ce compte existe dèjà');
+            });
     }
 }

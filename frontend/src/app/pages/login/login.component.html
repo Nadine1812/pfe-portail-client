@@ -9,13 +9,16 @@
 <div class="login">
     <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="form-login" #f="ngForm" novalidate>
         <div class="login-form">
-            <h6>Nom d'utilisateur</h6>
+            <h2>Connexion</h2>
+            <div style="background: black; width: 100%; height: 2px;"></div>
+            <br>
+            <h6><i class="fa fa-user icon"></i> Nom d'utilisateur </h6>
             <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
                    required/>
             <div *ngIf="f.submitted && username.invalid">
                 <div *ngIf="username.errors.required">Username is required</div>
             </div>
-            <h6>Mot de passe</h6>
+            <h6><i class="fa fa-key icon"></i> Mot de passe</h6>
             <input type="password" class="form-control" name="pwd" [(ngModel)]="form.pwd" #pwd="ngModel" required
                    minlength="4" [type]="hide ? 'password' : 'text' "/>
             <input type="checkbox" (click)="myFunction()">Voir le mot de passe
@@ -25,7 +28,7 @@
             </div>
             <br>
             <br>
-            <button type="submit" value="Login" class="btn btn blue-background white rounded">Connecter</button>
+            <button type="submit" value="Login" class="btn btn blue-background white rounded">Se connecter</button>
             <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
                 Login failed
             </div>

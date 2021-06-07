@@ -38,11 +38,11 @@
             <td>{{r.description}}</td>
             <td>{{r.rapport}}</td>
             <td>{{r.date_creation}}</td>
-            <td><button class="btn btn-danger rounded-0 mb-2 mr-2" (click)="supprimerReclamation(r.id)">Supprimer</button></td>
+            <td><a style="color: #FF0000;" role="button" (click)="supprimerReclamation(r.id)"><i
+                    class="far fa-trash-alt"></i></a></td>
         </tr>
         </tbody>
     </table>
-
     <div class="d-flex justify-content-center">
         <pagination-controls
                 responsive="true"
@@ -51,5 +51,4 @@
                 (pageChange)="onTableDataChange($event)">
         </pagination-controls>
     </div>
-
 </div>

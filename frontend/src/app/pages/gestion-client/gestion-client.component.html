@@ -1,7 +1,7 @@
 <div class="container">
     <div class="center" [style.color]="'Chocolate'">
         <h3 class="text-center mt-5 mb-5">
-           GESTION CLIENTS
+            GESTION CLIENTS
         </h3>
     </div>
     <input type="text" [(ngModel)]="code" (input)="search()"
@@ -42,12 +42,15 @@
             <td>{{u.adress}}</td>
             <td>{{u.emailAddress}}</td>
             <td>{{u.tel}}</td>
-            <td><button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="modifierClient(u.id)">Modifier</button></td>
-            <td><button class="btn btn-danger rounded-0 mb-2 mr-2" (click)="supprimerClient(u.id)">Supprimer</button></td>
+            <td><a style="color: #778899;" role="button" (click)="modifierClient(u.id)"><i class="fas fa-user-edit"></i></a>
+            </td>
+            <td><a style="color: #FF0000;" role="button" (click)="supprimerClient(u.id)"><i
+                    class="fas fa-user-minus"></i></a></td>
         </tr>
         </tbody>
     </table>
-    <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2 btn-block" (click)="ajouterClient()">Ajouter</button>
+    <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2 btn-block" (click)="ajouterClient()">Ajouter
+    </button>
     <br>
     <div class="d-flex justify-content-center">
         <pagination-controls
@@ -57,7 +60,4 @@
                 (pageChange)="onTableDataChange($event)">
         </pagination-controls>
     </div>
-
 </div>
-
-

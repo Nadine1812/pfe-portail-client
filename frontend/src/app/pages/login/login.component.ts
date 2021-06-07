@@ -54,11 +54,6 @@ export class LoginComponent implements OnInit {
                 console.log(error);
                 this.errorMessage = error.error.message;
                 this.isLoginFailed = true;
-            }, () => {
-                this.roles = this.tokenStorage.getAuthorities();
-                window.localStorage.setItem('USER_ROLE', this.roles[0]);
-                // console.log(this.tokenStorage.getAuthorities());
-                this.router.navigate(['home']);
             }
         );
     }
