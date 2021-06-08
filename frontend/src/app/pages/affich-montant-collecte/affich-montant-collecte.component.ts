@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MontantsService} from "../../services/montants.service";
+import {AffichageService} from '../../services/affichage.service';
 
 @Component({
   selector: 'app-affich-montant-collecte',
@@ -12,13 +12,13 @@ export class AffichMontantCollecteComponent implements OnInit {
   count = 0;
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
-  constructor(private montantService: MontantsService) { }
+  constructor(private affichageService: AffichageService) { }
 
   ngOnInit() {
     this.fetchPosts();
   }
   fetchPosts(): void {
-    this.montantService.getAllCollecte()
+    this.affichageService.getAllCollecte()
         .subscribe(
             response => {
               this.collecte = response;

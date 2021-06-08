@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PassagesService} from '../../services/passages.service';
+import {AffichageService} from '../../services/affichage.service';
 
 @Component({
   selector: 'app-affich-passages',
@@ -13,13 +13,13 @@ export class AffichPassagesComponent implements OnInit {
   count = 0;
   tableSize = 7;
   tableSizes = [3, 6, 9, 12];
-  constructor(private passageService: PassagesService) { }
+  constructor(private affichageService: AffichageService) { }
 
   ngOnInit() {
     this.fetchPosts();
   }
     fetchPosts(): void {
-    this.passageService.getAllPassage()
+    this.affichageService.getAllPassage()
         .subscribe(
             response => {
               this.passage = response;

@@ -52,13 +52,13 @@
                     <span> Envoyer Reclamation</span>
                 </a>
             </li>
-            <li *ngIf="showTo('ROLE_CLIENT')">
+            <li>
                 <a href="#" routerLink="/passages" routerLinkActive="active">
                     <i class="fas fa-list"></i>
-                    <span>Consulter les passages</span>
+                    <span>Les passages</span>
                 </a>
             </li>
-            <li *ngIf="showTo('ROLE_CLIENT')">
+            <li>
                 <a href="#" routerLink="/montantsCollecte" routerLinkActive="active">
                     <i class="fas fa-list"></i>
                     <span>Montant collectés</span>
@@ -70,10 +70,10 @@
                     <span>Montant allimentés</span>
                 </a>
             </li>
-            <li *ngIf="showTo('ROLE_CLIENT')">
+            <li>
                 <a href="#" routerLink="/etablissements" routerLinkActive="active">
                     <i class="fas fa-list"></i>
-                    <span>Consulter les établissements</span>
+                    <span>Les établissements</span>
                 </a>
             </li>
         </ul>

@@ -25,10 +25,7 @@ const routes: Routes = [
 
     },
     {path: 'login', component: LoginComponent},
-    {
-        path: 'home', component: HomeComponent, data: {roles: ['ROLE_ADMIN', 'ROLE_CLIENT']}, canActivate: [AuthGuard]
-
-    },
+    {path: 'home', component: HomeComponent, data: {roles: ['ROLE_ADMIN', 'ROLE_CLIENT']}, canActivate: [AuthGuard]},
     {path: 'register', component: RegisterComponent, data: {roles: ['ROLE_ADMIN']}, canActivate: [AuthGuard]},
     {
         path: 'reclamations',
@@ -61,10 +58,15 @@ const routes: Routes = [
     {
         path: 'etablissements',
         component: AffichEtablissementComponent,
-        data: {roles: ['ROLE_CLIENT']},
+        data: {roles: ['ROLE_CLIENT', 'ROLE_ADMIN']},
         canActivate: [AuthGuard]
     },
-    {path: 'passages', component: AffichPassagesComponent, data: {roles: ['ROLE_CLIENT']}, canActivate: [AuthGuard]},
+    {
+        path: 'passages',
+        component: AffichPassagesComponent,
+        data: {roles: ['ROLE_CLIENT', 'ROLE_ADMIN']},
+        canActivate: [AuthGuard]
+    },
     {path: 'envoie-mail', component: SendMailComponent, data: {roles: ['ROLE_ADMIN']}, canActivate: [AuthGuard]},
     {
         path: 'envoie-reclamation',
@@ -81,7 +83,7 @@ const routes: Routes = [
     {
         path: 'montantsCollecte',
         component: AffichMontantCollecteComponent,
-        data: {roles: ['ROLE_CLIENT']},
+        data: {roles: ['ROLE_CLIENT', 'ROLE_ADMIN']},
         canActivate: [AuthGuard]
     },
     {

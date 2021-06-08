@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {EtablissementService} from '../../services/etablissement.service';
+import {AffichageService} from '../../services/affichage.service';
 
 
 @Component({
@@ -15,13 +15,13 @@ export class AffichEtablissementComponent implements OnInit {
     tableSize = 7;
     tableSizes = [3, 6, 9, 12];
 
-    constructor(private etablissementService: EtablissementService) {}
+    constructor(private affichageService: AffichageService) {}
 
   ngOnInit() {
       this.fetchPosts();
   }
     fetchPosts(): void {
-        this.etablissementService.getAllEstablishment()
+        this.affichageService.getAllEstablishment()
             .subscribe(
                 response => {
                     this.etablissement = response;
@@ -31,7 +31,7 @@ export class AffichEtablissementComponent implements OnInit {
                     console.log(error);
                 });
     }
-    onTableDataChange(event){
+    onTableDataChange(event) {
         this.page = event;
         this.fetchPosts();
     }
