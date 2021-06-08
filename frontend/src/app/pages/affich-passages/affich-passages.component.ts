@@ -7,7 +7,7 @@ import {AffichageService} from '../../services/affichage.service';
   styleUrls: ['./affich-passages.component.scss']
 })
 export class AffichPassagesComponent implements OnInit {
-
+  passage_date: any;
   passage: any;
   page;
   count = 0;
@@ -39,5 +39,14 @@ export class AffichPassagesComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.fetchPosts();
+  }
+  search() {
+    if (this.passage_date !== '') {
+    } else if (this.passage_date === '') {
+      this.ngOnInit();
+    }
+    this.passage = this.passage.filter(res => {
+      return res.passage_date.toLocaleLowerCase().match(this.passage_date.toLocaleLowerCase());
+    });
   }
 }
