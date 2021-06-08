@@ -7,4 +7,6 @@ import java.util.List;
 public interface PassageService {
 
     public List<Passage> getAllPassage();
+
+    public List<Passage> getAllPassageById(String id);
 }

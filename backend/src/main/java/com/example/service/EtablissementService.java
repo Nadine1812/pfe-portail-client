@@ -7,4 +7,6 @@ import java.util.List;
 public interface EtablissementService {
 
     public List<Etablissement> getAllEstablishment();
+
+    public List<Etablissement> getAllEstablishmentById(String id);
 }

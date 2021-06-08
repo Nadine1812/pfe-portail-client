@@ -11,7 +11,7 @@ fontURL = 'http://localhost:8080/api/font_type';
   constructor(private httpClient: HttpClient) { }
 
   getAllAlimentation() {
-    return this.httpClient.get(this.alimentationURL);
+    return this.httpClient.get(this.alimentationURL + '/' + localStorage.getItem('code'));
   }
   getAllTypeFont() {
     return this.httpClient.get(this.fontURL);

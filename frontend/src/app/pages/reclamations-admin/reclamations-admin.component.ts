@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ReclamationService} from '../../services/reclamation.service';
+import {getFullYear, getMonth} from "ngx-bootstrap";
 
 @Component({
     selector: 'app-reclamations-admin',
@@ -31,6 +32,7 @@ export class ReclamationsAdminComponent implements OnInit {
                     console.log(error);
                 });
     }
+
 
     onTableDataChange(event) {
         this.page = event;

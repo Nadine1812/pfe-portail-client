@@ -5,39 +5,49 @@
             <div class="form-group">
                 <label>Code </label>
                 <div class="input-group">
-                <input type="text" class="form-control" name="code" [(ngModel)]="form.code"
-                [ngModelOptions]="{standalone: true}" #code="ngModel" required/>
-                <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="ok()">Ok</button>
-            </div>
+                    <input type="text" class="form-control" name="code" [(ngModel)]="form.code"
+                           [ngModelOptions]="{standalone: true}" #code="ngModel" required/>
+                    <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="ok()">Ok</button>
                 </div>
+            </div>
+            <span class="text-danger"
+                  *ngIf="(code.touched || signupInfo.submitted) && code.errors?.required">
+                                Code est obligatoire
+            </span>
             <div class="form-group">
                 <label>Nom</label>
                 <input type="text" class="form-control" name="username" [(ngModel)]="form.username"
-               [ngModelOptions]="{standalone: true}" #username="ngModel"
-                required/>
+                       [ngModelOptions]="{standalone: true}" #username="ngModel"
+                       required/>
+                <span class="text-danger"
+                      *ngIf="(username.touched || signupInfo.submitted) && username.errors?.required">
+                               Nom de l'utilisateur est obligatoire
+            </span>
             </div>
             <div class="form-group">
                 <label>Role</label>
                 <select name="role" class="form-control selectpicker" id="role" [(ngModel)]="role">
-                   <option value="">Choisissez le role d'utilisateur</option>
+                    <option value="">Choisissez le role d'utilisateur</option>
                     <option value="ROLE_ADMIN">Admin</option>
                     <option value="ROLE_CLIENT">Client</option>
-                    </select>
+                </select>
             </div>
             <div class="form-group">
                 <label>Mot de passe</label>
                 <input type="password" class="form-control" name="pwd" [(ngModel)]="form.pwd"
-                [ngModelOptions]="{standalone: true}" #pwd="ngModel"
-               required minlength="4"/>
+                       [ngModelOptions]="{standalone: true}" #pwd="ngModel"
+                       required minlength="4"/>
+                <span class="text-danger">
                 <div *ngIf="f.submitted && pwd.invalid">
-                <div *ngIf="pwd.errors.required">Password is required</div>
-              <div *ngIf="pwd.errors.minlength">Password must be at least 4 characters</div>
+                    <div *ngIf="pwd.errors.required">Mot de passe est obligatoire</div>
+                    <div *ngIf="pwd.errors.minlength">Password must be at least 4 characters</div>
                 </div>
+                </span>
             </div>
             <div class="text-center">
                 <button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="signup()">Inscrire</button>
                 <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-             Signup failed!<br/>
+                    Signup failed!<br/>
                 </div>
             </div>
         </form>

@@ -1,13 +1,11 @@
 package com.example.controller;
 
+import com.example.model.Etablissement;
 import com.example.model.Passage;
 import com.example.service.PassageService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +21,11 @@ public class PassageController {
     @GetMapping
     public List<Passage> getAllPassage(){
         return passageService.getAllPassage();
+    }
+
+    @GetMapping("/{id}")
+    public List<Passage> getAllPassageById(@PathVariable String id){
+        return passageService.getAllPassageById(id);
     }
 
 }

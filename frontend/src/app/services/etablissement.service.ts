@@ -13,7 +13,7 @@ export class EtablissementService {
     }
 
     getAllEstablishment() {
-        return this.httpClient.get(this.etabllisementURL);
+        return this.httpClient.get(this.etabllisementURL + '/' + localStorage.getItem('code'));
     }
     getAllSocieties() {
         return this.httpClient.get(this.societeURL);

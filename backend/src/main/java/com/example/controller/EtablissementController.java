@@ -1,12 +1,10 @@
 package com.example.controller;
 import com.example.model.Etablissement;
+import com.example.repository.EtablissementRepository;
 import com.example.service.EtablissementService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,4 +21,10 @@ public class EtablissementController {
     public List<Etablissement> getAllEstablishment(){
         return etablissementService.getAllEstablishment();
     }
+
+    @GetMapping("/{id}")
+    public List<Etablissement> getAllEstablishmentById(@PathVariable String id){
+        return etablissementService.getAllEstablishmentById(id);
+    }
+
 }

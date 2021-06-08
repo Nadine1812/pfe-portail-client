@@ -5,7 +5,7 @@
             <div class="form-group">
                 <label>Code de l'utilisateur</label>
                 <input type="text" class="form-control" id="code" name="code" [(ngModel)]="dataset.codeUser"
-                       placeholder="Entrez le code de l'utilisateur" (focusout)="getCode($event)"/>
+                       placeholder="Entrez le code de l'utilisateur"  (focusout)="getCode($event)"/>
             </div>
             <div class="form-group">
                 <label>Adresse E-mail</label>
@@ -14,12 +14,13 @@
             </div>
             <div class="form-group">
                 <label>Object</label>
-                <input type="text" class="form-control" id="subject"  [(ngModel)]="dataset.subject"  name="subject"
+                <input type="text" class="form-control" id="subject" [(ngModel)]="dataset.subject" name="subject"
                        placeholder="Entrez l'objet">
             </div>
             <div class="form-group">
                 <label>Message</label>
-                <textarea class="form-control" [(ngModel)]="dataset.content" rows="10" placeholder="Entrez le contenu"></textarea>
+                <textarea class="form-control" [(ngModel)]="dataset.content" rows="10"
+                          placeholder="Entrez le contenu"></textarea>
             </div>
             <div class="text-center">
                 <button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="onSubmit()">Envoyer</button>

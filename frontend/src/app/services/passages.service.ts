@@ -10,7 +10,7 @@ export class PassagesService {
   constructor(private httpClient: HttpClient) { }
 
   getAllPassage() {
-    return this.httpClient.get(this.pasageURL);
+    return this.httpClient.get(this.pasageURL + '/' + localStorage.getItem('code'));
   }
   getAllCentresFort() {
     return this.httpClient.get(this.centre_fortURL);

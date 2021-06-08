@@ -37,7 +37,9 @@
             <td>{{r.codeUser}}</td>
             <td>{{r.description}}</td>
             <td>{{r.rapport}}</td>
-            <td>{{r.date_creation}}</td>
+            <td *ngIf="r.date_creation">{{r.date_creation.slice(0,10)}}</td>
+            <td *ngIf="r.date_creation==null"></td>
+
             <td><a style="color: #FF0000;" role="button" (click)="supprimerReclamation(r.id)"><i
                     class="far fa-trash-alt"></i></a></td>
         </tr>

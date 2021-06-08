@@ -20,6 +20,7 @@ export class ReclamationsClientComponent implements OnInit {
 
     saveReclamation() {
         // this.reclamation.utilisateur = this.tokenStrage.getUser();
+        this.reclamation.date_creation = new Date();
         this.reclamationService.createReclamation(this.reclamation).subscribe(
             () => {
                 console.log('reclamation crée');

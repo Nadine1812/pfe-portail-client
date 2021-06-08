@@ -1,9 +1,14 @@
 package com.example.service.impl;
 
+import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 
+import com.example.DTO.SocieteModel;
+import com.example.model.Societe;
+import com.example.repository.SocieteRepository;
 import com.example.service.UtilisateurService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +17,11 @@ import com.example.repository.UtilisateurRepository;
 
 @Service
 public class UtilisateurServiceImpl implements UtilisateurService {
-
+    ModelMapper modelMapper;
     @Autowired
     public UtilisateurRepository utilisateurRepository;
+    @Autowired
+    public SocieteRepository societeRepository;
 
     @Override
     public Utilisateur update(Utilisateur utilisateur) {
@@ -29,8 +36,15 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Override
     public Utilisateur create(Utilisateur utilisateur) {
+        modelMapper = new ModelMapper();
+        SocieteModel societe =new SocieteModel(utilisateur.getCode(),utilisateur.getRaisonSocial(),2,utilisateur.getUsername());
+        Societe s=modelMapper.map(societe, Societe.class);
+
+       societeRepository.save(s);
         utilisateur.setHasAccount(false);
-        return utilisateurRepository.save(utilisateur);
+        utilisateur.setSociete(s);
+
+       return utilisateurRepository.save(utilisateur);
     }
 
     @Override

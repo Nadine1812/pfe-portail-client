@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ClientsService} from 'src/app/services/clients.service';
 
@@ -43,11 +43,16 @@ export class FormsComponent implements OnInit {
     }
 
     Client() {
+        this.utilisateur.societe_id = this.utilisateur.code;
         this.clientService.createUser(this.utilisateur).subscribe(
             () => {
                 this.router.navigate(['/gestionclients']);
                 console.log('client crée');
                 alert('Le nouveau utilisateur est bien crée');
+            },
+            (error) => {
+                console.log(error);
+                alert('Vous devez saisir tous les données');
             });
     }
 }

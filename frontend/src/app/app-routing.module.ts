@@ -87,7 +87,7 @@ const routes: Routes = [
     {
         path: 'montantsAllimente',
         component: AffichMontantAlimenteComponent,
-        data: {roles: ['ROLE_CLIENT']},
+        data: {roles: ['ROLE_CLIENT', 'ROLE_ADMIN']},
         canActivate: [AuthGuard]
     },
 ];
