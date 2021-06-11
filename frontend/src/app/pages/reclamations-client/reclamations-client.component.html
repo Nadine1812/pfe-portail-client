@@ -1,27 +1,27 @@
 <div class="card m-3">
     <h5 class="card-header">ENVOYER UNE RECLAMATION</h5>
     <div class="card-body">
-        <form #ajouterRecForm='ngForm' (ngSubmit)='saveReclamation()'>
+        <form [formGroup]="ajouterRecForm">
             <div class="form-group">
                 <label>Description <span class="color-error">*</span></label>
-                <input type="text" class="form-control" [(ngModel)]="reclamation.description"
-                       [ngModelOptions]="{standalone: true}"  #description="ngModel"required/>
-              <span class="text-danger"
-                    *ngIf="(description.touched || ajouterRecForm.submitted) && description.errors?.required">
-                                Description est obligatoire
-            </span>
+                <input type="text" class="form-control" formControlName="description"
+                       [(ngModel)]="reclamation.description"
+                       [ngClass]="{'is-invalid': submitted && ajouterRecForm.controls.description.errors,
+                       'is-valid': submitted &&  !ajouterRecForm.controls.description.errors}"/>
+                <div *ngIf="isElementNotValid('description')" class="invalid-feedback d-block">
+                </div>
+
             </div>
             <div class="form-group">
                 <label>Rapport <span class="color-error">*</span></label>
-                <textarea class="form-control" [(ngModel)]="reclamation.rapport" rows="10"
-                          [ngModelOptions]="{standalone: true}" #rapport="ngModel"></textarea>
-              <span class="text-danger"
-                    *ngIf="(rapport.touched || ajouterRecForm.submitted) && rapport.errors?.required">
-                                Rapport est obligatoire
-            </span>
+                <textarea class="form-control" formControlName="rapport" [(ngModel)]="reclamation.rapport" rows="10"
+                          [ngClass]="{'is-invalid': submitted && ajouterRecForm.controls.rapport.errors,
+                       'is-valid': submitted &&  !ajouterRecForm.controls.rapport.errors}"></textarea>
+                <div *ngIf="isElementNotValid('rapport')" class="invalid-feedback d-block">
+                </div>
             </div>
             <div class="text-center">
-                <button class="btn btn-lightning rounded-0 mb-2 mr-2">Envoyer</button>
+                <button class="btn btn-lightning rounded-0 mb-2 mr-2" (click)="saveReclamation()">Envoyer</button>
             </div>
         </form>
     </div>

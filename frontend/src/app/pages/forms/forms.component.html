@@ -1,17 +1,18 @@
 <div class="card m-3">
     <h5 class="card-header">AJOUTER CLIENT :</h5>
     <div class="card-body">
-        <form #ajouterClientForm='ngForm' (ngSubmit)='Client()'>
+        <form #ajouterClientForm="ngForm" (submit)="Client()">
             <div class="form-group">
                 <label>Code <span class="color-error">*</span> </label>
                 <input type="text" class="form-control" [(ngModel)]='utilisateur.code'
-                 [ngModelOptions]="{standalone: true}"
-                placeholder="Code" #code="ngModel"  required/>
+                       [ngModelOptions]="{standalone: true}"
+                       placeholder="Code" #code="ngModel"  required/>
                 <span class="text-danger"
-                      *ngIf="(code.touched || ajouterClientForm.submitted) && code.errors?.required">
+                      *ngIf="(username.touched || ajouterClientForm.submitted) && code.errors?.required">
                                 Code est obligatoire
             </span>
             </div>
+
             <div class="form-group">
                 <label>Nom <span class="color-error">*</span></label>
                 <input type="text" class="form-control" [(ngModel)]='utilisateur.username'
@@ -67,4 +68,3 @@
         </form>
     </div>
 </div>
-

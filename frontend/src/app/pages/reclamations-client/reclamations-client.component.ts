@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from '../auth/token-storage.service';
 import {ReclamationService} from '../../services/reclamation.service';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
     selector: 'app-reclamations-client',
@@ -11,6 +11,8 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 export class ReclamationsClientComponent implements OnInit {
     reclamation: any = {};
     ajouterRecForm: FormGroup;
+    description: any;
+    public submitted = false;
 
     constructor(private tokenStrage: TokenStorageService,
                 private formBuilder: FormBuilder,
@@ -20,8 +22,8 @@ export class ReclamationsClientComponent implements OnInit {
     ngOnInit() {
         this.reclamation.codeUser = localStorage.getItem('code');
         this.ajouterRecForm = this.formBuilder.group({
-            description: [''],
-            rapport: ['']
+            description: [null, [Validators.required]],
+            rapport: [null, [Validators.required]]
         });
     }
 
@@ -31,15 +33,17 @@ export class ReclamationsClientComponent implements OnInit {
     }
 
     saveReclamation() {
-        this.reclamation.date_creation = new Date();
+        this.submitted = true;
+        if (this.ajouterRecForm.valid) {
+            this.reclamation.date_creation = new Date();
         this.reclamationService.createReclamation(this.reclamation).subscribe(
-            () => {
-                console.log('reclamation crée');
+            (data) => {
+                console.log(data);
                 alert('Reclamation est crée avec succée');
             },
             (error) => {
                 console.log(error);
-                alert('Vous devez saisir tous les données');
             });
+    }
     }
 }
