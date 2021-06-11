@@ -1,20 +1,29 @@
 <div class="card m-3">
-  <h5 class="card-header">ENVOYER UNE RECLAMATION</h5>
-  <div class="card-body">
-    <form >
-
-      <div class="form-group">
-        <label>Description</label>
-        <input type="text" class="form-control" [(ngModel)]="reclamation.description" [ngModelOptions]="{standalone: true}" required/>
-      </div>
-      <div class="form-group">
-        <label>Rapport</label>
-        <textarea class="form-control" [(ngModel)]="reclamation.rapport" rows="10" [ngModelOptions]="{standalone: true}"></textarea>
-      </div>
-      <div class="text-center">
-        <button class="btn btn-lightning rounded-0 mb-2 mr-2"  (click)="saveReclamation()">Envoyer</button>
-      </div>
-    </form>
-  </div>
+    <h5 class="card-header">ENVOYER UNE RECLAMATION</h5>
+    <div class="card-body">
+        <form #ajouterRecForm='ngForm' (ngSubmit)='saveReclamation()'>
+            <div class="form-group">
+                <label>Description <span class="color-error">*</span></label>
+                <input type="text" class="form-control" [(ngModel)]="reclamation.description"
+                       [ngModelOptions]="{standalone: true}"  #description="ngModel"required/>
+              <span class="text-danger"
+                    *ngIf="(description.touched || ajouterRecForm.submitted) && description.errors?.required">
+                                Description est obligatoire
+            </span>
+            </div>
+            <div class="form-group">
+                <label>Rapport <span class="color-error">*</span></label>
+                <textarea class="form-control" [(ngModel)]="reclamation.rapport" rows="10"
+                          [ngModelOptions]="{standalone: true}" #rapport="ngModel"></textarea>
+              <span class="text-danger"
+                    *ngIf="(rapport.touched || ajouterRecForm.submitted) && rapport.errors?.required">
+                                Rapport est obligatoire
+            </span>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-lightning rounded-0 mb-2 mr-2">Envoyer</button>
+            </div>
+        </form>
+    </div>
 </div>
 

@@ -3,7 +3,7 @@
     <div class="card-body">
         <form #signupInfo="ngForm" name="form" (ngSubmit)="f.form.valid" #f="ngForm">
             <div class="form-group">
-                <label>Code </label>
+                <label>Code <span class="color-error">*</span> </label>
                 <div class="input-group">
                     <input type="text" class="form-control" name="code" [(ngModel)]="form.code"
                            [ngModelOptions]="{standalone: true}" #code="ngModel" required/>
@@ -15,7 +15,7 @@
                                 Code est obligatoire
             </span>
             <div class="form-group">
-                <label>Nom</label>
+                <label>Nom <span class="color-error">*</span></label>
                 <input type="text" class="form-control" name="username" [(ngModel)]="form.username"
                        [ngModelOptions]="{standalone: true}" #username="ngModel"
                        required/>
@@ -25,7 +25,7 @@
             </span>
             </div>
             <div class="form-group">
-                <label>Role</label>
+                <label>Role <span class="color-error">*</span></label>
                 <select name="role" class="form-control selectpicker" id="role" [(ngModel)]="role">
                     <option value="">Choisissez le role d'utilisateur</option>
                     <option value="ROLE_ADMIN">Admin</option>
@@ -33,7 +33,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label>Mot de passe</label>
+                <label>Mot de passe <span class="color-error">*</span></label>
                 <input type="password" class="form-control" name="pwd" [(ngModel)]="form.pwd"
                        [ngModelOptions]="{standalone: true}" #pwd="ngModel"
                        required minlength="4"/>

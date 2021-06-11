@@ -46,6 +46,7 @@ export class SendMailComponent implements OnInit {
             },
             error => {
                 console.log(error);
+                alert('Vous devez saisir tous les données');
             }
         );
     }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ClientsService} from 'src/app/services/clients.service';
 
@@ -40,6 +40,11 @@ export class FormsComponent implements OnInit {
                 tel: ['']
             });
         }
+    }
+
+    public isElementNotValid(field: string): boolean {
+        // tslint:disable-next-line:max-line-length
+        return this.ajouterClientForm.get(field) && !this.ajouterClientForm.get(field).hasError('required') && this.ajouterClientForm.get(field).invalid;
     }
 
     Client() {

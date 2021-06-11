@@ -3,22 +3,22 @@
     <div class="card-body">
         <div>
             <div class="form-group">
-                <label>Code de l'utilisateur</label>
+                <label>Code de l'utilisateur <span class="color-error">*</span></label>
                 <input type="text" class="form-control" id="code" name="code" [(ngModel)]="dataset.codeUser"
                        placeholder="Entrez le code de l'utilisateur"  (focusout)="getCode($event)"/>
             </div>
             <div class="form-group">
-                <label>Adresse E-mail</label>
+                <label>Adresse E-mail <span class="color-error">*</span></label>
                 <input type="email" class="form-control" id="email" name="email" [(ngModel)]="dataset.sendTo"
                        placeholder="Entrez l'adreese e-mail de l'utilisateur"/>
             </div>
             <div class="form-group">
-                <label>Object</label>
+                <label>Object <span class="color-error">*</span></label>
                 <input type="text" class="form-control" id="subject" [(ngModel)]="dataset.subject" name="subject"
                        placeholder="Entrez l'objet">
             </div>
             <div class="form-group">
-                <label>Message</label>
+                <label>Message <span class="color-error">*</span></label>
                 <textarea class="form-control" [(ngModel)]="dataset.content" rows="10"
                           placeholder="Entrez le contenu"></textarea>
             </div>

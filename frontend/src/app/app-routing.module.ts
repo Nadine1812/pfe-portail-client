@@ -7,7 +7,6 @@ import {HomeComponent} from './pages/home/home.component';
 import {ReclamationsClientComponent} from './pages/reclamations-client/reclamations-client.component';
 import {ReclamationsAdminComponent} from './pages/reclamations-admin/reclamations-admin.component';
 import {ModifFormComponent} from './pages/modif-form/modif-form.component';
-import {SuppClientComponent} from './pages/supp-client/supp-client.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {AuthGuard} from './services/auth.guard';
 import {DesactiverCompteComponent} from './pages/desactiver-compte/desactiver-compte.component';
@@ -48,7 +47,6 @@ const routes: Routes = [
     {path: 'ajouterClient', component: FormsComponent, data: {roles: ['ROLE_ADMIN']}, canActivate: [AuthGuard]},
 
     {path: 'modifClient/:id', component: ModifFormComponent, data: {roles: ['ROLE_ADMIN']}, canActivate: [AuthGuard]},
-    {path: 'supprimerClient', component: SuppClientComponent, data: {roles: ['ROLE_ADMIN']}, canActivate: [AuthGuard]},
     {
         path: 'desactiverCompte',
         component: DesactiverCompteComponent,

@@ -21,7 +21,6 @@ import {HomeComponent} from './pages/home/home.component';
 import {ReclamationsClientComponent} from './pages/reclamations-client/reclamations-client.component';
 import {ReclamationsAdminComponent} from './pages/reclamations-admin/reclamations-admin.component';
 import {ModifFormComponent} from './pages/modif-form/modif-form.component';
-import {SuppClientComponent} from './pages/supp-client/supp-client.component';
 import {RegisterComponent} from './pages/register/register.component';
 import {AuthGuard} from './services/auth.guard';
 import {DesactiverCompteComponent} from './pages/desactiver-compte/desactiver-compte.component';
@@ -47,7 +46,6 @@ import {AffichMontantAlimenteComponent} from './pages/affich-montant-alimente/af
         ReclamationsClientComponent,
         ReclamationsAdminComponent,
         ModifFormComponent,
-        SuppClientComponent,
         RegisterComponent,
         DesactiverCompteComponent,
         AffichEtablissementComponent,
