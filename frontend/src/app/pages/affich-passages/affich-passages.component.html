@@ -21,6 +21,7 @@
         <thead>
         <tr>
             <th>ID</th>
+            <th>Etablissements</th>
             <th>Centres fort</th>
             <th>Date de passage</th>
         </tr>
@@ -33,6 +34,7 @@
               };
         let i = index" [class.active]="i == currentIndex">
             <th scope="row">{{p.passage_id}}</th>
+            <td> {{p.etablissement?.etablissement_libelle}}</td>
             <td>{{p.centre_fort?.centre_fort_libelle}}</td>
             <td>{{p.passage_date}}</td>
         </tr>

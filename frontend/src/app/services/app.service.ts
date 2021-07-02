@@ -23,8 +23,6 @@ export class AppService {
     return {
       isSidebarPinned: this.isSidebarPinned,
       isSidebarToggeled: this.isSidebarToggeled
-    }
+    };
   }
-
-
 }

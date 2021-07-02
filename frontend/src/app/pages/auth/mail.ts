@@ -5,9 +5,9 @@ export class Mail {
     sendTo: String;
 
     constructor() {
-        this.codeUser = ''
-        this.subject = ''
-        this.content = ''
-        this.sendTo = ''
+        this.codeUser = '';
+        this.subject = '';
+        this.content = '';
+        this.sendTo = '';
     }
 }

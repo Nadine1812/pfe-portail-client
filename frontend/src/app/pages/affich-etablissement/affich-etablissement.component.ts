@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AffichageService} from '../../services/affichage.service';
-
 
 @Component({
     selector: 'app-affich-etablissement',
@@ -14,7 +13,6 @@ export class AffichEtablissementComponent implements OnInit {
     count = 0;
     tableSize = 7;
     tableSizes = [3, 6, 9, 12];
-
     constructor(private affichageService: AffichageService) {
     }
 

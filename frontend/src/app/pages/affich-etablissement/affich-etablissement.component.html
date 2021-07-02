@@ -6,8 +6,9 @@
     </div>
 
     <input type="text" [(ngModel)]="etablissement_libelle" (input)="search()"
-           placeholder="Cherchez selon la ville ">
-    <div class="d-flex flex-row-reverse bd-highlight mb-2">
+           placeholder="Cherchez selon le libellé ">
+    <br>
+       <div class="d-flex flex-row-reverse bd-highlight mb-2">
         <div class="p-2 bd-highlight">
             <select (change)="onTableSizeChange($event)" class="custom-select">
                 <option *ngFor="let size of tableSizes" [ngValue]="size">
@@ -22,7 +23,7 @@
         <tr>
             <th>ID</th>
             <th>Centre fort</th>
-            <th>Ville</th>
+            <th>Libellé</th>
         </tr>
         </thead>
         <tbody>

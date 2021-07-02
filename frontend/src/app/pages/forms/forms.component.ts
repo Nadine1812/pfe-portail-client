@@ -10,37 +10,27 @@ import {ClientsService} from 'src/app/services/clients.service';
 })
 export class FormsComponent implements OnInit {
     id: any;
+    code: any;
     utilisateur: any = {};
     societe: any = {};
     ajouterClientForm: FormGroup;
-
 
     constructor(private activatedRoute: ActivatedRoute,
                 private clientService: ClientsService,
                 private formBuilder: FormBuilder,
                 private router: Router) {
     }
-
     ngOnInit() {
-        this.id = +this.activatedRoute.snapshot.paramMap.get('id');
-        if (this.id) {
-            this.clientService.getUtilisateur(this.id).subscribe(
-                (data) => {
-                    this.utilisateur = data;
-                    console.log('voila mon client', this.utilisateur);
-                }
-            );
-            this.ajouterClientForm = this.formBuilder.group({
-                id: [''],
-                code: [''],
-                societe_id: [''],
-                username: [''],
-                raisonSocial: [''],
-                adress: [''],
-                emailAddress: [''],
-                tel: ['']
-            });
-        }
+        this.ajouterClientForm = this.formBuilder.group({
+            id: [''],
+            code: [''],
+            societe_id: [''],
+            username: [''],
+            raisonSocial: [''],
+            adress: [''],
+            emailAddress: [''],
+            tel: ['']
+        });
     }
 
     public isElementNotValid(field: string): boolean {
@@ -58,7 +48,8 @@ export class FormsComponent implements OnInit {
             },
             (error) => {
                 console.log(error);
-                alert('Vous devez saisir tous les données');
+                alert('le code de l\'utilisateur existe déja'  );
             });
     }
+
 }
