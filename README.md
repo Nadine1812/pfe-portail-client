@@ -1,2 +1,2 @@
 # pfe-portail-client
-Projet pfe
+Projet fin d'étude (Angular10 Springboot)
